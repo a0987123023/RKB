@@ -1,0 +1,759 @@
+<template id="header-template">
+  <style>
+    #header-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px var(--spacing-5xl);
+      position: relative;
+      z-index: 999;
+      height: 69px;
+      background-color: var(--white);
+      .frame {
+        justify-content: center;
+        gap: 12px;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+
+        .menu {
+          display: none;
+          width: 24px;
+          height: 24px;
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .div {
+        gap: 12px;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .svgviewer-output {
+        position: relative;
+        width: 100%;
+      }
+
+      .text-wrapper {
+        background-clip: text;
+        font-family: "Roboto-Bold", Helvetica;
+        font-weight: var(--weight-bold);
+        font-size: var(--font-h3);
+        text-align: center;
+        position: relative;
+        width: fit-content;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .frame-2 {
+        position: relative;
+        width: 100%;
+        height: 69px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-6xl);
+      }
+
+      .div-wrapper {
+        justify-content: center;
+        gap: 10px;
+        align-self: stretch;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+        cursor: pointer;
+      }
+
+      .text-wrapper-2 {
+        font-family: "Roboto-Medium", Helvetica;
+        font-weight: var(--weight-medium);
+        color: var(--darkGrey900);
+        font-size: var(--font-p-lg);
+        position: relative;
+        width: fit-content;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .frame-3 {
+        justify-content: center;
+        gap: 10px;
+        align-self: stretch;
+        border-bottom: 4px solid var(--primary600);
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .text-wrapper-3 {
+        font-family: "Roboto-Medium", Helvetica;
+        font-weight: var(--weight-medium);
+        color: var(--primary600);
+        font-size: var(--font-p-lg);
+        position: relative;
+        width: fit-content;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .frame-4 {
+        justify-content: flex-end;
+        gap: 24px;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .frame-5 {
+        gap: 16px;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .img {
+        position: relative;
+        width: 20px;
+        height: 20px;
+      }
+
+      .div-wrapper-2 {
+        gap: 8px;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .profile {
+        position: relative;
+        cursor: pointer;
+        .profile-card {
+          opacity: 0;
+          z-index: -999;
+          display: none;
+          top: 50px;
+          left: -150px;
+          position: absolute;
+          z-index: 999;
+          border: 1px solid var(--darkGrey200, #e1eaef);
+          background: var(--White, #fff);
+          box-shadow: 0px 5px 12px 0px #e3eff1;
+          border-radius: var(--border-radius-m);
+          overflow: hidden;
+          .sidebar {
+            width: 260px;
+          }
+
+          .sidebar__header {
+            border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+            background: var(--White, #fff);
+            margin-bottom: 10px;
+            padding: 16px 16px 12px;
+          }
+
+          .sidebar__company {
+            color: var(--darkGrey700, #6c8490);
+
+            font-size: var(--font-small);
+            font-weight: var(--weight-regular);
+            margin-bottom: 6px;
+          }
+
+          .sidebar__department {
+            color: var(--darkGrey700, #6c8490);
+
+            font-size: var(--font-p-sm);
+            font-weight: var(--weight-regular);
+            margin-bottom: 10px;
+          }
+
+          .sidebar__greeting {
+            color: var(--darkGrey900, #344858);
+
+            font-size: var(--font-p-sm);
+            font-weight: var(--weight-bold);
+          }
+
+          .sidebar__section-title {
+            color: var(--darkGrey600, #9fb2bc);
+
+            font-size: var(--font-small);
+            font-weight: var(--weight-bold);
+            padding: 12px 16px 0;
+          }
+
+          .sidebar__nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+          }
+
+          .sidebar__nav-item {
+            color: var(--darkGrey900, #344858);
+
+            font-size: var(--font-p-sm);
+            font-weight: var(--weight-regular);
+            padding: 12px 16px;
+          }
+        }
+        .visible {
+          opacity: 1;
+          z-index: 999;
+          display: block;
+        }
+      }
+
+      .frame-6 {
+        gap: 4px;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .text-wrapper-4 {
+        margin-top: -1px;
+        font-family: "Roboto-Bold", Helvetica;
+        font-weight: var(--weight-bold);
+        color: var(--darkgrey-800);
+        font-size: var(--font-p-lg);
+        text-align: center;
+        position: relative;
+        width: fit-content;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .frame {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 200px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .site-title {
+        background-clip: text;
+        font-family: "Roboto-Bold", Helvetica, Arial, sans-serif;
+        font-weight: var(--weight-bold);
+        font-size: var(--font-h3);
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-decoration: none;
+      }
+
+      .text-wrapper-2,
+      .text-wrapper-3 {
+        font-family: "Roboto-Medium", Helvetica, Arial, sans-serif;
+        font-weight: var(--weight-medium);
+        font-size: var(--font-p-lg);
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .text-wrapper-2 {
+        color: var(--darkGrey900);
+      }
+
+      .text-wrapper-5 {
+        font-family: "Roboto-Medium", Helvetica, Arial, sans-serif;
+        font-weight: var(--weight-medium);
+        color: var(--darkGrey800);
+        font-size: var(--font-p-lg);
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .frame-4 {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .frame-5 {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        .notification {
+          cursor: pointer;
+          position: relative;
+          .notification-container {
+            display: none;
+            z-index: -999;
+            opacity: 0;
+            position: absolute;
+            width: 440px;
+            left: -350px;
+            top: 50px;
+            max-height: 700px;
+            padding: 32px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: var(--border-radius-l);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            .header {
+              display: flex;
+              align-items: center;
+              padding: 0;
+            }
+            .header-text {
+              color: var(--darkGrey900);
+              font-size: var(--font-h4);
+              font-style: normal;
+              font-weight: var(--weight-bold);
+            }
+            .badge {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 20px;
+              height: 20px;
+              margin-left: 8px;
+              background-color: #0fada8;
+              border-radius: 100%;
+              color: #fff;
+              font-size: var(--font-caption);
+              font-weight: bold;
+            }
+            .tab-container {
+              display: flex;
+              justify-content: space-between;
+              padding: 2px;
+              background-color: #e1ebf0;
+              border-radius: var(--border-radius-m);
+              margin: 16px 0 20px;
+            }
+            .tab {
+              flex: 1;
+              padding: 4px;
+              background-color: #fff;
+              border-radius: var(--border-radius-s);
+              text-align: center;
+              font-family: "Roboto", sans-serif;
+              font-size: var(--font-p-sm);
+              font-weight: bold;
+              color: #344254;
+              letter-spacing: -0.4px;
+              box-shadow: 0 3px 1px rgba(0, 0, 0, 0.04),
+                0 3px 8px rgba(0, 0, 0, 0.12);
+            }
+            .tab.inactive {
+              background-color: transparent;
+              color: #556b72;
+              box-shadow: none;
+            }
+            .notification-list {
+              padding: 0;
+              margin-bottom: 20px;
+            }
+            .notification-group-date {
+              color: var(--darkGrey700);
+
+              font-size: var(--font-caption);
+              font-style: normal;
+              font-weight: var(--weight-bold);
+            }
+            .notification-item {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 16px 0;
+              border-bottom: 1px solid #e1ebf0;
+            }
+            .notification-item:last-child {
+              border: none;
+            }
+
+            .notification-item.read-it {
+              .notification-text {
+                color: var(--darkGrey800);
+                font-weight: var(--weight-regular);
+              }
+              .read-indicator {
+                opacity: 0;
+                display: none;
+              }
+            }
+
+            .notification-text {
+              flex: 1;
+              font-family: "Roboto", sans-serif;
+              font-size: var(--font-p-sm);
+              font-weight: var(--weight-bold);
+              padding: 16px 0 8px;
+              line-height: 20px;
+              color: var(--darkGrey900);
+              letter-spacing: -0.4px;
+              max-width: 360px;
+            }
+            .notification-date {
+              font-family: "Roboto", sans-serif;
+              font-size: var(--font-footnote);
+              color: #aabcc3;
+            }
+            .read-indicator {
+              width: 8px;
+              height: 8px;
+              background-color: #0fada8;
+              border-radius: 100%;
+              margin-left: 8px;
+            }
+
+            .button-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+            }
+
+            .button {
+              width: 100%;
+              display: inline-block;
+              padding: 12px 16px;
+              background-color: #e1ebf0;
+              border-radius: var(--border-radius-m);
+              font-family: "Roboto", sans-serif;
+              letter-spacing: -0.4px;
+              color: var(--darkGrey900, #344858);
+              text-align: center;
+
+              font-size: var(--font-h6);
+              font-weight: var(--weight-bold);
+            }
+          }
+          .notification-container.visible {
+            display: block;
+            z-index: 999;
+            opacity: 1;
+          }
+        }
+      }
+
+      .img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .frame-6 {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .text-wrapper-4 {
+        font-family: "Roboto-Bold", Helvetica, Arial, sans-serif;
+        font-weight: var(--weight-bold);
+        color: var(--darkgrey-800);
+        font-size: var(--font-p-lg);
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .logout-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      /* menu 漢堡 */
+
+      .menu-sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 245px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: -5px 0 12px rgba(0, 0, 0, 0.08);
+        padding: 24px;
+        transition: right 0.3s ease-in-out;
+
+        .close-btn {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #9fb2bc;
+          font-size: 24px;
+          margin-bottom: 60px;
+        }
+
+        .menu-list {
+          margin-top: 80px;
+          list-style: none;
+        }
+
+        .menu-item {
+          text-align: left;
+          margin-bottom: 48px;
+        }
+
+        .menu-link {
+          display: block;
+          text-decoration: none;
+          color: #344858;
+          font-size: 16px;
+          padding: 0 8px;
+          transition: color 0.2s ease;
+        }
+
+        .menu-link.active {
+          color: #009eb8;
+        }
+      }
+      .menu-sidebar.closed {
+        right: -100%;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      #header-container {
+        .frame-2 {
+          gap: 35px;
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      #header-container {
+        .frame-2 {
+          display: none;
+        }
+        .frame {
+          .menu {
+            display: block;
+          }
+        }
+      }
+    }
+  </style>
+  <div id="header-container" class="header_shadow">
+    <div class="frame">
+      <div class="menu" onclick="openSidebar()">
+        <img src="../assets/icons/menu.svg" alt="" />
+      </div>
+      <div class="div">
+        <img class="svgviewer-output" src="./assets/icons/logo.svg" />
+      </div>
+    </div>
+    <div class="frame-2">
+      <div class="div-wrapper">
+        <div class="text-wrapper-2"><a href="#">法規查詢</a></div>
+      </div>
+      <div class="div-wrapper">
+        <div class="text-wrapper-2"><a href="#">法規異動通知管理</a></div>
+      </div>
+      <div class="div-wrapper frame-3">
+        <div class="text-wrapper-3">
+          <a href="C.11-內規列表.html">法規內容管理</a>
+        </div>
+      </div>
+      <div class="div-wrapper">
+        <div class="text-wrapper-2"><a href="#">平台管理</a></div>
+      </div>
+    </div>
+    <div class="frame-4">
+      <div class="frame-5">
+        <div id="notification" class="notification">
+          <img class="img" src="./assets/icons/notify.svg" />
+          <div class="notification-container">
+            <div class="header">
+              <span class="header-text">通知</span>
+              <div class="badge">10</div>
+            </div>
+            <div class="tab-container">
+              <div class="tab">全部</div>
+              <div class="tab inactive">未讀</div>
+            </div>
+            <div class="notification-list">
+              <div class="notification-group-date">今天</div>
+              <div class="notification-item">
+                <div>
+                  <div class="notification-text">
+                    您有 2 筆外規異動待發送通知
+                  </div>
+                  <div class="notification-date">09:33</div>
+                </div>
+                <div class="read-indicator"></div>
+              </div>
+            </div>
+            <div class="notification-list">
+              <div class="notification-group-date">近一週</div>
+              <div class="notification-item">
+                <div>
+                  <div class="notification-text">
+                    法遵部吳尾熊上傳《電子支付機構業務管理規則》，待覆核
+                  </div>
+                  <div class="notification-date">2024-10-18 09:33</div>
+                </div>
+                <div class="read-indicator"></div>
+              </div>
+              <div class="notification-item">
+                <div>
+                  <div class="notification-text">
+                    法遵部陳袋鼠送出 2 筆《證券法》內規關聯待覆核
+                  </div>
+                  <div class="notification-date">2024-10-18 17:32</div>
+                </div>
+                <div class="read-indicator"></div>
+              </div>
+              <div class="notification-item read-it">
+                <div>
+                  <div class="notification-text">
+                    您上傳的內規《國泰金融控股股份有限公司暨子公司捐贈作業準則》已解析完成，請前往查看
+                  </div>
+                  <div class="notification-date">2024-10-13 09:12</div>
+                </div>
+                <div class="read-indicator"></div>
+              </div>
+            </div>
+            <div class="button-container">
+              <div class="button">查看先前的通知</div>
+            </div>
+          </div>
+        </div>
+        <div class="div-wrapper-2 profile">
+          <div class="frame-6 profile-title">
+            <img class="img" src="./assets/icons/profile_solid.svg" />
+            <div class="text-wrapper-4">王小明</div>
+          </div>
+          <div class="profile-card">
+            <div class="sidebar">
+              <div class="sidebar__header">
+                <h2 class="sidebar__company">國泰金控</h2>
+                <p class="sidebar__department">策略規劃處投資管理部</p>
+                <div class="sidebar__greeting">你好，王小明</div>
+              </div>
+
+              <div class="sidebar__section">
+                <h3 class="sidebar__section-title">主站台身分別</h3>
+                <nav class="sidebar__nav">
+                  <a href="#" class="sidebar__nav-item">一般人員</a>
+                  <a href="#" class="sidebar__nav-item">外規上傳人員</a>
+                  <a href="#" class="sidebar__nav-item">外規覆核人員</a>
+                  <a href="#" class="sidebar__nav-item">內規內容管理人員</a>
+                  <a href="#" class="sidebar__nav-item">派送通知文書主管</a>
+                  <a href="#" class="sidebar__nav-item">派送通知承辦人員</a>
+                  <a href="#" class="sidebar__nav-item">關聯內規文書主管</a>
+                  <a href="#" class="sidebar__nav-item">關聯內規承辦人員</a>
+                  <a href="#" class="sidebar__nav-item">管理員</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="div-wrapper-2"><div class="text-wrapper-5">登出</div></div>
+    </div>
+    <aside class="menu-sidebar closed">
+      <button class="close-btn" onclick="closeSidebar()">
+        <img src="../assets/icons/general_cancel.svg" alt="" />
+      </button>
+      <nav>
+        <ul class="menu-list">
+          <li class="menu-item">
+            <a href="#" class="menu-link">法規查詢</a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">法規異動通知管理</a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link active">法規內容管理</a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="menu-link">平台管理</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</template>
+
+<script>
+  class HeaderElement extends HTMLElement {
+    constructor() {
+      super();
+      const template = document.getElementById("header-template").content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(template.cloneNode(true));
+    }
+  }
+
+  // 取得 notification 元素
+  const notificationIcon = document.getElementById("notification");
+  const notificationContainer = document.querySelector(
+    ".notification-container"
+  );
+
+  // 點擊通知圖示時切換顯示
+  notificationIcon.addEventListener("click", (event) => {
+    event.stopPropagation(); // 防止點擊事件冒泡
+    notificationContainer.classList.toggle("visible");
+  });
+
+  // 取得 profile 元素
+  const profileIcon = document.querySelector(".profile-title");
+  const profileContainer = document.querySelector(".profile-card");
+
+  // 點擊通知圖示時切換顯示
+  profileIcon.addEventListener("click", (event) => {
+    event.stopPropagation(); // 防止點擊事件冒泡
+    profileContainer.classList.toggle("visible");
+  });
+
+  // 漢堡開關
+  function closeSidebar() {
+    document.querySelector(".menu-sidebar").classList.add("closed");
+  }
+  function openSidebar() {
+    document.querySelector(".menu-sidebar").classList.remove("closed");
+  }
+
+  customElements.define("header-element", HeaderElement);
+</script>

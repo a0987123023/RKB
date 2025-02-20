@@ -1,0 +1,43 @@
+<template id="breadcrumb-c11-template">
+  <style>
+    .breadcrumb {
+      margin: 24px 0;
+      width: 100%;
+
+      .label .text-wrapper {
+        color: #00bfa7;
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-regular);
+      }
+
+      .label .active {
+        color: var(--darkGrey700);
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-regular);
+      }
+    }
+  </style>
+  <div id="breadcrumb-c11-container" class="breadcrumb">
+    <div class="label">
+      <p class="div">
+        <span class="text-wrapper">首頁</span>
+        &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+        <span class="text-wrapper active">法規內容管理</span>
+      </p>
+    </div>
+  </div>
+</template>
+
+<script>
+  class BreadcrumbC11Element extends HTMLElement {
+    constructor() {
+      super();
+      const template = document.getElementById(
+        "breadcrumb-c11-template"
+      ).content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(template.cloneNode(true));
+    }
+  }
+  customElements.define("breadcrumb-c11-element", BreadcrumbC11Element);
+</script>

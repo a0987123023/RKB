@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      .go-back {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        img {
+          margin-right: 12px;
+        }
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        padding: 20px 24px;
+        flex-direction: column;
+        border-radius: var(--border-radius-l);
+        border: 1px solid var(--darkGrey200, #e1eaef);
+        background: var(--White, #fff);
+        box-shadow: 0px 5px 12px 0px #e3eff1;
+        backdrop-filter: blur(10px);
+        margin-bottom: 35px;
+      }
+      .container.close {
+        gap: 0;
+        .form-section {
+          margin: 0;
+        }
+        .section-header {
+          padding: 0;
+          margin: 0;
+          border-bottom: none;
+        }
+        .form-section-2 {
+          height: 0;
+          overflow: hidden;
+        }
+      }
+
+      .form-section {
+        border-radius: var(--border-radius-m);
+        background-color: #fff;
+      }
+
+      .form-section.required {
+        background-color: #f3f9fc;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0 16px;
+        margin-bottom: 32px;
+        border-bottom: 1px solid #e1eaef;
+        h1 {
+          color: var(--Primary600, #009eb8);
+          font-size: var(--font-h4);
+          font-weight: var(--weight-bold);
+        }
+        .step-num {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          background: var(--Primary600, #009eb8);
+          color: var(--White, #fff);
+          text-align: center;
+          font-size: var(--font-h6);
+          font-weight: var(--weight-bold);
+          line-height: 20px;
+        }
+
+        .toggle-btn {
+          cursor: pointer;
+        }
+
+        .toggle-btn .open,
+        .toggle-btn .close {
+          display: flex;
+          color: var(--darkGrey700, #6c8490);
+          font-family: "Noto Sans TC";
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          span {
+            margin-right: 8px;
+          }
+        }
+        .toggle-btn .open.disable,
+        .toggle-btn .close.disable {
+          display: none;
+        }
+      }
+
+      .subsection-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+        > img {
+          margin-right: 6px;
+        }
+      }
+
+      .subsection-header h2 {
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h4);
+        font-weight: var(--weight-bold);
+      }
+
+      .info-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+      }
+
+      .form-group {
+        margin-bottom: 32px;
+      }
+
+      .form-group label {
+        display: inline-block;
+        color: var(--darkGrey700, #6c8490);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+        .sub {
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-regular);
+          margin-left: 8px;
+        }
+      }
+
+      .form-group input[type="date"],
+      .form-group input[type="text"],
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        display: flex;
+        padding: 12px 16px;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        border-radius: var(--border-radius-m);
+        background: var(--darkGrey100, #f3f9fc);
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-p-lg);
+        font-weight: var(--weight-medium);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        line-height: 150%;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+      }
+
+      .form-row .form-group {
+        flex: 1;
+      }
+
+      .date-input {
+        position: relative;
+      }
+
+      .date-input input[type="date"] {
+        padding-right: 35px;
+      }
+
+      .upload-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px 16px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: var(--border-radius-m);
+        border: 1px dashed var(--darkGrey300, #cfdbe1);
+        color: var(--darkGrey900, #344858);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        img {
+          margin-right: 10px;
+        }
+      }
+
+      .file-list {
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .edit-btn {
+          cursor: pointer;
+        }
+        > div {
+          position: relative;
+          display: flex;
+          align-items: center;
+          .clip {
+            margin-right: 12px;
+          }
+          span {
+            color: var(--Link600, #0fada8);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+          .drop-down {
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            border-radius: var(--border-radius-m);
+            border: 1px solid var(--darkGrey200, #e1eaef);
+            background: var(--White, #fff);
+            box-shadow: 0px 5px 12px 0px #e3eff1;
+            li {
+              display: flex;
+              padding: 12px 16px;
+              align-items: center;
+              gap: 10px;
+              align-self: stretch;
+              color: var(--darkGrey900, #344858);
+              font-size: var(--font-p-sm);
+              font-weight: var(--weight-regular);
+              min-width: 80px;
+            }
+            li:hover {
+              background: var(--darkGrey100, #f3f9fc);
+            }
+          }
+        }
+      }
+      .edit-btn.active .drop-down {
+        display: block;
+      }
+
+      .time-list {
+        display: flex;
+        margin-bottom: 60px;
+        img {
+          margin-right: 12px;
+        }
+        span {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-caption);
+          font-weight: var(--weight-regular);
+        }
+      }
+
+      .form-section-2 {
+        .section-header-2 {
+          background: #fff;
+          display: flex;
+          align-items: center;
+          margin-bottom: 32px;
+          img {
+            margin-right: 6px;
+          }
+          h2 {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h4);
+            font-weight: var(--weight-bold);
+            line-height: 150%;
+            margin-right: 8px;
+          }
+          .required-mark {
+            display: inline-block;
+            padding: 6px 12px;
+            align-items: center;
+            gap: 10px;
+            border-radius: var(--border-radius-s);
+            background: var(--Primary200, #e8f6f9);
+            color: var(--Primary500, #2bbad1);
+            font-size: var(--font-caption);
+            font-weight: var(--weight-bold);
+          }
+        }
+        .label {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-regular);
+        }
+      }
+
+      .submit-button {
+        width: 100%;
+        display: flex;
+        height: 51px;
+        padding: 16px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        border-radius: var(--border-radius-m);
+        background: var(--Primary300, #d6f0f5);
+        color: var(--White, #fff);
+        font-weight: var(--weight-bold);
+      }
+
+      #container-2 {
+        .subsection-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          margin-bottom: 40px;
+          > p {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-regular);
+          }
+          .btn {
+            display: flex;
+            padding: 12px 20px;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: var(--border-radius-m);
+            background: var(--Primary200, #e8f6f9);
+            color: var(--Primary600, #009eb8);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+          img {
+            margin-right: 8px;
+          }
+        }
+        .subsection-body {
+          h2 {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h4);
+            font-weight: var(--weight-bold);
+            margin-bottom: 16px;
+          }
+        }
+        .btn-group {
+          display: flex;
+          width: 100%;
+          padding: 24px 0;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 16px;
+          button {
+            width: 100%;
+            display: flex;
+            padding: 16px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex: 1 0 0;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+          .save-view {
+            border: 1px solid var(--Primary600, #009eb8);
+            background: var(--White, #fff);
+            color: var(--Primary600, #009eb8);
+          }
+          .send {
+            background: var(--Primary600, #009eb8);
+            color: var(--White, #fff);
+          }
+        }
+      }
+
+      .fixed-btn-group {
+        position: fixed;
+        bottom: 0;
+        background: var(--White, #fff);
+        box-shadow: 0px -5px 12px 0px #e3eff1;
+        display: flex;
+        width: 100%;
+        padding: 24px 0;
+        justify-content: center;
+        align-items: flex-start;
+        div {
+          width: 80%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+          button {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+          .save-view {
+            border: 1px solid var(--Primary600, #009eb8);
+            background: var(--White, #fff);
+            color: var(--Primary600, #009eb8);
+          }
+          .send {
+            background: var(--Primary600, #009eb8);
+            color: var(--White, #fff);
+          }
+        }
+      }
+      .fixed-btn-group.close {
+        display: none;
+      }
+
+      .dialog-modal {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.17);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        .inner {
+          position: fixed;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background: var(--White, #fff);
+          border-radius: var(--border-radius-l);
+          width: 100%;
+          max-width: 390px;
+          box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+          .modal-header {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+          }
+
+          .modal-title {
+            color: var(--darkGrey900, #344858);
+            text-align: center;
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+
+          .modal-content {
+            padding: 20px 20px 0;
+            text-align: center;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+          }
+
+          .modal-footer {
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+          }
+
+          .btn {
+            display: flex;
+            padding: 12px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-h6);
+          }
+
+          .btn-secondary {
+            background: var(--darkGrey150, #eff5f9);
+            color: var(--darkGrey900, #344858);
+            font-weight: var(--weight-regular);
+          }
+
+          .btn-primary {
+            border-radius: var(--border-radius-m);
+            background: var(--Primary600, #009eb8);
+            color: var(--White, #fff);
+            font-weight: var(--weight-bold);
+          }
+        }
+      }
+      .dialog-modal.open {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .form-row {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .modal {
+          width: 95%;
+        }
+
+        .modal-footer {
+          flex-direction: column;
+        }
+      }
+
+      .law-container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .title {
+          font-size: var(--font-p-lg);
+          margin-bottom: 24px;
+        }
+
+        .article-grid {
+          display: flex;
+          justify-content: space-between;
+          gap: 32px;
+        }
+
+        .article-section-title {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-caption);
+          font-weight: var(--weight-bold);
+          margin-bottom: 8px;
+        }
+        .low {
+          display: flex;
+          align-items: center;
+          font-size: var(--font-h6);
+          font-weight: var(--weight-bold);
+          line-height: 150%;
+        }
+
+        .law-separator {
+          display: inline-block;
+          padding: 12px;
+        }
+
+        .low.old-area {
+          color: var(--darkGrey700, #6c8490);
+          height: 100%;
+        }
+
+        .low.new-area {
+          color: var(--darkGrey900, #344858);
+        }
+
+        .article-navigation {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          white-space: nowrap;
+        }
+
+        .nav-container {
+          max-width: 600px;
+          margin: 0 auto;
+          height: 38px;
+        }
+
+        .nav-button {
+          width: 100%;
+          height: 38px;
+          display: flex;
+          align-items: stretch;
+          border: 1px solid #156b8b;
+          border-radius: var(--border-radius-m);
+          overflow: hidden;
+          background: none;
+          padding: 0;
+          cursor: pointer;
+        }
+
+        .nav-left {
+          display: flex;
+          padding: 0px 12px 0px 16px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          align-self: stretch;
+          border-radius: var(--border-radius-m) 0px 0px var(--border-radius-m);
+          background: var(--Primary700, #156b8b);
+          color: var(--White, #fff);
+          font-size: var(--font-caption);
+          font-weight: var(--weight-bold);
+          line-height: 150%;
+        }
+
+        .nav-label {
+          font-size: var(--font-caption);
+          white-space: nowrap;
+        }
+
+        .nav-right {
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          padding: 0 15px;
+          gap: 8px;
+          color: var(--Primary700, #156b8b);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-bold);
+          line-height: 150%;
+        }
+
+        .nav-item {
+          color: #156b8b;
+          font-size: var(--font-caption);
+        }
+
+        .nav-separator {
+          color: #cfdbe1;
+        }
+
+        .nav-arrow {
+          width: 12px;
+          height: 12px;
+          border-left: 2px solid #156b8b;
+          border-bottom: 2px solid #156b8b;
+          transform: rotate(-45deg);
+          margin-left: auto;
+          position: relative;
+          top: -2px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .article-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .article-navigation {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .dropdown-button {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c13-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c13-template"></div>
+          <div class="go-back">
+            <img src="./assets/icons/arrow_left.svg" alt="" />
+            <span>法規內容管理</span>
+          </div>
+          <!-- step 1 -->
+          <div id="container-1" class="container close">
+            <div class="form-section">
+              <div class="section-header">
+                <div>
+                  <h1>Step <span class="step-num">1</span> 上傳法規</h1>
+                </div>
+                <div id="toggle-btn1" class="toggle-btn">
+                  <div class="open disable">
+                    <img src="./assets/icons/arrow_up.svg" alt="" />
+                  </div>
+                  <div class="close">
+                    <img src="./assets/icons/arrow_down.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section-2 required">
+              <div class="section-content">
+                <div class="subsection-header">
+                  <img src="./assets/icons/general_info.svg" alt="" />
+                  <h2>法規資訊</h2>
+                </div>
+
+                <div class="form-group">
+                  <label for="regulationName">法規名稱</label>
+                  <input
+                    type="text"
+                    id="regulationName"
+                    value="證券投資人及期貨交易人保護法"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="publishDate">公佈日期</label>
+                    <div class="date-input">
+                      <input type="date" id="publishDate" value="2025-12-28" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="amendDate">修正日期</label>
+                    <div class="date-input">
+                      <input type="date" id="amendDate" value="2025-12-28" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="status">施行狀態</label>
+                    <select id="status">
+                      <option value="active">施行中</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="source">資料來源</label>
+                    <input type="text" id="source" value="金融監督管理委員會" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="authority">權責單位</label>
+                    <input
+                      type="text"
+                      id="authority"
+                      value="金融監督管理委員會證券期貨局"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lawHistory">法規沿革</label>
+                  <textarea id="lawHistory" rows="4">
+中華民國一百零九年六月十日總統華總一經字第 10900064271 號令修正公布第10-1、19、26 條條文;增訂第10-2、40-1 條條文;施行日期,由行政院定之中華民國一百零九年七月七日行政院院臺金字第 1090021932 號令發布定自一百零九年八月一日施行</textarea
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label
+                    >上傳法規主文<span class="sub"
+                      >允許上傳的檔案格式：jpg, png, doc, docx, pdf
+                      等圖片或文件檔</span
+                    ></label
+                  >
+                  <div class="upload-area">
+                    <img
+                      src="./assets/icons/cloud_upload_gray.svg"
+                      alt=""
+                    /><span>點擊或拖拉以新增檔案</span>
+                  </div>
+                  <div class="file-list">
+                    <div>
+                      <img class="clip" src="./assets/icons/clip.svg" alt="" />
+                      <span>證券投資人及期貨交易人保護法.pdf</span>
+                    </div>
+                    <div class="edit-btn">
+                      <img src="./assets/icons/pen_outlined.svg" alt="" />
+                      <ul class="drop-down">
+                        <li>編輯</li>
+                        <li>預覽</li>
+                        <li>刪除</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="time-list">
+                    <img src="./assets/icons/clock.svg" alt="" />
+                    <span>上傳時間 2025-01-29 15:33:22</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label
+                    >上傳法規附件<span class="sub"
+                      >允許上傳的檔案格式：jpg, png, doc, docx, pdf
+                      等圖片或文件檔</span
+                    ></label
+                  >
+                  <div class="upload-area">
+                    <img
+                      src="./assets/icons/cloud_upload_gray.svg"
+                      alt=""
+                    /><span>點擊或拖拉以新增檔案</span>
+                  </div>
+                  <div class="file-list">
+                    <div>
+                      <img class="clip" src="./assets/icons/clip.svg" alt="" />
+                      <span>證券投資人及期貨交易人保護法.pdf</span>
+                    </div>
+                    <div class="edit-btn">
+                      <img src="./assets/icons/pen_outlined.svg" alt="" />
+                      <ul class="drop-down">
+                        <li>編輯</li>
+                        <li>預覽</li>
+                        <li>刪除</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="time-list" style="margin-bottom: 32px">
+                    <img src="./assets/icons/clock.svg" alt="" />
+                    <span>上傳時間 2025-01-29 15:33:22</span>
+                  </div>
+                  <button
+                    class="submit-button"
+                    style="background: var(--Primary600, #009eb8)"
+                  >
+                    儲存
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- step 2 -->
+          <div id="container-2" class="container">
+            <div class="form-section">
+              <div class="section-header">
+                <div>
+                  <h1>Step <span class="step-num">2</span> 解析法規</h1>
+                </div>
+                <div id="toggle-btn2" class="toggle-btn">
+                  <div class="open">
+                    <img src="./assets/icons/arrow_up.svg" alt="" />
+                  </div>
+                  <div class="close disable">
+                    <img src="./assets/icons/arrow_down.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-section-2 required">
+              <div class="section-header-2">
+                <img src="./assets/icons/cloud_upload_gray.svg" alt="" />
+                <h2>上傳解析條文用檔案</h2>
+                <span class="required-mark">必填</span>
+              </div>
+              <div class="section-content">
+                <div class="form-group">
+                  <label>允許上傳的檔案格式：csv, docx 等文件檔</label>
+                  <div class="upload-area">
+                    <img
+                      src="./assets/icons/cloud_upload_gray.svg"
+                      alt=""
+                    /><span>點擊或拖拉以新增檔案</span>
+                  </div>
+                  <div class="file-list">
+                    <div>
+                      <img class="clip" src="./assets/icons/clip.svg" alt="" />
+                      <span>證券投資人及期貨交易人保護法.pdf</span>
+                    </div>
+                    <div class="edit-btn">
+                      <img src="./assets/icons/pen_outlined.svg" alt="" />
+                      <ul class="drop-down">
+                        <li>編輯</li>
+                        <li>預覽</li>
+                        <li>刪除</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="time-list">
+                    <img src="./assets/icons/clock.svg" alt="" />
+                    <span>上傳時間 2025-01-29 15:33:22</span>
+                  </div>
+                </div>
+              </div>
+              <button class="submit-button" style="margin-bottom: 32px">
+                解析法規
+              </button>
+              <div class="section-content">
+                <div class="subsection-header">
+                  <h2>法規名稱</h2>
+                  <p>銀行法</p>
+                </div>
+              </div>
+              <div class="subsection-header">
+                <h2>解析結果</h2>
+                <div class="btn">
+                  <img src="./assets/icons/general_check_circle.svg" alt="" />
+                  <p>解析成功</p>
+                </div>
+                <div class="time-list">
+                  <span>上傳時間 2025-01-29 15:33:22</span>
+                </div>
+              </div>
+
+              <div class="subsection-body">
+                <h2>條文內容</h2>
+                <div class="law-container">
+                  <div class="article-grid">
+                    <!-- Old Article Section -->
+                    <div class="article-section">
+                      <h3 class="article-section-title">舊條號</h3>
+                      <div class="article-navigation">
+                        <nav class="low old-area">
+                          <a href="#" class="law-link">第一章</a>
+                          <img
+                            class="law-separator"
+                            src="./assets/icons/line.svg"
+                            alt=""
+                          />
+                          <a href="#" class="law-link">第一節</a>
+                          <img
+                            class="law-separator"
+                            src="./assets/icons/line.svg"
+                            alt=""
+                          />
+                          <a href="#" class="law-link">第1條</a>
+                        </nav>
+                        <div class="nav-container"></div>
+                      </div>
+                    </div>
+
+                    <div class="article-section">
+                      <h3 class="article-section-title">新條號</h3>
+                      <div class="article-navigation">
+                        <nav class="low new-area">
+                          <a href="#" class="law-link">第一章</a>
+                          <img
+                            class="law-separator"
+                            src="./assets/icons/line.svg"
+                            alt=""
+                          />
+                          <a href="#" class="law-link">第一節</a>
+                          <img
+                            class="law-separator"
+                            src="./assets/icons/line.svg"
+                            alt=""
+                          />
+                          <a href="#" class="law-link">第1條</a>
+                        </nav>
+                        <img src="./assets/icons/arrow_right.svg" alt="" />
+                        <div class="nav-container">
+                          <button class="nav-button">
+                            <div class="nav-left">
+                              <span class="nav-label">舊條號</span>
+                            </div>
+                            <div class="nav-right">
+                              <span class="nav-item">第一章</span>
+                              <img
+                                class="law-separator"
+                                src="./assets/icons/line.svg"
+                                alt=""
+                              />
+                              <span class="nav-item">第一節</span>
+                              <img
+                                class="law-separator"
+                                src="./assets/icons/line.svg"
+                                alt=""
+                              />
+                              <span class="nav-item">第1條</span>
+                              <img src="./assets/icons/arrow_down.svg" alt="" />
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="btn-group">
+                <button class="save-view">儲存並預覽</button>
+                <button class="send">送出覆核</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+
+        <div class="fixed-btn-group">
+          <div class="nav min-w-[200px] flex-[10%]"></div>
+          <div>
+            <button class="save-view">儲存並預覽</button>
+            <button class="send">送出覆核</button>
+          </div>
+          <div class="flex-[10%]"></div>
+        </div>
+      </div>
+
+      <div id="dialog-modal" class="dialog-modal">
+        <div class="inner">
+          <div class="modal-header">
+            <span></span>
+            <h2 class="modal-title">上傳失敗</h2>
+            <img
+              class="close-dialog"
+              src="./assets/icons/general_cancel.svg"
+              alt=""
+            />
+          </div>
+          <div class="modal-content">
+            <p>請檢查上傳內容是否格式有誤</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary close-dialog">返回</button>
+            <button class="btn btn-primary close-dialog">重新上傳</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+      //container收合
+      const container1 = document.getElementById("container-1");
+      document
+        .getElementById("toggle-btn1")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          container1.classList.toggle("close");
+        });
+
+      const container2 = document.getElementById("container-2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          container2.classList.toggle("close");
+        });
+
+      //編輯icon
+      document.querySelectorAll(".edit-btn").forEach((btn) => {
+        btn.addEventListener("click", function (event) {
+          // 如果當前按鈕已經是 active，則移除 active（關閉）
+          if (this.classList.contains("active")) {
+            this.classList.remove("active");
+          } else {
+            // 先移除所有的 active（確保只有一個開啟）
+            document
+              .querySelectorAll(".edit-btn")
+              .forEach((b) => b.classList.remove("active"));
+
+            // 為當前點擊的按鈕加上 active
+            this.classList.add("active");
+          }
+        });
+      });
+
+      // 錯誤彈窗開關
+      const openDialog = document.querySelectorAll(".upload-area");
+      const dialog = document.getElementById("dialog-modal");
+      openDialog.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          dialog.classList.add("open");
+        });
+      });
+      const closeDialog = document.querySelectorAll(".close-dialog");
+      closeDialog.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          dialog.classList.remove("open");
+        });
+      });
+
+      //偵測是否滑到最下面的按鈕把fix按鈕收起
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnGroup = document.querySelector(".btn-group");
+        const fixBtnGroup = document.querySelector(".fixed-btn-group");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                fixBtnGroup.classList.add("close");
+              } else {
+                fixBtnGroup.classList.remove("close");
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(btnGroup);
+      });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c13.html", "nav-c13-template");
+      loadComponent(
+        "./components/breadcrumb-c13.html",
+        "breadcrumb-c13-template"
+      );
+    </script>
+  </body>
+</html>

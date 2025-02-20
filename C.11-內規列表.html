@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      .nav {
+        margin-top: 72px;
+        li {
+          margin-left: 30px;
+          padding-left: 20px;
+          margin-bottom: 16px;
+          font-weight: var(--weight-bold);
+          color: var(--darkGrey600);
+          border-left: 3px solid var(--darkGrey600);
+          cursor: pointer;
+        }
+
+        li.active {
+          border-left: 3px solid var(--darkGrey900);
+          color: var(--darkGrey900);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c11-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c11-template"></div>
+          <div id="search-template"></div>
+          <div id="tab-table-element"></div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              // const newScript = document.createElement("script");
+              // newScript.textContent = script.textContent;
+              // document.body.appendChild(newScript);
+              eval(script.textContent);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c11.html", "nav-c11-template");
+      loadComponent(
+        "./components/breadcrumb-c11.html",
+        "breadcrumb-c11-template"
+      );
+      loadComponent("./components/search.html", "search-template");
+      loadComponent("./components/tab-table.html", "tab-table-element");
+    </script>
+  </body>
+</html>

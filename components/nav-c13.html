@@ -1,0 +1,74 @@
+<template id="nav-c13-template">
+  <style>
+    #nav-c13-container {
+      margin-top: 72px;
+      li {
+        margin-left: 30px;
+        padding-left: 20px;
+        margin-bottom: 16px;
+        font-weight: var(--weight-bold);
+        color: var(--darkGrey600);
+        border-left: 3px solid transparent;
+        cursor: pointer;
+      }
+
+      li.sub1 {
+        border-left: 3px solid var(--darkGrey600);
+        color: var(--darkGrey600, #9fb2bc);
+
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+        line-height: 150%; /* 21px */
+      }
+
+      li.sun2 {
+        color: var(--darkGrey600, #9fb2bc);
+
+        font-size: var(--font-caption);
+        font-weight: var(--weight-bold);
+        line-height: 150%; /* 21px */
+      }
+
+      li.sun2 {
+        color: var(--darkGrey600, #9fb2bc);
+
+        font-size: var(--font-caption);
+        font-weight: var(--weight-medium);
+        line-height: 150%; /* 21px */
+      }
+      .sub3 {
+        margin-left: 8px;
+      }
+
+      li.active {
+        border-left: 3px solid var(--darkGrey900);
+        color: var(--darkGrey900);
+      }
+    }
+  </style>
+
+  <div id="nav-c13-container" class="nav min-w-[200px] flex-[10%]">
+    <ul>
+      <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+      <li class="sub1"><a href="#">條文總覽</a></li>
+      <li id="nav-section-1" class="sun2">
+        <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+      </li>
+      <li id="nav-section-2" class="sun2">
+        <a href="#"><span>第 2 條</span><span class="sub3">產品說明</span></a>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  class NavC2Element extends HTMLElement {
+    constructor() {
+      super();
+      const template = document.getElementById("nav-c13-template").content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(template.cloneNode(true));
+    }
+  }
+  customElements.define("nav-c13-element", NavC2Element);
+</script>

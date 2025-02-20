@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h5);
+        font-weight: var(--weight-bold);
+        margin-bottom: 40px;
+      }
+
+      .back-button img {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: var(--text-secondary);
+        margin-right: 12px;
+      }
+
+      .title-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 35px;
+
+        .page-title {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h2);
+          font-weight: var(--weight-bold);
+        }
+
+        button {
+          padding: 10px 20px;
+          border-radius: var(--border-radius-s);
+          background: var(--Primary600, #009eb8);
+          color: var(--White, #fff);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+        }
+      }
+
+      .card {
+        padding: 20px 24px;
+        margin-bottom: 24px;
+        border-radius: var(--border-radius-l);
+        border: 1px solid var(--darkGrey200, #e1eaef);
+        background: var(--White, #fff);
+        box-shadow: 0px 5px 12px 0px #e3eff1;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-title {
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+      }
+
+      .legal-info {
+        width: 100%;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 12px;
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .info-label {
+        color: var(--darkGrey700, #6c8490);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .version {
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-m);
+        margin-bottom: 16px;
+      }
+
+      .version-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--status-bg);
+        border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+        margin-bottom: 16px;
+      }
+
+      .version-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .date {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+        .number,
+        .member {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+
+        .member {
+          font-weight: var(--weight-bold);
+        }
+
+        .employee {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+      }
+
+      .toggle-btn {
+        cursor: pointer;
+      }
+
+      .toggle-btn .open,
+      .toggle-btn .close {
+        display: flex;
+        color: var(--darkGrey700, #6c8490);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        span {
+          margin-right: 8px;
+        }
+      }
+      .toggle-btn .open.disable,
+      .toggle-btn .close.disable {
+        display: none;
+      }
+
+      .button-status {
+        display: inline-block;
+        max-width: 100px;
+        text-align: center;
+        padding: 6px 12px;
+        font-size: var(--font-caption);
+        font-weight: var(--weight-bold);
+        border-radius: var(--border-radius-s);
+      }
+
+      .button-status.reviewed {
+        background: var(--Link600, #0fada8);
+        color: var(--White, #fff);
+      }
+
+      .button-status.unpublished {
+        background: var(--darkGrey500, #aabcc4);
+        color: var(--White, #fff);
+      }
+
+      .frame-sm {
+        height: 0;
+        padding: 0;
+        background-color: rgba(243, 249, 252, 1);
+        border-radius: var(--border-radius-l);
+        width: 100%;
+        max-width: 1152px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .frame-sm.active {
+        height: 100%;
+        padding: 16px 20px;
+      }
+
+      .frame-sm-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .frame-sm-table thead {
+        border-bottom: 1px solid rgba(225, 234, 239, 1);
+      }
+
+      .frame-sm-table th,
+      .frame-sm-table td {
+        padding: 8px;
+        text-align: left;
+      }
+
+      .text-bold {
+        font-family: "Roboto", sans-serif;
+        font-weight: var(--weight-bold);
+        font-size: var(--font-caption);
+        color: rgba(159, 178, 188, 1);
+        letter-spacing: -0.4px;
+      }
+
+      .text-regular {
+        color: var(--darkGrey800, #576972);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+      }
+
+      .text-link {
+        color: rgba(15, 173, 168, 1);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+        cursor: pointer;
+      }
+
+      /* Attachment Styles */
+      .attachment-link {
+        color: var(--Link600, #0fada8);
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        text-decoration: none;
+      }
+
+      .attachment-link:hover {
+        text-decoration: underline;
+      }
+
+      .attachments {
+        margin-bottom: 100px;
+      }
+
+      .page-h2 {
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h3);
+        font-weight: var(--weight-bold);
+        margin-bottom: 25px;
+      }
+
+      .section {
+        .title {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-regular);
+          margin-bottom: 25px;
+        }
+
+        .card {
+          padding: 24px;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          .title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-bold);
+          }
+          .table-header {
+            display: grid;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            padding: 8px 0px;
+            color: #6c8490;
+            font-size: var(--font-caption);
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+            font-weight: var(--weight-bold);
+          }
+
+          > .table-row {
+            display: grid;
+            align-items: start;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            padding: 16px 0;
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+          }
+
+          .regulation-name {
+            color: var(--darkGrey800, #576972);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+            line-height: 150%;
+          }
+
+          .article-number {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .content {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .status-text {
+            color: var(--darkGrey700, #6c8490);
+            text-align: center;
+            font-size: var(--font-small);
+            font-weight: var(--weight-bold);
+            border-radius: var(--border-radius-s);
+            padding: 6px 12px;
+            line-height: normal;
+          }
+
+          .status-pending {
+            color: var(--darkGrey700, #6c8490);
+            background: var(--darkGrey150, #eff5f9);
+          }
+
+          .status-linked {
+            color: var(--Primary600, #009eb8);
+            background: var(--Primary200, #e8f6f9);
+          }
+
+          .suggested-section {
+            margin-top: 24px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            align-self: stretch;
+            border-radius: var(--border-radius-l);
+            background: var(--darkGrey50, #f7fafd);
+            .table-row {
+              display: grid;
+              align-items: start;
+              grid-template-columns: 3fr 1fr 2.5fr 0.5fr;
+              padding: 16px 0;
+              border-bottom: 1px solid #e1eaef;
+              gap: 20px;
+            }
+          }
+
+          .title-outer {
+            display: flex;
+
+            .star {
+              margin-right: 6px;
+            }
+
+            .suggested-title {
+              font-family: "Noto Sans TC";
+              font-size: var(--font-p-lg);
+              font-style: normal;
+              font-weight: var(--weight-bold);
+              line-height: normal;
+              background: var(
+                --gradientLogotype,
+                linear-gradient(90deg, #2f5d70 0%, #01a7bf 100%)
+              );
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+
+      .workflow-container {
+        width: 100%;
+        margin: 0 auto 24px;
+        background: #fff;
+        border: 1px solid #ebebeb;
+        border-radius: var(--border-radius-l);
+        padding: 28px 24px 24px 24px;
+        box-shadow: 0 5px 12px rgba(226, 239, 241, 1);
+      }
+
+      .workflow-title {
+        color: var(--Cathay-Grey700, #555);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-p-lg);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+      }
+
+      .workflow-steps {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .step {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .step-number {
+        width: 18px;
+        height: 18px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: var(--font-small);
+      }
+
+      .step.active .step-number {
+        background-color: #009eb8;
+      }
+
+      .step:not(.active) .step-number {
+        background-color: #9fb2bc;
+      }
+
+      .step-title {
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+      }
+
+      .step.active .step-title {
+        color: var(--Primary600, #009eb8);
+      }
+
+      .step:not(.active) .step-title {
+        color: var(--darkGrey600, #9fb2bc);
+      }
+
+      .step-content {
+        padding: 20px 0;
+        border-top: 4px solid var(--darkGrey500, #aabcc4);
+      }
+
+      .step.active .step-content {
+        color: var(--darkGrey700, #6c8490);
+        border-top: 4px solid var(--Primary600, #009eb8);
+        font-size: var(--font-small);
+        font-weight: var(--weight-medium);
+      }
+
+      .step:not(.active) .step-content {
+        color: var(--darkGrey600, #9fb2bc);
+        font-size: var(--font-footnote);
+        font-weight: var(--weight-bold);
+      }
+
+      .department-info {
+        margin-bottom: 6px;
+        font-size: var(--font-small);
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: var(--font-small);
+      }
+
+      .user-icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      .add-reviewer {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background: var(--Primary600, #009eb8);
+        color: var(--White, #fff);
+        border: none;
+        border-radius: var(--border-radius-s);
+        cursor: pointer;
+        font-size: var(--font-h6);
+        text-align: center;
+        gap: 8px;
+        font-weight: var(--weight-bold);
+      }
+
+      .reviewed {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+        .date {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+        }
+        .name {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-bold);
+          line-height: 150%;
+        }
+        .feedback {
+          cursor: pointer;
+          color: var(--Link600, #0fada8);
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          text-decoration: underline;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .workflow-steps {
+          flex-direction: column;
+        }
+
+        .step {
+          min-width: 100%;
+        }
+      }
+
+      .dialog-modal {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        width: 90%;
+        max-width: 800px;
+        border-radius: var(--border-radius-m);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        .modal-header {
+          padding: 18px 20px;
+          border-bottom: 1px solid var(--darkGrey200);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .modal-title {
+          margin: auto;
+          color: var(--darkGrey900, #344858);
+          text-align: center;
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-bold);
+          line-height: 24px;
+        }
+
+        .close-button {
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+        }
+
+        .modal-content {
+          padding: 32px 30px;
+        }
+
+        .bank-info {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+          margin-bottom: 8px;
+        }
+
+        .department-info {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-caption);
+          font-weight: var(--weight-regular);
+          margin-bottom: 24px;
+        }
+
+        h2 {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-bold);
+          margin-bottom: 12px;
+        }
+
+        .article-section {
+          overflow: scroll;
+          color: var(--darkGrey900, #344858);
+          display: flex;
+          height: 180px;
+          padding: 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+          border-radius: var(--border-radius-s);
+          background: var(--darkGrey100, #f3f9fc);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          margin-bottom: 32px;
+        }
+
+        .history-section {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          align-self: stretch;
+        }
+
+        .history-section h2 {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-bold);
+          line-height: 24px;
+          margin-bottom: 16px;
+        }
+
+        .history-table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .history-table th {
+          padding: 8px 0;
+          text-align: left;
+          color: #344858;
+          border-bottom: 2px solid var(--darkGrey200, #e1eaef);
+        }
+
+        .history-table td {
+          padding: 12px 0;
+          border-bottom: 1px solid #dee2e6;
+          color: #6c8490;
+        }
+
+        .modal-footer {
+          padding: 20px 30px;
+          text-align: center;
+        }
+
+        .close-modal-button {
+          background-color: #009eb8;
+          border: none;
+          padding: 6px 12px;
+          border-radius: var(--border-radius-s);
+          cursor: pointer;
+          font-size: var(--font-h6);
+          color: var(--White, #fff);
+          text-align: center;
+          font-family: "SF Pro Display";
+          font-weight: var(--weight-regular);
+          line-height: 24px;
+        }
+      }
+      .dialog-modal.active {
+        display: block;
+      }
+
+      .section-text {
+        margin-bottom: 60px;
+      }
+
+      /* Responsive Design */
+      @media screen and (min-width: 768px) {
+        .legal-info {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .version-info {
+          flex-wrap: nowrap;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .version-table {
+          display: block;
+          overflow-x: auto;
+        }
+
+        .info-item {
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+
+        .info-label {
+          width: auto;
+        }
+
+        .version-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+      }
+
+      /* 選擇覆核人員 dialog */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        display: none;
+
+        .modal {
+          background: white;
+          border-radius: var(--border-radius-m);
+          width: 95%;
+          max-width: 720px;
+          box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Modal Header */
+        .modal-header {
+          display: flex;
+          padding: 18px 20px;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 32px;
+          align-self: stretch;
+          color: var(--darkGrey900, #344858);
+          text-align: center;
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-bold);
+          line-height: 24px;
+          border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+        }
+
+        /* Search Section */
+        .search-container {
+          padding: 0 30px;
+        }
+
+        .search-form {
+          display: flex;
+          gap: 16px;
+        }
+
+        .search-input {
+          display: flex;
+          padding: 12px 20px;
+          align-items: center;
+          gap: 10px;
+          flex: 1 0 0;
+          border-radius: var(--border-radius-m);
+          border: 1px solid var(--darkGrey300, #cfdbe1);
+          background: #fff;
+        }
+
+        .search-button {
+          width: 104px;
+          padding: 12px 20px;
+          border-radius: var(--border-radius-m);
+          background: var(--Primary600, #009eb8);
+          color: var(--White, #fff);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+        }
+
+        /* Content Section */
+        .modal-content {
+          padding: 24px 30px;
+          max-height: 400px;
+          overflow-y: auto;
+
+          .ex-reviewers {
+            border-radius: var(--border-radius-m);
+            background: var(--darkGrey100, #f3f9fc);
+            padding: 16px;
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-caption);
+            font-weight: var(--weight-regular);
+          }
+        }
+
+        .section-title {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-bold);
+          margin-bottom: 12px;
+        }
+
+        /* Collapsible Section Styles */
+        .department-section {
+          background: #f3f9fc;
+          border-radius: var(--border-radius-m);
+        }
+
+        .department-section details {
+          width: 100%;
+          padding: 16px;
+          padding-bottom: 48px;
+        }
+
+        .department-section summary {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          margin-bottom: 12px;
+        }
+
+        .department-section summary::marker {
+          content: "";
+        }
+
+        .department-section summary::before {
+          transform: rotate(-90deg);
+          content: "";
+          display: inline-block;
+          width: 14px;
+          height: 10px;
+          background-image: url("./assets/icons/polygon.svg");
+          background-size: cover;
+          margin-right: 8px;
+        }
+
+        details[open] summary::before {
+          transform: rotate(0deg);
+        }
+
+        .reviewer-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .reviewer-item {
+          display: flex;
+          align-items: center;
+          padding-left: 20px;
+          gap: 8px;
+
+          label {
+            color: var(--darkGrey800, #576972);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+        }
+
+        .reviewer-radio {
+          position: relative;
+        }
+
+        .reviewer-radio::after {
+          display: block;
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          border: 1px solid var(--Primary-Gray-300, #d2d5da);
+          background: var(--Primary-Base-White, #fff);
+        }
+
+        .reviewer-radio:checked::after {
+          border: 5px solid var(--Primary600, #009eb8);
+        }
+
+        /* Footer Section */
+        .modal-footer {
+          padding: 0 30px;
+        }
+
+        .selected-reviewers {
+          color: #576972;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          margin-bottom: 32px;
+          .title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-sm);
+            font-weight: var(--weight-medium);
+          }
+        }
+
+        .button-group {
+          display: flex;
+          padding: 20px 0px;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 12px;
+          align-self: stretch;
+        }
+
+        .cancel-button,
+        .confirm-button {
+          font-size: var(--font-h6);
+          padding: 12px 16px;
+          font-size: var(--font-h6);
+          border-radius: var(--border-radius-m);
+        }
+
+        .cancel-button {
+          background: var(--darkGrey150, #eff5f9);
+          color: var(--darkGrey900, #344858);
+          font-weight: var(--weight-medium);
+        }
+
+        .confirm-button {
+          background: var(--Primary600, #009eb8);
+          color: var(--White, #fff);
+          font-weight: var(--weight-bold);
+        }
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 640px) {
+        .search-form {
+          flex-direction: column;
+        }
+
+        .search-button {
+          width: 100%;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .cancel-button,
+        .confirm-button {
+          width: 100%;
+        }
+      }
+
+      /* 覆核人員確認 dialog */
+      .confirm-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        display: none;
+        .confirm-modal {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: var(--border-radius-l);
+          width: 100%;
+          max-width: 390px;
+          background: var(--White, #fff);
+          box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+
+          .modal-header {
+            display: flex;
+            padding: 16px 20px;
+            justify-content: space-between;
+            align-items: center;
+            align-self: stretch;
+            border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+          }
+
+          .modal-title {
+            color: var(--darkGrey900, #344858);
+            text-align: center;
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+
+          .modal-body {
+            color: var(--darkGrey900, #344858);
+            text-align: center;
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+            padding: 20px 20px 0;
+            margin-bottom: 40px;
+            span {
+              font-size: var(--font-h6);
+              font-weight: var(--weight-bold);
+            }
+          }
+
+          .modal-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            padding: 0 0 20px;
+          }
+
+          .btn {
+            padding: 12px 16px;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-h6);
+          }
+
+          .btn-cancel {
+            background: var(--darkGrey150, #eff5f9);
+            color: var(--darkGrey900, #344858);
+            font-weight: var(--weight-regular);
+          }
+
+          .btn-submit {
+            background: var(--Primary600, #009eb8);
+            color: var(--White, #fff);
+            font-weight: var(--weight-bold);
+          }
+        }
+      }
+      .confirm-overlay.open {
+        display: flex;
+      }
+
+      .success-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        display: none;
+
+        .success-modal {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: var(--border-radius-l);
+          width: 100%;
+          max-width: 390px;
+          background: var(--White, #fff);
+          box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+
+          .modal-header {
+            display: flex;
+            padding: 16px 20px;
+            justify-content: space-between;
+            align-items: center;
+            align-self: stretch;
+          }
+
+          .modal-title {
+            color: var(--darkGrey900, #344858);
+            text-align: center;
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+          }
+
+          .modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 94px;
+              height: 94px;
+              margin-bottom: 16px;
+            }
+          }
+
+          .modal-footer {
+            margin-bottom: 40px;
+            color: var(--darkGrey800, #576972);
+            text-align: center;
+            font-size: var(--font-h2);
+            font-weight: var(--weight-bold);
+            line-height: 150%;
+            span {
+              margin-bottom: 8px;
+            }
+            p {
+              color: var(--darkGrey800, #576972);
+              text-align: center;
+              font-size: var(--font-h6);
+              font-weight: var(--weight-regular);
+              line-height: 150%;
+            }
+          }
+        }
+      }
+      .success-overlay.open {
+        display: flex;
+      }
+      .content-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        display: none;
+        .content-modal {
+          position: fixed;
+          left: 0;
+          top: 0;
+          background: white;
+          border-radius: var(--border-radius-m);
+          box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+          width: 100%;
+          max-width: 744px;
+          position: relative;
+          border: 1px solid var(--darkGrey200, #e1eaef);
+
+          .modal-header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .modal-title {
+            color: var(--darkGrey900, #344858);
+            text-align: center;
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-bold);
+            line-height: 24px;
+          }
+
+          .modal-body {
+            position: relative;
+            padding: 30px 30px 16px;
+            .reviewer-item {
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              width: 50%;
+              gap: 8px;
+
+              label {
+                color: var(--darkGrey800, #576972);
+                font-size: var(--font-h6);
+                font-weight: var(--weight-regular);
+                line-height: 150%;
+              }
+            }
+
+            .reviewer-radio {
+              position: relative;
+            }
+
+            .reviewer-radio::after {
+              display: block;
+              content: "";
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 20px;
+              height: 20px;
+              border-radius: 100%;
+              border: 1px solid var(--Primary-Gray-300, #d2d5da);
+              background: var(--Primary-Base-White, #fff);
+            }
+
+            .reviewer-radio:checked::after {
+              border: 5px solid var(--Primary600, #009eb8);
+            }
+
+            .select-wrapper {
+              position: relative;
+              width: 100%;
+              margin-bottom: 40px;
+            }
+
+            .custom-select {
+              position: relative;
+              width: 100%;
+            }
+
+            .select-trigger {
+              width: 100%;
+              display: flex;
+              padding: 10px 16px;
+              justify-content: space-between;
+              align-items: center;
+              border-radius: var(--border-radius-m);
+              background: var(--darkGrey100, #f3f9fc);
+              color: var(--darkGrey500, #aabcc4);
+              font-size: var(--font-p-sm);
+              font-weight: var(--weight-regular);
+            }
+
+            .select-trigger:focus {
+              outline: none;
+              border-color: #009eb8;
+              box-shadow: 0 0 0 2px rgba(0, 158, 184, 0.1);
+            }
+
+            .select-trigger::after {
+              content: "";
+              border: solid #6c8490;
+              border-width: 0 2px 2px 0;
+              padding: 3px;
+              transform: rotate(45deg);
+              margin-top: -4px;
+            }
+
+            .select-options {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              right: 0;
+              border: 1px solid #cfdbe1;
+              margin-top: 12px;
+              overflow-y: auto;
+              z-index: 100;
+              display: none;
+              border-radius: var(--border-radius-m);
+              border: 1px solid var(--darkGrey200, #e1eaef);
+              background: var(--White, #fff);
+              box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+            }
+
+            .select-options.show {
+              display: block;
+            }
+
+            .select-option {
+              padding: 12px 16px;
+              color: var(--darkGrey900, #344858);
+              font-size: var(--font-p-sm);
+              font-weight: var(--weight-regular);
+            }
+
+            .select-option:hover {
+              background: var(--darkGrey100, #f3f9fc);
+            }
+          }
+
+          .review-title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-sm);
+            font-weight: var(--weight-bold);
+            margin-bottom: 12px;
+            span {
+              font-weight: var(--weight-regular);
+            }
+          }
+
+          .radio-group {
+            display: flex;
+            margin-bottom: 40px;
+          }
+
+          .radio-option {
+            display: flex;
+            align-items: center;
+          }
+
+          .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #009eb8;
+          }
+
+          /* Textarea */
+          .review-comments {
+            width: 100%;
+            min-height: 120px;
+            padding: 16px;
+            border: 1px solid #cfdbe1;
+            border-radius: var(--border-radius-m);
+            resize: vertical;
+          }
+
+          /* Footer */
+          .modal-footer {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+          }
+
+          .button {
+            padding: 12px 16px;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-h6);
+          }
+
+          .button-cancel {
+            background: var(--darkGrey150, #eff5f9);
+            color: var(--darkGrey900, #344858);
+            font-weight: var(--weight-regular);
+          }
+
+          .button-confirm {
+            background: var(--Primary600, #009eb8);
+            color: var(--White, #fff);
+            font-weight: var(--weight-bold);
+          }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+          .radio-group {
+            flex-direction: column;
+          }
+
+          .modal-footer {
+            flex-direction: column;
+          }
+
+          .button {
+            width: 100%;
+          }
+        }
+      }
+      .content-overlay.open {
+        display: flex;
+      }
+
+      .reject-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        display: none;
+        p {
+          display: flex;
+          padding: 12px 16px;
+          justify-content: center;
+          align-items: center;
+          border-radius: var(--border-radius-m);
+          background: var(--darkGrey800, #576972);
+          color: var(--Cathay-White, #fff);
+          font-family: "Noto Sans TC";
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+        }
+      }
+      .reject-overlay.open {
+        display: flex;
+      }
+
+      .review-opinion-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        display: none;
+        .modal {
+          border-radius: var(--border-radius-l);
+          width: 100%;
+          width: 720px;
+          position: relative;
+          border: 1px solid var(--darkGrey200, #282f33);
+          background: var(--global-09-white, #fff);
+          box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+        }
+
+        .modal-header {
+          display: flex;
+          padding: 16px 20px;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+        }
+
+        .modal-title {
+          color: var(--darkGrey900, #344858);
+          text-align: center;
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-bold);
+          line-height: 24px;
+        }
+
+        .modal-content {
+          padding: 32px 30px 0;
+        }
+
+        .section {
+          margin-bottom: 40px;
+        }
+
+        .section-title {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-bold);
+          margin-bottom: 12px;
+        }
+
+        .content-box {
+          display: flex;
+          padding: 12px 16px;
+          align-items: center;
+          border-radius: var(--border-radius-m);
+          background: var(--darkGrey100, #f3f9fc);
+        }
+
+        .status-text {
+          display: flex;
+          align-items: center;
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+          img {
+            margin-right: 8px;
+          }
+        }
+
+        .modal-footer {
+          display: flex;
+          padding: 20px 30px;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        .close-modal-button {
+          display: flex;
+          padding: 12px 16px;
+          justify-content: center;
+          align-items: center;
+          border-radius: var(--border-radius-m);
+          background: var(--Primary600, #009eb8);
+          color: var(--White, #fff);
+          font-size: var(--font-p-md);
+          font-weight: var(--weight-bold);
+        }
+      }
+      .review-opinion-overlay.open {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c12-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c12-template"></div>
+
+          <div class="container">
+            <header class="header">
+              <button class="back-button">
+                <img src="./assets/icons/arrow_left.svg" alt="" />
+                <span>法規內容管理</span>
+              </button>
+              <div class="title-group">
+                <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
+                <!-- 這邊要卡控顯示 -->
+                <button>編輯</button>
+              </div>
+            </header>
+
+            <section class="workflow-container">
+              <h1 class="workflow-title">內規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- Step 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <!-- 這邊要卡控顯示 -->
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="./assets/icons/profile_solid.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewed">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                  <button id="add-reviewer" class="add-reviewer">
+                    <img src="./assets/icons/general_plus.svg" alt="" />
+                    <span>選擇人員</span>
+                    <!-- <span>重新覆核</span> -->
+                  </button>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <!-- 這邊要卡控顯示 -->
+                  <div class="step-content">
+                    <div>待指定人員覆核</div>
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="./assets/icons/profile_solid.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                  <div class="reviewed">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已退回</div>
+                    <div class="feedback" id="feedback">查看意見</div>
+                  </div>
+                  <button id="content-reviewer" class="add-reviewer">
+                    <span>覆核</span>
+                  </button>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="card-title">法規資訊</h2>
+              <div class="legal-info">
+                <div class="info-item">
+                  <span class="info-label">公布日期</span>
+                  <span>2023-06-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">修正日期</span>
+                  <span>2024-07-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">權責單位</span>
+                  <span>法令遵循部</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="card-title">版本資訊總覽</h2>
+
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status unpublished">未公開</span>
+                    <span class="date">2021-10-01</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 劉山雀</span
+                    >
+                  </div>
+                  <div id="toggle-btn2" class="toggle-btn">
+                    <div class="open disable">
+                      <span>收合</span>
+                      <img src="./assets/icons/arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close">
+                      <span>展開</span>
+                      <img src="./assets/icons/arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div id="frame-sm2" class="frame-sm">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
+            </section>
+
+            <h2 class="page-h2">條文總覽</h2>
+
+            <section id="section-1" class="section section-text">
+              <h3 class="title">第 1 條 <span>目的</span></h3>
+              <div class="card">
+                本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
+                有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
+              </div>
+            </section>
+
+            <section id="section-2" class="section section-text">
+              <h3 class="title">第 2 條 <span>產品說明</span></h3>
+              <div class="card">
+                定義：
+                所謂債券承銷業務，係指本行以證券承銷商或財務顧問之角色，在初級市場從事債券輔導銷售或承銷以新台幣或以外幣計價之債務證券(公司債、金融債券及其他固
+                定收益證券等)。 種類：
+                交易進行前會先做市場行銷，包含投資人會議及路演等活動，以瞭解投資人對債券的需求，所取得之市場資訊有助於決定以下列何種方式進行承銷，是對發行案件
+                及本行最有利的。
+                一、包銷：指承銷商於財務顧問(委任)契約或承銷契約中承諾於發行日前，如未能銷售完畢，剩餘的有價證券將由承銷商認購，因此發行公司可確定獲得所需資金，
+                而承銷商則需承擔發行風險。實務上可分為確定包銷、餘額包銷。
+                (一)、確定包銷：係指發行人和承銷商簽訂契約，由承銷商按一定價格買下全部有價證券，並將價款一次付給發行公司，然後再出售給社會大眾，是現今歐美市場
+                中最常見且最廣泛使用的方式。
+                (二)、餘額包銷：係指承銷商承銷有價證券，在承銷期間結束後，對於銷售剩餘的部分，由承銷商認購。實務上國內絕大多數承銷案件均以餘額包銷方式辦理。
+                二、代銷：指承銷商和發行公司在約定的承銷期間結束後，將銷售剩餘的有價證券退還給發行人，因承銷商僅是受委託辦理銷售事務，因此並不承擔任何發行風險。
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+
+      <!-- 選擇覆核人員彈窗 C.14.1.1 -->
+      <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+          <div class="modal-header">
+            <p></p>
+            <h2 class="modal-title">選擇覆核人員</h2>
+            <img
+              class="close-button overlay-close"
+              src="./assets/icons/general_cancel.svg"
+              alt=""
+            />
+          </div>
+
+          <div class="search-container">
+            <form class="search-form">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="搜尋員編或覆核人員姓名"
+              />
+              <button class="search-button">搜尋</button>
+            </form>
+          </div>
+
+          <div class="modal-content">
+            <h3 class="section-title">選擇人員</h3>
+            <div class="department-section">
+              <details open>
+                <summary>法令遵循部</summary>
+                <div class="reviewer-list">
+                  <div class="reviewer-item">
+                    <input
+                      type="radio"
+                      name="reviewer"
+                      id="reviewer1"
+                      class="reviewer-radio"
+                      checked
+                    />
+                    <label for="reviewer1">00000000 副理 王小明</label>
+                  </div>
+                  <div class="reviewer-item">
+                    <input
+                      type="radio"
+                      name="reviewer"
+                      id="reviewer2"
+                      class="reviewer-radio"
+                    />
+                    <label for="reviewer2">00000000 副理 王小明</label>
+                  </div>
+                  <div class="reviewer-item">
+                    <input
+                      type="radio"
+                      name="reviewer"
+                      id="reviewer3"
+                      class="reviewer-radio"
+                    />
+                    <label for="reviewer3">00000000 副理 王小明</label>
+                  </div>
+                  <div class="reviewer-item">
+                    <input
+                      type="radio"
+                      name="reviewer"
+                      id="reviewer4"
+                      class="reviewer-radio"
+                    />
+                    <label for="reviewer4">00000000 副理 王小明</label>
+                  </div>
+                  <div class="reviewer-item">
+                    <input
+                      type="radio"
+                      name="reviewer"
+                      id="reviewer5"
+                      class="reviewer-radio"
+                    />
+                    <label for="reviewer5">00000000 副理 王小明</label>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+          <!-- 需卡控重新覆核才需顯示 -->
+          <div class="modal-content">
+            <h3 class="section-title">前次覆核人員</h3>
+            <div class="ex-reviewers">
+              <span>
+                國泰金控 數位數據暨科技發展中心 數據暨人工智慧發展部
+                合規策略發展科 王小明
+              </span>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="selected-reviewers">
+              <span class="title"> 確認指定以下人員為覆核人員： </span>
+              <span>
+                國泰金控 數位數據暨科技發展中心 數據暨人工智慧發展部
+                合規策略發展科 王小明
+              </span>
+            </div>
+            <div class="button-group">
+              <button class="cancel-button overlay-close">取消</button>
+              <button
+                id="modal-overlay-check"
+                class="confirm-button modal-overlay-check"
+              >
+                確認
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 覆核人員確認彈窗 C.14.1.2 -->
+      <div id="confirm-overlay" class="confirm-overlay">
+        <div class="confirm-modal">
+          <div class="modal-header">
+            <p></p>
+            <h2 class="modal-title">覆核人員確認</h2>
+            <button class="close-button overlay-close">
+              <img src="./assets/icons/general_cancel.svg" alt="" />
+            </button>
+          </div>
+          <div class="modal-body">
+            確認由 <span>合規策略發展科 王小明</span> 覆核？<br />
+            送出即無法修改
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-cancel overlay-close">取消</button>
+            <button class="btn btn-submit" id="send">送出</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 已送出覆核彈窗 C.14.1.3 -->
+      <div id="success-overlay" class="success-overlay">
+        <div class="success-modal">
+          <div class="modal-header">
+            <p></p>
+            <button class="close-button overlay-close">
+              <img src="./assets/icons/general_cancel.svg" alt="" />
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="./assets/icons/general_check_circle.svg" alt="" />
+          </div>
+          <div class="modal-footer">
+            <span>已送出覆核</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 覆核內容確認彈窗 C.14.2.1 、 C.14.2.2 -->
+      <div class="content-overlay" id="content-overlay">
+        <div class="content-modal">
+          <header class="modal-header">
+            <p></p>
+            <h2 class="modal-title">覆核內容確認</h2>
+            <button class="close-button overlay-close">
+              <img src="./assets/icons/general_cancel.svg" alt="" />
+            </button>
+          </header>
+
+          <div class="modal-body">
+            <div class="review-section">
+              <h3 class="review-title">覆核內容確認</h3>
+              <div class="radio-group">
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer7"
+                    class="reviewer-radio"
+                    checked
+                  />
+                  <label for="reviewer7">覆核通過：即公開此版本內容</label>
+                </div>
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer8"
+                    class="reviewer-radio"
+                  />
+                  <label for="reviewer8">退回給原承辦</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-section select-section">
+              <h3 class="review-title">退回原因</h3>
+              <div class="select-wrapper">
+                <div class="custom-select">
+                  <button
+                    type="button"
+                    class="select-trigger"
+                    id="selectTrigger"
+                  >
+                    <span>請選擇</span>
+                  </button>
+                  <div class="select-options" id="selectOptions">
+                    <div class="select-option" data-value="missing">
+                      內容缺漏，待補件
+                    </div>
+                    <div class="select-option" data-value="reason1">原因一</div>
+                    <div class="select-option" data-value="reason2">原因二</div>
+                    <div class="select-option" data-value="other">其他</div>
+                  </div>
+                  <select name="reason" hidden>
+                    <option value="">請選擇</option>
+                    <option value="missing">內容缺漏，待補件</option>
+                    <option value="reason1">原因一</option>
+                    <option value="reason2">原因二</option>
+                    <option value="other">其他</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-section">
+              <h3 class="review-title">覆核意見<span>（選填）</span></h3>
+              <textarea
+                class="review-comments"
+                aria-label="覆核意見"
+              ></textarea>
+            </div>
+          </div>
+
+          <footer class="modal-footer">
+            <button class="button button-cancel overlay-close">取消</button>
+            <button class="button button-confirm" id="content-overlay-check">
+              確認
+            </button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- 覆核通過彈窗 C.14.2.4 -->
+      <div id="content-success-overlay" class="success-overlay">
+        <div class="success-modal">
+          <div class="modal-header">
+            <p></p>
+            <button class="close-button overlay-close">
+              <img src="./assets/icons/general_cancel.svg" alt="" />
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="./assets/icons/general_check_circle.svg" alt="" />
+          </div>
+          <div class="modal-footer">
+            <span>覆核通過</span>
+            <p>版本內容已公開</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 退回給原承辦 C.14.2.5 -->
+      <div id="reject-overlay" class="reject-overlay">
+        <div class="reject-modal">
+          <p>已退回給原上傳人員</p>
+        </div>
+      </div>
+
+      <div id="review-opinion-overlay" class="review-opinion-overlay">
+        <div class="modal">
+          <header class="modal-header">
+            <p></p>
+            <h2 class="modal-title">覆核意見</h2>
+            <button class="close-button overlay-close">
+              <img src="./assets/icons/general_cancel.svg" alt="" />
+            </button>
+          </header>
+
+          <div class="modal-content">
+            <section class="section">
+              <h3 class="section-title">覆核結果</h3>
+              <div class="content-box">
+                <div class="status-text">
+                  <img src="./assets/icons/warning.svg" alt="" />
+                  <span>未通過</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h3 class="section-title">退回原因</h3>
+              <div class="content-box">內容缺漏，待補件</div>
+            </section>
+
+            <section class="section">
+              <h3 class="section-title">覆核意見</h3>
+              <div class="content-box">請補充附件後再重新送單</div>
+            </section>
+          </div>
+
+          <footer class="modal-footer">
+            <button class="close-modal-button overlay-close">關閉</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      const frameSm2 = document.getElementById("frame-sm2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm2.classList.toggle("active");
+        });
+
+      const addReviewer = document.getElementById("add-reviewer");
+      const modalOverlay = document.getElementById("modal-overlay"); // C.14.1.1 選擇覆核人員彈窗
+      const closeModalOverlay = document.querySelectorAll(".overlay-close"); // 所有彈窗得關閉功能
+      const modalOverlayCheck = document.getElementById("modal-overlay-check");
+      const confirmOverlay = document.getElementById("confirm-overlay"); // C.14.1.2 覆核人員確認
+      const send = document.getElementById("send");
+      const successOverlay = document.getElementById("success-overlay"); // C.14.1.3 已送出覆核彈窗
+      const contentOverlay = document.getElementById("content-overlay"); // C.14.2.1 、 C.14.2.2 覆核內容確認
+      const contentReviewer = document.getElementById("content-reviewer");
+      const feedback = document.getElementById("feedback");
+      const reviewOpinionOverlay = document.getElementById(
+        "review-opinion-overlay"
+      ); // C.14.3.1 覆核意見彈窗
+      const contentOverlayCheck = document.getElementById(
+        "content-overlay-check"
+      );
+      const contentSuccessOverlay = document.getElementById(
+        "content-success-overlay"
+      ); //C.14.2.4 覆核通過彈窗
+      const rejectOverlay = document.getElementById("reject-overlay"); // C.14.2.5 退回給原承辦
+
+      // 點擊選擇人員
+      addReviewer.addEventListener("click", function () {
+        modalOverlay.classList.toggle("open");
+      });
+
+      // 點擊所有彈窗的取消和X按鈕
+      closeModalOverlay.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          modalOverlay.classList.remove("open");
+          confirmOverlay.classList.remove("open");
+          successOverlay.classList.remove("open");
+          contentOverlay.classList.remove("open");
+          contentSuccessOverlay.classList.remove("open");
+          reviewOpinionOverlay.classList.remove("open");
+        });
+      });
+
+      // 選擇覆核人員按確認
+      modalOverlayCheck.addEventListener("click", function () {
+        modalOverlay.classList.remove("open");
+        confirmOverlay.classList.remove("open");
+        successOverlay.classList.remove("open");
+        contentOverlay.classList.remove("open");
+        contentSuccessOverlay.classList.remove("open");
+        confirmOverlay.classList.add("open");
+      });
+
+      // 覆核人員確認按送出
+      send.addEventListener("click", function () {
+        modalOverlay.classList.remove("open");
+        confirmOverlay.classList.remove("open");
+        successOverlay.classList.remove("open");
+        contentOverlay.classList.remove("open");
+        contentSuccessOverlay.classList.remove("open");
+        successOverlay.classList.add("open");
+      });
+
+      // 點擊覆核按鈕 覆核內容確認彈窗
+      contentReviewer.addEventListener("click", function () {
+        modalOverlay.classList.remove("open");
+        confirmOverlay.classList.remove("open");
+        successOverlay.classList.remove("open");
+        contentOverlay.classList.remove("open");
+        contentSuccessOverlay.classList.remove("open");
+        contentOverlay.classList.add("open");
+      });
+
+      // 點擊查看意見
+      feedback.addEventListener("click", function () {
+        modalOverlay.classList.remove("open");
+        confirmOverlay.classList.remove("open");
+        successOverlay.classList.remove("open");
+        contentOverlay.classList.remove("open");
+        contentSuccessOverlay.classList.remove("open");
+        reviewOpinionOverlay.classList.add("open");
+      });
+
+      // 覆核內容確認彈窗 點擊確認
+      contentOverlayCheck.addEventListener("click", function () {
+        modalOverlay.classList.remove("open");
+        confirmOverlay.classList.remove("open");
+        successOverlay.classList.remove("open");
+        contentOverlay.classList.remove("open");
+        contentSuccessOverlay.classList.remove("open");
+        const reviewer8 = document.getElementById("reviewer8");
+        if (reviewer8.checked) {
+          // 選擇 退回給原承辦 按確認
+          rejectOverlay.classList.add("open");
+          setTimeout(() => {
+            rejectOverlay.classList.remove("open");
+          }, 3000);
+        } else {
+          // 選擇 覆核通過：即公開此版本內容 按確認
+          contentSuccessOverlay.classList.add("open");
+        }
+      });
+
+      // 處理覆核內容確認彈窗的客製化下拉
+      document.addEventListener("DOMContentLoaded", function () {
+        const selectTrigger = document.getElementById("selectTrigger");
+        const selectOptions = document.getElementById("selectOptions");
+        const hiddenSelect = document.querySelector('select[name="reason"]');
+        let isSelectOpen = false;
+
+        // 切換下拉選單
+        selectTrigger.addEventListener("click", () => {
+          isSelectOpen = !isSelectOpen;
+          selectOptions.classList.toggle("show");
+        });
+
+        // 點擊選項
+        selectOptions.addEventListener("click", (e) => {
+          if (e.target.classList.contains("select-option")) {
+            const value = e.target.dataset.value;
+            const text = e.target.textContent;
+            selectTrigger.querySelector("span").textContent = text;
+            hiddenSelect.value = value;
+            selectOptions.classList.remove("show");
+            isSelectOpen = false;
+          }
+        });
+
+        // 控制上方選擇“退回給原承辦”該隱藏還顯示
+        const reviewer8 = document.getElementById("reviewer8");
+        const selectSection = document.querySelector(".select-section");
+        function toggleSelectSection() {
+          if (reviewer8.checked) {
+            selectSection.style.display = "block";
+          } else {
+            selectSection.style.display = "none";
+          }
+        }
+        // 初始化狀態
+        toggleSelectSection();
+        // 監聽 radio 變更事件
+        document.querySelectorAll(".reviewer-radio").forEach((radio) => {
+          radio.addEventListener("change", toggleSelectSection);
+        });
+      });
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c12.html", "nav-c12-template");
+      loadComponent(
+        "./components/breadcrumb-c12.html",
+        "breadcrumb-c12-template"
+      );
+    </script>
+  </body>
+</html>

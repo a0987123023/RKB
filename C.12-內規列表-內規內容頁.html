@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        gap: 0.5rem;
+      }
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h5);
+        font-weight: var(--weight-medium);
+        margin-bottom: 40px;
+      }
+
+      .back-button img {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: var(--text-secondary);
+        margin-right: 12px;
+      }
+
+      .page-title {
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h2);
+        font-style: normal;
+        font-weight: var(--weight-bold);
+        line-height: normal;
+      }
+
+      .card {
+        padding: 20px 24px;
+        margin-bottom: 24px;
+        border-radius: var(--border-radius-l);
+        border: 1px solid var(--darkGrey200, #e1eaef);
+        background: var(--White, #fff);
+        box-shadow: 0px 5px 12px 0px #e3eff1;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-title {
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+      }
+
+      .legal-info {
+        width: 100%;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 12px;
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .info-label {
+        color: var(--darkGrey700, #6c8490);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .version {
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-m);
+        margin-bottom: 16px;
+      }
+
+      .version-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--status-bg);
+        border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+        margin-bottom: 16px;
+      }
+
+      .version-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .date {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+        .number,
+        .member {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+
+        .member {
+          font-weight: var(--weight-bold);
+        }
+
+        .employee {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+      }
+
+      .toggle-btn {
+        cursor: pointer;
+      }
+
+      .toggle-btn .open,
+      .toggle-btn .close {
+        display: flex;
+        color: var(--darkGrey700, #6c8490);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        span {
+          margin-right: 8px;
+        }
+      }
+      .toggle-btn .open.disable,
+      .toggle-btn .close.disable {
+        display: none;
+      }
+
+      .button-status {
+        display: inline-block;
+        max-width: 100px;
+        text-align: center;
+        padding: 6px 12px;
+        font-size: var(--font-caption);
+        font-weight: var(--weight-bold);
+        border-radius: var(--border-radius-s);
+      }
+
+      .button-status.reviewed {
+        background: var(--Link600, #0fada8);
+        color: var(--White, #fff);
+      }
+
+      .button-status.unpublished {
+        background: var(--darkGrey500, #aabcc4);
+        color: var(--White, #fff);
+      }
+
+      .frame-sm {
+        height: 0;
+        padding: 0;
+        background-color: rgba(243, 249, 252, 1);
+        border-radius: var(--border-radius-l);
+        width: 100%;
+        max-width: 1152px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .frame-sm.active {
+        height: 100%;
+        padding: 16px 20px;
+      }
+
+      .frame-sm-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .frame-sm-table thead {
+        border-bottom: 1px solid rgba(225, 234, 239, 1);
+      }
+
+      .frame-sm-table th,
+      .frame-sm-table td {
+        padding: 8px;
+        text-align: left;
+      }
+
+      .text-bold {
+        font-family: "Roboto", sans-serif;
+        font-weight: var(--weight-bold);
+        font-size: var(--font-caption);
+        color: rgba(159, 178, 188, 1);
+        letter-spacing: -0.4px;
+      }
+
+      .text-regular {
+        color: var(--darkGrey800, #576972);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+      }
+
+      .text-link {
+        color: rgba(15, 173, 168, 1);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+        cursor: pointer;
+      }
+
+      /* Attachment Styles */
+      .attachment-link {
+        color: var(--Link600, #0fada8);
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        text-decoration: none;
+      }
+
+      .attachment-link:hover {
+        text-decoration: underline;
+      }
+
+      .attachments {
+        margin-bottom: 100px;
+      }
+
+      .page-h2 {
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h3);
+        font-weight: var(--weight-bold);
+        margin-bottom: 25px;
+      }
+
+      .section {
+        .title {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-regular);
+          margin-bottom: 25px;
+        }
+
+        .card {
+          padding: 24px;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          .title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-bold);
+          }
+          .table-header {
+            display: grid;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            padding: 8px 0px;
+            color: #6c8490;
+            font-size: var(--font-caption);
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+            font-weight: var(--weight-bold);
+          }
+
+          > .table-row {
+            display: grid;
+            align-items: start;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            padding: 16px 0;
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+          }
+
+          .regulation-name {
+            color: var(--darkGrey800, #576972);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+            line-height: 150%;
+          }
+
+          .article-number {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .content {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .status-text {
+            color: var(--darkGrey700, #6c8490);
+            text-align: center;
+            font-size: var(--font-small);
+            font-weight: var(--weight-bold);
+            border-radius: var(--border-radius-s);
+            padding: 6px 12px;
+            line-height: normal;
+          }
+
+          .status-pending {
+            color: var(--darkGrey700, #6c8490);
+            background: var(--darkGrey150, #eff5f9);
+          }
+
+          .status-linked {
+            color: var(--Primary600, #009eb8);
+            background: var(--Primary200, #e8f6f9);
+          }
+
+          .eye-icon {
+            width: 20px;
+            height: 20px;
+            color: #009eb8 !important;
+            cursor: pointer;
+          }
+
+          .suggested-section {
+            margin-top: 24px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            align-self: stretch;
+            border-radius: var(--border-radius-l);
+            background: var(--darkGrey50, #f7fafd);
+            .table-row {
+              display: grid;
+              align-items: start;
+              grid-template-columns: 3fr 1fr 2.5fr 0.5fr;
+              padding: 16px 0;
+              border-bottom: 1px solid #e1eaef;
+              gap: 20px;
+            }
+          }
+
+          .title-outer {
+            display: flex;
+
+            .star {
+              margin-right: 6px;
+            }
+
+            .suggested-title {
+              font-family: "Noto Sans TC";
+              font-size: var(--font-p-lg);
+              font-style: normal;
+              font-weight: var(--weight-bold);
+              line-height: normal;
+              background: var(
+                --gradientLogotype,
+                linear-gradient(90deg, #2f5d70 0%, #01a7bf 100%)
+              );
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+
+      .dialog-modal {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        width: 90%;
+        max-width: 800px;
+        border-radius: var(--border-radius-m);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        .modal-header {
+          padding: 18px 20px;
+          border-bottom: 1px solid var(--darkGrey200);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .modal-title {
+          margin: auto;
+          color: var(--darkGrey900, #344858);
+          text-align: center;
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-bold);
+          line-height: 24px;
+        }
+
+        .close-button {
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+        }
+
+        .modal-content {
+          padding: 32px 30px;
+        }
+
+        .bank-info {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+          margin-bottom: 8px;
+        }
+
+        .department-info {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-caption);
+          font-weight: var(--weight-regular);
+          margin-bottom: 24px;
+        }
+
+        h2 {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-bold);
+          margin-bottom: 12px;
+        }
+
+        .article-section {
+          overflow: scroll;
+          color: var(--darkGrey900, #344858);
+          display: flex;
+          height: 180px;
+          padding: 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          align-self: stretch;
+          border-radius: var(--border-radius-s);
+          background: var(--darkGrey100, #f3f9fc);
+          font-size: var(--font-p-sm);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          margin-bottom: 32px;
+        }
+
+        .history-section {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          align-self: stretch;
+        }
+
+        .history-section h2 {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-bold);
+          line-height: 24px;
+          margin-bottom: 16px;
+        }
+
+        .history-table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .history-table th {
+          padding: 8px 0;
+          text-align: left;
+          color: #344858;
+          border-bottom: 2px solid var(--darkGrey200, #e1eaef);
+        }
+
+        .history-table td {
+          padding: 12px 0;
+          border-bottom: 1px solid #dee2e6;
+          color: #6c8490;
+        }
+
+        .modal-footer {
+          padding: 20px 30px;
+          text-align: center;
+        }
+
+        .close-modal-button {
+          background-color: #009eb8;
+          border: none;
+          padding: 6px 12px;
+          border-radius: var(--border-radius-s);
+          cursor: pointer;
+          font-size: var(--font-h6);
+          color: var(--White, #fff);
+          text-align: center;
+          font-family: "SF Pro Display";
+          font-weight: var(--weight-regular);
+          line-height: 24px;
+        }
+      }
+      .dialog-modal.active {
+        display: block;
+      }
+
+      /* Responsive Design */
+      @media screen and (min-width: 768px) {
+        .legal-info {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .version-info {
+          flex-wrap: nowrap;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .version-table {
+          display: block;
+          overflow-x: auto;
+        }
+
+        .info-item {
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+
+        .info-label {
+          width: auto;
+        }
+
+        .version-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c12-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c12-template"></div>
+
+          <div class="container">
+            <!-- Header -->
+            <header class="header">
+              <button class="back-button">
+                <img src="./assets/icons/arrow_left.svg" alt="" />
+                <span>法規內容管理</span>
+              </button>
+              <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
+            </header>
+
+            <!-- Legal Information -->
+            <section class="card">
+              <h2 class="card-title">法規資訊</h2>
+              <div class="legal-info">
+                <div class="info-item">
+                  <span class="info-label">公布日期</span>
+                  <span>2023-06-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">修正日期</span>
+                  <span>2024-07-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">權責單位</span>
+                  <span>法令遵循部</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Version History -->
+            <section class="card">
+              <h2 class="card-title">版本資訊總覽</h2>
+
+              <!-- Expanded Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status reviewed">已覆核</span>
+                    <span class="date">2024-10-14</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 郭珮昕</span
+                    >
+                  </div>
+                  <div id="toggle-btn1" class="toggle-btn">
+                    <div class="open">
+                      <span>收合</span>
+                      <img src="./assets/icons/arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close disable">
+                      <span>展開</span>
+                      <img src="./assets/icons/arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="frame-sm1" class="frame-sm active">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Collapsed Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status unpublished">未公開</span>
+                    <span class="date">2021-10-01</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 劉山雀</span
+                    >
+                  </div>
+                  <div id="toggle-btn2" class="toggle-btn">
+                    <div class="open disable">
+                      <span>收合</span>
+                      <img src="./assets/icons/arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close">
+                      <span>展開</span>
+                      <img src="./assets/icons/arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div id="frame-sm2" class="frame-sm">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
+            </section>
+
+            <h2 class="page-h2">所有條文</h2>
+
+            <section id="section-1" class="section">
+              <h3 class="title">第 1 條 <span>目的</span></h3>
+              <div class="card">
+                本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
+                有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
+              </div>
+
+              <div class="card">
+                <h1 class="title">關聯法規</h1>
+
+                <div class="table-header">
+                  <div>法規名稱</div>
+                  <div>條號</div>
+                  <div>條文內容</div>
+                  <div>關聯狀態</div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="status">
+                    <span class="status-text status-pending">尚未確認</span>
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="status">
+                    <span class="status-text status-linked">已關聯</span>
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    資金辦理專案運用公共及社會福利事業投資
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="status">
+                    <span class="status-text status-linked">已關聯</span>
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="suggested-section">
+                  <div class="title-outer">
+                    <span class="star"
+                      ><img src="./assets/icons/general_AI.svg" alt=""
+                    /></span>
+                    <h2 class="suggested-title">模型建議關聯法規</h2>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="section-2" class="section">
+              <h3 class="title">第 2 條 <span>產品說明</span></h3>
+              <div class="card">
+                本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
+                有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
+              </div>
+
+              <div class="card">
+                <h1 class="title">關聯內規</h1>
+
+                <div class="table-header">
+                  <div>權責單位與內規名稱</div>
+                  <div>條號</div>
+                  <div>條文內容</div>
+                  <div>關聯狀態</div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="status">
+                    <span class="status-text status-pending">尚未確認</span>
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="status">
+                    <span class="status-text status-linked">已關聯</span>
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    資金辦理專案運用公共及社會福利事業投資
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="status">
+                    <span class="status-text status-linked">已關聯</span>
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="suggested-section">
+                  <div class="title-outer">
+                    <h2 class="suggested-title">模型建議關聯內規</h2>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+
+      <div class="dialog-modal" id="dialog-modal">
+        <div class="modal-header">
+          <h1 class="modal-title">關聯設定紀錄</h1>
+          <button class="close-button close-active">
+            <img src="./assets/icons/general_cancel.svg" alt="" />
+          </button>
+        </div>
+        <div class="modal-content">
+          <div class="bank-info">
+            國泰世華商業銀行財物管理要點國泰世華商業銀行財物管理要點
+          </div>
+          <div class="department-info">權責單位：投資管理部 XXXXXX 科</div>
+          <h2>第 108 條</h2>
+          <div class="article-section">
+            <p>
+              本公司從事取得或處分資產等重大財務業務修為，應依相關法令規定辦理，並訂定相關作業程序，提報的的我到手我膽心長焦帶出北真終漸論少器本間請名樣認以程總，他土儒卻謝表些這交最是...車。尼名出難全內所讓才感激就是菱市主並用已發請唔，淺話又度員不分我刷因在殘研否氣何處個要種果迄續氣文加信從...賭賽已坪處仁家我水的以法書！錯強伴放就是抱媽使二太便，真不柱飄賢否。巨於那，重大要噴成黨；要相然妳氣箭里功有。，恭雷你所社處資死做並西跋題入，，的義利在快在哦啦...有不神中世認鎮，已但便的？米真鶯傳邱網的試...希聽醬體劫決遠剛大或的表...一幾目看打，都學，音，用朗女中。真國蜀到；；及中打更購，若是
+            </p>
+          </div>
+          <div class="history-section">
+            <h2>歷史紀錄</h2>
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>時間</th>
+                  <th>處理人員</th>
+                  <th>更新內容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2024-10-13</td>
+                  <td>15:33:29</td>
+                  <td>00902940 法令遵循部 李樹欄</td>
+                  <td>確認無關</td>
+                </tr>
+                <tr>
+                  <td>2024-10-13</td>
+                  <td>15:33:29</td>
+                  <td>系統更新</td>
+                  <td>文本內容更新</td>
+                </tr>
+                <tr>
+                  <td>2024-10-13</td>
+                  <td>15:33:29</td>
+                  <td>00902940 法令遵循部 李樹欄</td>
+                  <td>確認有關</td>
+                </tr>
+                <tr>
+                  <td>2024-10-13</td>
+                  <td>15:33:29</td>
+                  <td>00902940 法令遵循部 林狐獾</td>
+                  <td>確認無關</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="close-modal-button close-active">關閉</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      //表單欄位收合
+      const frameSm1 = document.getElementById("frame-sm1");
+      document
+        .getElementById("toggle-btn1")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm1.classList.toggle("active");
+        });
+
+      const frameSm2 = document.getElementById("frame-sm2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm2.classList.toggle("active");
+        });
+
+      // 彈窗
+      const eyes = document.querySelectorAll(".eye-icon");
+      const dialog = document.getElementById("dialog-modal");
+      eyes.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.add("active");
+        });
+      });
+
+      const closeDialog = document.querySelectorAll(".close-active");
+      closeDialog.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.remove("active");
+        });
+      });
+
+      // // 偵測滑動區塊
+      // window.addEventListener("scroll", function () {
+      //   let sections = document.querySelectorAll(".section");
+      //   let navLinks = document.querySelectorAll(
+      //     "#nav-c12-container .sidebar a"
+      //   );
+
+      //   sections.forEach((section) => {
+      //     let rect = section.getBoundingClientRect();
+      //     if (rect.top >= 0 && rect.top < window.innerHeight / 8) {
+      //       let id = section.id;
+      //       console.log("🚀 ~ sections.forEach ~ id:", id);
+      //       navLinks.forEach((link) => {
+      //         link.classList.remove("active");
+      //         if (link.getAttribute("href").substring(1) === id) {
+      //           link.classList.add("active");
+      //         }
+      //       });
+      //     }
+      //   });
+      // });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c12.html", "nav-c12-template");
+      loadComponent(
+        "./components/breadcrumb-c12.html",
+        "breadcrumb-c12-template"
+      );
+    </script>
+  </body>
+</html>
