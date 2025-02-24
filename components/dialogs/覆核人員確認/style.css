@@ -1,0 +1,82 @@
+/* 覆核人員確認 dialog */
+#confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: none;
+  .confirm-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--border-radius-l);
+    width: 100%;
+    max-width: 390px;
+    background: var(--White, #fff);
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+
+    .modal-header {
+      display: flex;
+      padding: 16px 20px;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+    }
+
+    .modal-title {
+      color: var(--darkGrey900, #344858);
+      text-align: center;
+      font-size: var(--font-h6);
+      font-weight: var(--weight-bold);
+    }
+
+    .modal-body {
+      color: var(--darkGrey900, #344858);
+      text-align: center;
+      font-size: var(--font-h6);
+      font-weight: var(--weight-regular);
+      line-height: 150%;
+      padding: 20px 20px 0;
+      margin-bottom: 40px;
+      span {
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+      }
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      padding: 0 0 20px;
+    }
+
+    .btn {
+      padding: 12px 16px;
+      border-radius: var(--border-radius-m);
+      font-size: var(--font-h6);
+    }
+
+    .btn-cancel {
+      background: var(--darkGrey150, #eff5f9);
+      color: var(--darkGrey900, #344858);
+      font-weight: var(--weight-regular);
+    }
+
+    .btn-submit {
+      background: var(--Primary600, #009eb8);
+      color: var(--White, #fff);
+      font-weight: var(--weight-bold);
+    }
+  }
+}
+#confirm-overlay.open {
+  display: flex;
+}

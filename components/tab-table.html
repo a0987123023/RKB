@@ -86,6 +86,7 @@
           }
           /* 內容管理按鈕 */
           .button-status {
+            position: relative;
             display: inline-block;
             max-width: 100px;
             text-align: center;
@@ -94,6 +95,44 @@
             font-weight: var(--weight-bold);
             border-radius: var(--border-radius-s);
           }
+
+          .speech-bubble {
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -40px;
+            display: inline-block;
+            background-color: var(--darkGrey800);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-caption);
+            font-weight: var(--weight-medium);
+            min-width: 150px;
+            opacity: 0;
+            z-index: 999;
+          }
+
+          .speech-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            transform: translateX(-50%);
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid var(--darkGrey800);
+          }
+
+          .button-status:hover .speech-bubble {
+            z-index: 1;
+            opacity: 1;
+            transition: 0.5s opacity ease-in;
+          }
+
           .processing {
             color: var(--darkGrey700);
             background: var(--darkGrey100);
@@ -199,7 +238,7 @@
           <div class="title flex border-b px-6">內規列表</div>
         </div>
         <a href="C.13.1-內規上傳頁-上傳全新內規.html" class="upload-btn">
-          <img src="../assets/icons/cloud_upload.svg" alt="" />
+          <img src="../assets/icons/icon_upload.svg" alt="" />
           <span>上傳</span>
         </a>
       </div>
@@ -229,15 +268,24 @@
               </td>
               <td class="max-w-[300px]">YYYY/MM/DD</td>
               <td class="max-w-[300px]">
-                <span class="button-status review">覆核中</span>
+                <span class="button-status review"
+                  >覆核中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4">
-                <span class="button-status not-started">未開始</span>
+                <span class="button-status not-started"
+                  >未開始
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4 control">
                 <div class="flex items-center space-x-2">
                   <a class="p-1 mr-0">
-                    <img class="img" src="./assets/icons/pen_disable.svg" />
+                    <img
+                      class="img"
+                      src="./assets/icons/icon_edit_disable.svg"
+                    />
                   </a>
                   <img class="line" src="./assets/icons/line.svg" />
                   <button class="p-1">
@@ -255,15 +303,21 @@
               </td>
               <td class="max-w-[300px]">YYYY/MM/DD</td>
               <td class="max-w-[300px]">
-                <span class="button-status done">已完成</span>
+                <span class="button-status done"
+                  >已完成
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4">
-                <span class="button-status comparing">比對中</span>
+                <span class="button-status comparing"
+                  >比對中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4 control">
                 <div class="flex items-center space-x-2">
                   <a class="p-1 mr-0">
-                    <img class="img" src="./assets/icons/pen_enable.svg" />
+                    <img class="img" src="./assets/icons/icon_edit.svg" />
                   </a>
                   <img class="line" src="./assets/icons/line.svg" />
                   <button class="p-1">
@@ -281,15 +335,24 @@
               </td>
               <td class="max-w-[300px]">YYYY/MM/DD</td>
               <td class="max-w-[300px]">
-                <span class="button-status processing">承辦處理中</span>
+                <span class="button-status processing"
+                  >承辦處理中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4">
-                <span class="button-status case-sharing">分案中</span>
+                <span class="button-status case-sharing"
+                  >分案中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4 control">
                 <div class="flex items-center space-x-2">
                   <a class="p-1 mr-0">
-                    <img class="img" src="./assets/icons/pen_disable.svg" />
+                    <img
+                      class="img"
+                      src="./assets/icons/icon_edit_disable.svg"
+                    />
                   </a>
                   <img class="line" src="./assets/icons/line.svg" />
                   <button class="p-1">
@@ -307,15 +370,24 @@
               </td>
               <td class="max-w-[300px]">YYYY/MM/DD</td>
               <td class="max-w-[300px]">
-                <span class="button-status processing">承辦處理中</span>
+                <span class="button-status processing"
+                  >承辦處理中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4">
-                <span class="button-status processing">承辦處理中</span>
+                <span class="button-status processing"
+                  >承辦處理中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4 control">
                 <div class="flex items-center space-x-2">
                   <a class="p-1 mr-0">
-                    <img class="img" src="./assets/icons/pen_disable.svg" />
+                    <img
+                      class="img"
+                      src="./assets/icons/icon_edit_disable.svg"
+                    />
                   </a>
                   <img class="line" src="./assets/icons/line.svg" />
                   <button class="p-1">
@@ -331,15 +403,21 @@
               <td class="max-w-[300px]">修正電子支付機構管理條例條文</td>
               <td class="max-w-[300px]">YYYY/MM/DD</td>
               <td class="max-w-[300px]">
-                <span class="button-status processing">承辦處理中</span>
+                <span class="button-status processing"
+                  >承辦處理中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4">
-                <span class="button-status review">覆核中</span>
+                <span class="button-status review"
+                  >覆核中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4 control">
                 <div class="flex items-center space-x-2">
                   <a class="p-1 mr-0">
-                    <img class="img" src="./assets/icons/pen_enable.svg" />
+                    <img class="img" src="./assets/icons/icon_edit.svg" />
                   </a>
                   <img class="line" src="./assets/icons/line.svg" />
                   <button class="p-1">
@@ -357,15 +435,24 @@
               </td>
               <td class="max-w-[300px]">YYYY/MM/DD</td>
               <td class="max-w-[300px]">
-                <span class="button-status processing">承辦處理中</span>
+                <span class="button-status processing"
+                  >承辦處理中
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4">
-                <span class="button-status done">已完成</span>
+                <span class="button-status done"
+                  >已完成
+                  <div class="speech-bubble">10/26 12:00 覆核中</div></span
+                >
               </td>
               <td class="py-4 px-4 control">
                 <div class="flex items-center space-x-2">
                   <a class="p-1 mr-0">
-                    <img class="img" src="./assets/icons/pen_disable.svg" />
+                    <img
+                      class="img"
+                      src="./assets/icons/icon_edit_disable.svg"
+                    />
                   </a>
                   <img class="line" src="./assets/icons/line.svg" />
                   <button class="p-1">

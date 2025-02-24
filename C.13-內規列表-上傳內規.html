@@ -417,88 +417,6 @@
         display: none;
       }
 
-      .dialog-modal {
-        display: none;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.17);
-        backdrop-filter: blur(10px);
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        .inner {
-          position: fixed;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          background: var(--White, #fff);
-          border-radius: var(--border-radius-l);
-          width: 100%;
-          max-width: 390px;
-          box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
-          .modal-header {
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--darkGrey200, #e1eaef);
-          }
-
-          .modal-title {
-            color: var(--darkGrey900, #344858);
-            text-align: center;
-            font-size: var(--font-h6);
-            font-weight: var(--weight-bold);
-          }
-
-          .modal-content {
-            padding: 20px 20px 0;
-            text-align: center;
-            min-height: 50px;
-            display: flex;
-            justify-content: center;
-            color: var(--darkGrey900, #344858);
-            font-size: var(--font-h6);
-            font-weight: var(--weight-regular);
-          }
-
-          .modal-footer {
-            padding: 24px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-          }
-
-          .btn {
-            display: flex;
-            padding: 12px 16px;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-radius: var(--border-radius-m);
-            font-size: var(--font-h6);
-          }
-
-          .btn-secondary {
-            background: var(--darkGrey150, #eff5f9);
-            color: var(--darkGrey900, #344858);
-            font-weight: var(--weight-regular);
-          }
-
-          .btn-primary {
-            border-radius: var(--border-radius-m);
-            background: var(--Primary600, #009eb8);
-            color: var(--White, #fff);
-            font-weight: var(--weight-bold);
-          }
-        }
-      }
-      .dialog-modal.open {
-        display: block;
-      }
-
       @media (max-width: 768px) {
         .form-row {
           flex-direction: column;
@@ -665,7 +583,7 @@
         <div class="main flex-[80%]">
           <div id="breadcrumb-c13-template"></div>
           <div class="go-back">
-            <img src="./assets/icons/arrow_left.svg" alt="" />
+            <img src="./assets/icons/icon_arrow_left.svg" alt="" />
             <span>法規內容管理</span>
           </div>
           <!-- step 1 -->
@@ -677,10 +595,10 @@
                 </div>
                 <div id="toggle-btn1" class="toggle-btn">
                   <div class="open disable">
-                    <img src="./assets/icons/arrow_up.svg" alt="" />
+                    <img src="./assets/icons/icon_arrow_up.svg" alt="" />
                   </div>
                   <div class="close">
-                    <img src="./assets/icons/arrow_down.svg" alt="" />
+                    <img src="./assets/icons/icon_arrow_down.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -689,7 +607,7 @@
             <div class="form-section-2 required">
               <div class="section-content">
                 <div class="subsection-header">
-                  <img src="./assets/icons/general_info.svg" alt="" />
+                  <img src="./assets/icons/icon_info_outline.svg" alt="" />
                   <h2>法規資訊</h2>
                 </div>
 
@@ -757,17 +675,21 @@
                   >
                   <div class="upload-area">
                     <img
-                      src="./assets/icons/cloud_upload_gray.svg"
+                      src="./assets/icons/icon_upload_gray.svg"
                       alt=""
                     /><span>點擊或拖拉以新增檔案</span>
                   </div>
                   <div class="file-list">
                     <div>
-                      <img class="clip" src="./assets/icons/clip.svg" alt="" />
+                      <img
+                        class="clip"
+                        src="./assets/icons/icon_attachment.svg"
+                        alt=""
+                      />
                       <span>證券投資人及期貨交易人保護法.pdf</span>
                     </div>
                     <div class="edit-btn">
-                      <img src="./assets/icons/pen_outlined.svg" alt="" />
+                      <img src="./assets/icons/icon_edit_outline.svg" alt="" />
                       <ul class="drop-down">
                         <li>編輯</li>
                         <li>預覽</li>
@@ -776,7 +698,7 @@
                     </div>
                   </div>
                   <div class="time-list">
-                    <img src="./assets/icons/clock.svg" alt="" />
+                    <img src="./assets/icons/icon_clock.svg" alt="" />
                     <span>上傳時間 2025-01-29 15:33:22</span>
                   </div>
                 </div>
@@ -789,17 +711,21 @@
                   >
                   <div class="upload-area">
                     <img
-                      src="./assets/icons/cloud_upload_gray.svg"
+                      src="./assets/icons/icon_upload_gray.svg"
                       alt=""
                     /><span>點擊或拖拉以新增檔案</span>
                   </div>
                   <div class="file-list">
                     <div>
-                      <img class="clip" src="./assets/icons/clip.svg" alt="" />
+                      <img
+                        class="clip"
+                        src="./assets/icons/icon_attachment.svg"
+                        alt=""
+                      />
                       <span>證券投資人及期貨交易人保護法.pdf</span>
                     </div>
                     <div class="edit-btn">
-                      <img src="./assets/icons/pen_outlined.svg" alt="" />
+                      <img src="./assets/icons/icon_edit_outline.svg" alt="" />
                       <ul class="drop-down">
                         <li>編輯</li>
                         <li>預覽</li>
@@ -808,7 +734,7 @@
                     </div>
                   </div>
                   <div class="time-list" style="margin-bottom: 32px">
-                    <img src="./assets/icons/clock.svg" alt="" />
+                    <img src="./assets/icons/icon_clock.svg" alt="" />
                     <span>上傳時間 2025-01-29 15:33:22</span>
                   </div>
                   <button
@@ -831,17 +757,17 @@
                 </div>
                 <div id="toggle-btn2" class="toggle-btn">
                   <div class="open">
-                    <img src="./assets/icons/arrow_up.svg" alt="" />
+                    <img src="./assets/icons/icon_arrow_up.svg" alt="" />
                   </div>
                   <div class="close disable">
-                    <img src="./assets/icons/arrow_down.svg" alt="" />
+                    <img src="./assets/icons/icon_arrow_down.svg" alt="" />
                   </div>
                 </div>
               </div>
             </div>
             <div class="form-section-2 required">
               <div class="section-header-2">
-                <img src="./assets/icons/cloud_upload_gray.svg" alt="" />
+                <img src="./assets/icons/icon_upload_gray.svg" alt="" />
                 <h2>上傳解析條文用檔案</h2>
                 <span class="required-mark">必填</span>
               </div>
@@ -850,17 +776,21 @@
                   <label>允許上傳的檔案格式：csv, docx 等文件檔</label>
                   <div class="upload-area">
                     <img
-                      src="./assets/icons/cloud_upload_gray.svg"
+                      src="./assets/icons/icon_upload_gray.svg"
                       alt=""
                     /><span>點擊或拖拉以新增檔案</span>
                   </div>
                   <div class="file-list">
                     <div>
-                      <img class="clip" src="./assets/icons/clip.svg" alt="" />
+                      <img
+                        class="clip"
+                        src="./assets/icons/icon_attachment.svg"
+                        alt=""
+                      />
                       <span>證券投資人及期貨交易人保護法.pdf</span>
                     </div>
                     <div class="edit-btn">
-                      <img src="./assets/icons/pen_outlined.svg" alt="" />
+                      <img src="./assets/icons/icon_edit_outline.svg" alt="" />
                       <ul class="drop-down">
                         <li>編輯</li>
                         <li>預覽</li>
@@ -869,7 +799,7 @@
                     </div>
                   </div>
                   <div class="time-list">
-                    <img src="./assets/icons/clock.svg" alt="" />
+                    <img src="./assets/icons/icon_clock.svg" alt="" />
                     <span>上傳時間 2025-01-29 15:33:22</span>
                   </div>
                 </div>
@@ -886,7 +816,7 @@
               <div class="subsection-header">
                 <h2>解析結果</h2>
                 <div class="btn">
-                  <img src="./assets/icons/general_check_circle.svg" alt="" />
+                  <img src="./assets/icons/icon_check_circle.svg" alt="" />
                   <p>解析成功</p>
                 </div>
                 <div class="time-list">
@@ -939,7 +869,7 @@
                           />
                           <a href="#" class="law-link">第1條</a>
                         </nav>
-                        <img src="./assets/icons/arrow_right.svg" alt="" />
+                        <img src="./assets/icons/icon_arrow_right.svg" alt="" />
                         <div class="nav-container">
                           <button class="nav-button">
                             <div class="nav-left">
@@ -959,7 +889,10 @@
                                 alt=""
                               />
                               <span class="nav-item">第1條</span>
-                              <img src="./assets/icons/arrow_down.svg" alt="" />
+                              <img
+                                src="./assets/icons/icon_arrow_down.svg"
+                                alt=""
+                              />
                             </div>
                           </button>
                         </div>
@@ -986,27 +919,6 @@
             <button class="send">送出覆核</button>
           </div>
           <div class="flex-[10%]"></div>
-        </div>
-      </div>
-
-      <div id="dialog-modal" class="dialog-modal">
-        <div class="inner">
-          <div class="modal-header">
-            <span></span>
-            <h2 class="modal-title">上傳失敗</h2>
-            <img
-              class="close-dialog"
-              src="./assets/icons/general_cancel.svg"
-              alt=""
-            />
-          </div>
-          <div class="modal-content">
-            <p>請檢查上傳內容是否格式有誤</p>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary close-dialog">返回</button>
-            <button class="btn btn-primary close-dialog">重新上傳</button>
-          </div>
         </div>
       </div>
     </div>
@@ -1083,21 +995,6 @@
             // 為當前點擊的按鈕加上 active
             this.classList.add("active");
           }
-        });
-      });
-
-      // 錯誤彈窗開關
-      const openDialog = document.querySelectorAll(".upload-area");
-      const dialog = document.getElementById("dialog-modal");
-      openDialog.forEach((btn) => {
-        btn.addEventListener("click", function () {
-          dialog.classList.add("open");
-        });
-      });
-      const closeDialog = document.querySelectorAll(".close-dialog");
-      closeDialog.forEach((btn) => {
-        btn.addEventListener("click", function () {
-          dialog.classList.remove("open");
         });
       });
 

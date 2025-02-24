@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- 覆核人員確認 -->
+    <!-- C.14.3.3 -->
+    <div id="confirm-overlay" class="confirm-overlay open">
+      <div class="confirm-modal">
+        <div class="modal-header">
+          <p></p>
+          <h2 class="modal-title">覆核人員確認</h2>
+          <button class="close-button overlay-close">
+            <img src="./assets/icons/icon_close.svg" alt="" />
+          </button>
+        </div>
+        <div class="modal-body">
+          確認由 <span>合規策略發展科 王小明</span> 覆核？<br />
+          送出即無法修改
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-cancel overlay-close">取消</button>
+          <button class="btn btn-submit" id="send">送出</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

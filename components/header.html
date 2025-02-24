@@ -601,7 +601,7 @@
     <div class="frame-4">
       <div class="frame-5">
         <div id="notification" class="notification">
-          <img class="img" src="./assets/icons/notify.svg" />
+          <img class="img" src="./assets/icons/icon_notify_has_number.svg" />
           <div class="notification-container">
             <div class="header">
               <span class="header-text">通知</span>
@@ -660,7 +660,7 @@
         </div>
         <div class="div-wrapper-2 profile">
           <div class="frame-6 profile-title">
-            <img class="img" src="./assets/icons/profile_solid.svg" />
+            <img class="img" src="./assets/icons/icon_profile.svg" />
             <div class="text-wrapper-4">王小明</div>
           </div>
           <div class="profile-card">
@@ -693,7 +693,7 @@
     </div>
     <aside class="menu-sidebar closed">
       <button class="close-btn" onclick="closeSidebar()">
-        <img src="../assets/icons/general_cancel.svg" alt="" />
+        <img src="../assets/icons/icon_close.svg" alt="" />
       </button>
       <nav>
         <ul class="menu-list">
@@ -752,7 +752,7 @@
     document.querySelector(".menu-sidebar").classList.add("closed");
   }
   function openSidebar() {
-    document.querySelector(".menu-sidebar").classList.remove("closed");
+    document.querySelector(".menu-sidebar").classList.toggle("closed");
   }
 
   customElements.define("header-element", HeaderElement);

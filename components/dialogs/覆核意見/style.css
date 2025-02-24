@@ -1,0 +1,93 @@
+#review-opinion-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  display: none;
+  .modal {
+    border-radius: var(--border-radius-l);
+    width: 100%;
+    width: 720px;
+    position: relative;
+    border: 1px solid var(--darkGrey200, #282f33);
+    background: var(--global-09-white, #fff);
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+  }
+
+  .modal-header {
+    display: flex;
+    padding: 16px 20px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid var(--darkGrey200, #e1eaef);
+  }
+
+  .modal-title {
+    color: var(--darkGrey900, #344858);
+    text-align: center;
+    font-size: var(--font-p-lg);
+    font-weight: var(--weight-bold);
+    line-height: 24px;
+  }
+
+  .modal-content {
+    padding: 32px 30px 0;
+  }
+
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    color: var(--darkGrey700, #6c8490);
+    font-size: var(--font-p-sm);
+    font-weight: var(--weight-bold);
+    margin-bottom: 12px;
+  }
+
+  .content-box {
+    display: flex;
+    padding: 12px 16px;
+    align-items: center;
+    border-radius: var(--border-radius-m);
+    background: var(--darkGrey100, #f3f9fc);
+  }
+
+  .status-text {
+    display: flex;
+    align-items: center;
+    color: var(--darkGrey800, #576972);
+    font-size: var(--font-h6);
+    font-weight: var(--weight-medium);
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    padding: 20px 30px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .close-modal-button {
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-m);
+    background: var(--Primary600, #009eb8);
+    color: var(--White, #fff);
+    font-size: var(--font-p-md);
+    font-weight: var(--weight-bold);
+  }
+}
+#review-opinion-overlay.open {
+  display: flex;
+}

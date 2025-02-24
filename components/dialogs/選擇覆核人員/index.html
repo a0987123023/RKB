@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- 選擇覆核人員 -->
+    <!-- C.14.1.1 -->
+    <!-- C.14.3.2 -->
+    <div id="modal-overlay" class="modal-overlay open">
+      <div class="modal">
+        <div class="modal-header">
+          <p></p>
+          <h2 class="modal-title">選擇覆核人員</h2>
+          <img
+            class="close-button overlay-close"
+            src="../../../assets/icons/icon_close.svg"
+            alt=""
+          />
+        </div>
+
+        <div class="search-container">
+          <form class="search-form">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="搜尋員編或覆核人員姓名"
+            />
+            <button class="search-button">搜尋</button>
+          </form>
+        </div>
+
+        <div class="modal-content">
+          <h3 class="section-title">選擇人員</h3>
+          <div class="department-section">
+            <details open>
+              <summary>法令遵循部</summary>
+              <div class="reviewer-list">
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer1"
+                    class="reviewer-radio"
+                    checked
+                  />
+                  <label for="reviewer1">00000000 副理 王小明</label>
+                </div>
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer2"
+                    class="reviewer-radio"
+                  />
+                  <label for="reviewer2">00000000 副理 王小明</label>
+                </div>
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer3"
+                    class="reviewer-radio"
+                  />
+                  <label for="reviewer3">00000000 副理 王小明</label>
+                </div>
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer4"
+                    class="reviewer-radio"
+                  />
+                  <label for="reviewer4">00000000 副理 王小明</label>
+                </div>
+                <div class="reviewer-item">
+                  <input
+                    type="radio"
+                    name="reviewer"
+                    id="reviewer5"
+                    class="reviewer-radio"
+                  />
+                  <label for="reviewer5">00000000 副理 王小明</label>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+        <!-- 需卡控重新覆核才需顯示 -->
+        <div class="modal-content">
+          <h3 class="section-title">前次覆核人員</h3>
+          <div class="ex-reviewers">
+            <span>
+              國泰金控 數位數據暨科技發展中心 數據暨人工智慧發展部
+              合規策略發展科 王小明
+            </span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="selected-reviewers">
+            <span class="title"> 確認指定以下人員為覆核人員： </span>
+            <span>
+              國泰金控 數位數據暨科技發展中心 數據暨人工智慧發展部
+              合規策略發展科 王小明
+            </span>
+          </div>
+          <div class="button-group">
+            <button class="cancel-button overlay-close">取消</button>
+            <button
+              id="modal-overlay-check"
+              class="confirm-button modal-overlay-check"
+            >
+              確認
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

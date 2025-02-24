@@ -389,141 +389,6 @@
         }
       }
 
-      .dialog-modal {
-        display: none;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        width: 90%;
-        max-width: 800px;
-        border-radius: var(--border-radius-m);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-        .modal-header {
-          padding: 18px 20px;
-          border-bottom: 1px solid var(--darkGrey200);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .modal-title {
-          margin: auto;
-          color: var(--darkGrey900, #344858);
-          text-align: center;
-          font-size: var(--font-p-lg);
-          font-weight: var(--weight-bold);
-          line-height: 24px;
-        }
-
-        .close-button {
-          cursor: pointer;
-          width: 20px;
-          height: 20px;
-        }
-
-        .modal-content {
-          padding: 32px 30px;
-        }
-
-        .bank-info {
-          color: var(--darkGrey900, #344858);
-          font-size: var(--font-h6);
-          font-weight: var(--weight-medium);
-          margin-bottom: 8px;
-        }
-
-        .department-info {
-          color: var(--darkGrey700, #6c8490);
-          font-size: var(--font-caption);
-          font-weight: var(--weight-regular);
-          margin-bottom: 24px;
-        }
-
-        h2 {
-          color: var(--darkGrey700, #6c8490);
-          font-size: var(--font-p-sm);
-          font-weight: var(--weight-bold);
-          margin-bottom: 12px;
-        }
-
-        .article-section {
-          overflow: scroll;
-          color: var(--darkGrey900, #344858);
-          display: flex;
-          height: 180px;
-          padding: 20px;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-          align-self: stretch;
-          border-radius: var(--border-radius-s);
-          background: var(--darkGrey100, #f3f9fc);
-          font-size: var(--font-p-sm);
-          font-weight: var(--weight-regular);
-          line-height: 150%;
-          margin-bottom: 32px;
-        }
-
-        .history-section {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          align-self: stretch;
-        }
-
-        .history-section h2 {
-          color: var(--darkGrey700, #6c8490);
-          font-size: var(--font-h6);
-          font-weight: var(--weight-bold);
-          line-height: 24px;
-          margin-bottom: 16px;
-        }
-
-        .history-table {
-          width: 100%;
-          border-collapse: collapse;
-        }
-
-        .history-table th {
-          padding: 8px 0;
-          text-align: left;
-          color: #344858;
-          border-bottom: 2px solid var(--darkGrey200, #e1eaef);
-        }
-
-        .history-table td {
-          padding: 12px 0;
-          border-bottom: 1px solid #dee2e6;
-          color: #6c8490;
-        }
-
-        .modal-footer {
-          padding: 20px 30px;
-          text-align: center;
-        }
-
-        .close-modal-button {
-          background-color: #009eb8;
-          border: none;
-          padding: 6px 12px;
-          border-radius: var(--border-radius-s);
-          cursor: pointer;
-          font-size: var(--font-h6);
-          color: var(--White, #fff);
-          text-align: center;
-          font-family: "SF Pro Display";
-          font-weight: var(--weight-regular);
-          line-height: 24px;
-        }
-      }
-      .dialog-modal.active {
-        display: block;
-      }
-
       /* Responsive Design */
       @media screen and (min-width: 768px) {
         .legal-info {
@@ -570,7 +435,7 @@
             <!-- Header -->
             <header class="header">
               <button class="back-button">
-                <img src="./assets/icons/arrow_left.svg" alt="" />
+                <img src="./assets/icons/icon_arrow_left.svg" alt="" />
                 <span>法規內容管理</span>
               </button>
               <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
@@ -614,11 +479,11 @@
                   <div id="toggle-btn1" class="toggle-btn">
                     <div class="open">
                       <span>收合</span>
-                      <img src="./assets/icons/arrow_up.svg" alt="" />
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
                     </div>
                     <div class="close disable">
                       <span>展開</span>
-                      <img src="./assets/icons/arrow_down.svg" alt="" />
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
                     </div>
                   </div>
                 </div>
@@ -671,11 +536,11 @@
                   <div id="toggle-btn2" class="toggle-btn">
                     <div class="open disable">
                       <span>收合</span>
-                      <img src="./assets/icons/arrow_up.svg" alt="" />
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
                     </div>
                     <div class="close">
                       <span>展開</span>
-                      <img src="./assets/icons/arrow_down.svg" alt="" />
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
                     </div>
                   </div>
                 </div>
@@ -921,69 +786,6 @@
         </div>
 
         <div class="flex-[10%]"></div>
-      </div>
-
-      <div class="dialog-modal" id="dialog-modal">
-        <div class="modal-header">
-          <h1 class="modal-title">關聯設定紀錄</h1>
-          <button class="close-button close-active">
-            <img src="./assets/icons/general_cancel.svg" alt="" />
-          </button>
-        </div>
-        <div class="modal-content">
-          <div class="bank-info">
-            國泰世華商業銀行財物管理要點國泰世華商業銀行財物管理要點
-          </div>
-          <div class="department-info">權責單位：投資管理部 XXXXXX 科</div>
-          <h2>第 108 條</h2>
-          <div class="article-section">
-            <p>
-              本公司從事取得或處分資產等重大財務業務修為，應依相關法令規定辦理，並訂定相關作業程序，提報的的我到手我膽心長焦帶出北真終漸論少器本間請名樣認以程總，他土儒卻謝表些這交最是...車。尼名出難全內所讓才感激就是菱市主並用已發請唔，淺話又度員不分我刷因在殘研否氣何處個要種果迄續氣文加信從...賭賽已坪處仁家我水的以法書！錯強伴放就是抱媽使二太便，真不柱飄賢否。巨於那，重大要噴成黨；要相然妳氣箭里功有。，恭雷你所社處資死做並西跋題入，，的義利在快在哦啦...有不神中世認鎮，已但便的？米真鶯傳邱網的試...希聽醬體劫決遠剛大或的表...一幾目看打，都學，音，用朗女中。真國蜀到；；及中打更購，若是
-            </p>
-          </div>
-          <div class="history-section">
-            <h2>歷史紀錄</h2>
-            <table class="history-table">
-              <thead>
-                <tr>
-                  <th>日期</th>
-                  <th>時間</th>
-                  <th>處理人員</th>
-                  <th>更新內容</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>2024-10-13</td>
-                  <td>15:33:29</td>
-                  <td>00902940 法令遵循部 李樹欄</td>
-                  <td>確認無關</td>
-                </tr>
-                <tr>
-                  <td>2024-10-13</td>
-                  <td>15:33:29</td>
-                  <td>系統更新</td>
-                  <td>文本內容更新</td>
-                </tr>
-                <tr>
-                  <td>2024-10-13</td>
-                  <td>15:33:29</td>
-                  <td>00902940 法令遵循部 李樹欄</td>
-                  <td>確認有關</td>
-                </tr>
-                <tr>
-                  <td>2024-10-13</td>
-                  <td>15:33:29</td>
-                  <td>00902940 法令遵循部 林狐獾</td>
-                  <td>確認無關</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="close-modal-button close-active">關閉</button>
-        </div>
       </div>
     </div>
 

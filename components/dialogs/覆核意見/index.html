@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- 覆核意見 -->
+    <!-- C.14.3.1 -->
+    <div id="review-opinion-overlay" class="review-opinion-overlay open">
+      <div class="modal">
+        <header class="modal-header">
+          <p></p>
+          <h2 class="modal-title">覆核意見</h2>
+          <button class="close-button overlay-close">
+            <img src="../../../assets/icons/icon_close.svg" alt="" />
+          </button>
+        </header>
+
+        <div class="modal-content">
+          <section class="section">
+            <h3 class="section-title">覆核結果</h3>
+            <div class="content-box">
+              <div class="status-text">
+                <img src="../../../assets/icons/icon_warning.svg" alt="" />
+                <span>未通過</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">退回原因</h3>
+            <div class="content-box">內容缺漏，待補件</div>
+          </section>
+
+          <section class="section">
+            <h3 class="section-title">覆核意見</h3>
+            <div class="content-box">請補充附件後再重新送單</div>
+          </section>
+        </div>
+
+        <footer class="modal-footer">
+          <button class="close-modal-button overlay-close">關閉</button>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

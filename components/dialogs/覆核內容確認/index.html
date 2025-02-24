@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- 覆核內容確認 -->
+    <!-- C.14.2.1 -->
+    <div id="content-overlay" class="content-overlay open">
+      <div class="content-modal">
+        <header class="modal-header">
+          <p></p>
+          <h2 class="modal-title">覆核內容確認</h2>
+          <button class="close-button overlay-close">
+            <img src="../../../assets/icons/icon_close.svg" alt="" />
+          </button>
+        </header>
+
+        <div class="modal-body">
+          <div class="review-section">
+            <h3 class="review-title">覆核內容確認</h3>
+            <div class="radio-group">
+              <div class="reviewer-item">
+                <input
+                  type="radio"
+                  name="reviewer"
+                  id="reviewer7"
+                  class="reviewer-radio"
+                  checked
+                />
+                <label for="reviewer7">覆核通過：即公開此版本內容</label>
+              </div>
+              <div class="reviewer-item">
+                <input
+                  type="radio"
+                  name="reviewer"
+                  id="reviewer8"
+                  class="reviewer-radio"
+                />
+                <label for="reviewer8">退回給原承辦</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-section select-section">
+            <h3 class="review-title">退回原因</h3>
+            <div class="select-wrapper">
+              <div class="custom-select">
+                <button type="button" class="select-trigger" id="selectTrigger">
+                  <span>請選擇</span>
+                </button>
+                <div class="select-options" id="selectOptions">
+                  <div class="select-option" data-value="missing">
+                    內容缺漏，待補件
+                  </div>
+                  <div class="select-option" data-value="reason1">原因一</div>
+                  <div class="select-option" data-value="reason2">原因二</div>
+                  <div class="select-option" data-value="other">其他</div>
+                </div>
+                <select name="reason" hidden>
+                  <option value="">請選擇</option>
+                  <option value="missing">內容缺漏，待補件</option>
+                  <option value="reason1">原因一</option>
+                  <option value="reason2">原因二</option>
+                  <option value="other">其他</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-section">
+            <h3 class="review-title">覆核意見<span>（選填）</span></h3>
+            <textarea class="review-comments" aria-label="覆核意見"></textarea>
+          </div>
+        </div>
+
+        <footer class="modal-footer">
+          <button class="button button-cancel overlay-close">取消</button>
+          <button class="button button-confirm" id="content-overlay-check">
+            確認
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

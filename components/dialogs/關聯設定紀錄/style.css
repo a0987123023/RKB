@@ -1,0 +1,134 @@
+#dialog-modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 90%;
+  max-width: 800px;
+  border-radius: var(--border-radius-m);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .modal-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--darkGrey200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-title {
+    margin: auto;
+    color: var(--darkGrey900, #344858);
+    text-align: center;
+    font-size: var(--font-p-lg);
+    font-weight: var(--weight-bold);
+    line-height: 24px;
+  }
+
+  .close-button {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-content {
+    padding: 32px 30px;
+  }
+
+  .bank-info {
+    color: var(--darkGrey900, #344858);
+    font-size: var(--font-h6);
+    font-weight: var(--weight-medium);
+    margin-bottom: 8px;
+  }
+
+  .department-info {
+    color: var(--darkGrey700, #6c8490);
+    font-size: var(--font-caption);
+    font-weight: var(--weight-regular);
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    color: var(--darkGrey700, #6c8490);
+    font-size: var(--font-p-sm);
+    font-weight: var(--weight-bold);
+    margin-bottom: 12px;
+  }
+
+  .article-section {
+    overflow: scroll;
+    color: var(--darkGrey900, #344858);
+    display: flex;
+    height: 180px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: var(--border-radius-s);
+    background: var(--darkGrey100, #f3f9fc);
+    font-size: var(--font-p-sm);
+    font-weight: var(--weight-regular);
+    line-height: 150%;
+    margin-bottom: 32px;
+  }
+
+  .history-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  .history-section h2 {
+    color: var(--darkGrey700, #6c8490);
+    font-size: var(--font-h6);
+    font-weight: var(--weight-bold);
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .history-table th {
+    padding: 8px 0;
+    text-align: left;
+    color: #344858;
+    border-bottom: 2px solid var(--darkGrey200, #e1eaef);
+  }
+
+  .history-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid #dee2e6;
+    color: #6c8490;
+  }
+
+  .modal-footer {
+    padding: 20px 30px;
+    text-align: center;
+  }
+
+  .close-modal-button {
+    background-color: #009eb8;
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--border-radius-s);
+    cursor: pointer;
+    font-size: var(--font-h6);
+    color: var(--White, #fff);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-weight: var(--weight-regular);
+    line-height: 24px;
+  }
+}
+#dialog-modal.open {
+  display: block;
+}
