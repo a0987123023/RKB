@@ -88,26 +88,18 @@
         white-space: nowrap;
       }
 
-      .frame-3 {
-        justify-content: center;
-        gap: 10px;
-        align-self: stretch;
-        border-bottom: 4px solid var(--primary600);
+      .div-wrapper.active {
+        font-family: "Roboto-Medium", Helvetica;
         display: inline-flex;
+        justify-content: center;
         align-items: center;
+        gap: 10px;
+        border-bottom: 4px solid var(--primary600);
         position: relative;
         flex: 0 0 auto;
-      }
-
-      .text-wrapper-3 {
-        font-family: "Roboto-Medium", Helvetica;
-        font-weight: var(--weight-medium);
         color: var(--primary600);
+        font-weight: var(--weight-medium);
         font-size: var(--font-p-lg);
-        position: relative;
-        width: fit-content;
-        letter-spacing: 0;
-        line-height: normal;
         white-space: nowrap;
       }
 
@@ -395,6 +387,7 @@
               padding: 16px 0;
               border-bottom: 1px solid #e1ebf0;
             }
+
             .notification-item:last-child {
               border: none;
             }
@@ -511,7 +504,7 @@
         box-shadow: -5px 0 12px rgba(0, 0, 0, 0.08);
         padding: 24px;
         transition: right 0.3s ease-in-out;
-
+        z-index: 999;
         .close-btn {
           position: absolute;
           top: 20px;
@@ -589,7 +582,7 @@
       <div class="div-wrapper">
         <div class="text-wrapper-2"><a href="#">法規異動通知管理</a></div>
       </div>
-      <div class="div-wrapper frame-3">
+      <div class="div-wrapper">
         <div class="text-wrapper-3">
           <a href="C.11-內規列表.html">法規內容管理</a>
         </div>

@@ -1,0 +1,242 @@
+<template id="table-template-2">
+  <style>
+    #table-container2 {
+      background: transparent;
+      .layout {
+        border-radius: var(--border-radius-l);
+        border: 1px solid var(--white);
+        background: var(--white);
+        box-shadow: 0px 5px 12px 0px #d9e8e9;
+        backdrop-filter: blur(5px);
+        width: 100%;
+      }
+
+      .tab-container {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - (var(--spacing-2xl) * 2));
+        border-bottom: 1px solid var(--darkGrey200);
+        margin: 0 var(--spacing-2xl);
+        .tab {
+          padding-top: 20px;
+          button {
+            padding: 10px 24px;
+            cursor: pointer;
+            font-weight: var(--weight-regular);
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-p-md);
+          }
+
+          button.active {
+            font-weight: var(--weight-bold);
+            color: var(--primary600);
+            border-bottom: 2px solid var(--primary600);
+          }
+        }
+        .title {
+          padding: 16px 24px;
+          color: var(--darkGrey900, #344858);
+
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+        .sort-group {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          .sort-title {
+            color: var(--darkGrey700, #6c8490);
+            font-family: "Noto Sans TC";
+            font-size: var(--font-p-sm);
+            font-weight: var(--weight-regular);
+          }
+          .item {
+            display: flex;
+            align-items: center;
+            .sort-radio {
+              width: 24px;
+              height: 24px;
+              position: relative;
+              margin-right: 6px;
+              background-image: url(../assets/icons/whitelist_verify-disable.svg);
+              input {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                position: absolute;
+                z-index: -999;
+              }
+            }
+            .sort-radio:has(input:checked) {
+              background-image: url(../assets/icons/whitelist_verify-enable.svg);
+            }
+          }
+        }
+      }
+      .table-container {
+        padding: var(--spacing-2xl);
+        font-family: "Noto Sans TC";
+        .content {
+          margin-bottom: var(--spacing-4xl);
+          span {
+            display: inline-block;
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h4);
+            font-weight: var(--weight-medium);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: 2px;
+            border-bottom: 1px solid var(--darkGrey300, #cfdbe1);
+          }
+          strong {
+            color: var(--Primary600, #009eb8);
+          }
+          p {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-caption);
+            font-weight: var(--weight-regular);
+          }
+        }
+      }
+
+      .pagination-container {
+        display: flex;
+        justify-content: center;
+        margin: 48px auto;
+        gap: 5px;
+        width: 328px;
+        height: 32px;
+
+        .control,
+        .page {
+          cursor: pointer;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: var(--border-radius-m);
+          background: var(--darkGrey200);
+          box-shadow: 0 5px 12px #e3eff1;
+          background-color: var(--white);
+          border: 1px solid var(--darkGrey200);
+        }
+        .page.active {
+          background-color: var(--primary600);
+          color: var(--white);
+        }
+        .page span {
+          font-family: "Roboto", sans-serif;
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-semibold);
+          color: var(--primary600);
+        }
+        .page.active span {
+          color: var(--white);
+        }
+      }
+    }
+
+    .title-container {
+      display: none !important;
+    }
+  </style>
+  <div id="table-container2" class="bg-white rounded-lg">
+    <div class="layout">
+      <div class="tab-container flex">
+        <div>
+          <!-- tab按鈕型 -->
+          <div class="tab flex border-b px-6">
+            <button class="active">全部</button>
+            <button class="">法規</button>
+            <button class="">函釋</button>
+            <button class="">其他</button>
+          </div>
+          <!-- 一般文字型 -->
+          <!-- <div class="title flex border-b px-6">內規列表</div> -->
+        </div>
+        <div class="sort-group">
+          <span class="sort-title">排序方式</span>
+          <div class="item">
+            <label for="sort1" class="sort-radio">
+              <input id="sort1" name="sort" type="radio" checked />
+            </label>
+            <label for="sort1">依關聯程度</label>
+          </div>
+          <div class="item">
+            <label for="sort2" class="sort-radio">
+              <input id="sort2" name="sort" type="radio" />
+            </label>
+            <label for="sort2">依時間近到遠</label>
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <div class="content">
+          <span><strong>金融</strong>控股公司法第 1 條</span>
+          <p>
+            為發揮<strong>金融</strong>機構綜合經營效益，強化<strong>金融</strong>跨業經營之合併監理，促進<strong>金融</strong>市場健全發展，並維護公共利益，特制定本法。
+          </p>
+        </div>
+        <div class="content">
+          <span><strong>金融</strong>控股公司法第 2 條</span>
+          <p>
+            為發揮<strong>金融</strong>機構綜合經營效益，強化<strong>金融</strong>跨業經營之合併監理，促進<strong>金融</strong>市場健全發展，並維護公共利益，特制定本法。
+          </p>
+        </div>
+        <div class="content">
+          <span><strong>金融</strong>控股公司法第 1 條</span>
+          <p>
+            為發揮<strong>金融</strong>機構綜合經營效益，強化<strong>金融</strong>跨業經營之合併監理，促進<strong>金融</strong>市場健全發展，並維護公共利益，特制定本法。
+          </p>
+        </div>
+        <div class="content">
+          <span><strong>金融</strong>控股公司法第 1 條</span>
+          <p>
+            為發揮<strong>金融</strong>機構綜合經營效益，強化<strong>金融</strong>跨業經營之合併監理，促進<strong>金融</strong>市場健全發展，並維護公共利益，特制定本法。
+          </p>
+        </div>
+        <div class="content">
+          <span><strong>金融</strong>控股公司法第 1 條</span>
+          <p>
+            為發揮<strong>金融</strong>機構綜合經營效益，強化<strong>金融</strong>跨業經營之合併監理，促進<strong>金融</strong>市場健全發展，並維護公共利益，特制定本法。
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination -->
+    <div class="pagination-container">
+      <div class="control">
+        <!-- <img class="img" src="./assets/icons/pagination_first_enable.svg" /> -->
+        <img class="img" src="./assets/icons/pagination_first_disable.svg" />
+      </div>
+      <div class="control">
+        <!-- <img class="img" src="./assets/icons/pagination_prev_enable.svg" /> -->
+        <img class="img" src="./assets/icons/pagination_prev_disable.svg" />
+      </div>
+      <div class="page active">
+        <span>1</span>
+      </div>
+      <div class="page">
+        <span>2</span>
+      </div>
+      <div class="page">
+        <span>3</span>
+      </div>
+      <div class="page">
+        <span>...</span>
+      </div>
+      <div class="page">
+        <span>10</span>
+      </div>
+      <div class="control">
+        <img class="img" src="./assets/icons/pagination_next_enable.svg" />
+        <!-- <img class="img" src="./assets/icons/pagination_next_disable.svg" /> -->
+      </div>
+      <div class="control">
+        <img class="img" src="./assets/icons/pagination_last_enable.svg" />
+        <!-- <img class="img" src="./assets/icons/pagination_last_disable.svg" /> -->
+      </div>
+    </div>
+  </div>
+</template>
