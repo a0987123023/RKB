@@ -192,3 +192,29 @@ body {
   backdrop-filter: blur(var(--shadow-card-blur-bg));
   -webkit-backdrop-filter: blur(var(--shadow-card-blur-bg));
 }
+
+.select-content {
+  position: relative;
+  select {
+    appearance: none;
+  }
+}
+
+.select-content::after {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background-image: url(../assets/icons/icon_arrow_down.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 999;
+}
+
+/* .select-content:has(select:focus)::after {
+  background-image: url(../assets/icons/icon_arrow_up.svg);
+} */
