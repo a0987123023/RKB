@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日期選擇器</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <style>
+      body {
+        background-image: url(../assets/icons/background.svg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .date-input {
+        background: var(--darkGrey150);
+        border-radius: 8px;
+        padding: 8px 12px;
+        min-width: 250px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: fit-content;
+        user-select: none;
+        justify-content: space-between;
+      }
+
+      .date-input span {
+        color: var(--darkGrey900);
+        font-size: 14px;
+        margin-right: 8px;
+      }
+
+      .calendar-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--darkGrey700);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--white);
+        border-radius: 16px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        width: 328px;
+        z-index: 1001;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--darkGrey200);
+      }
+
+      .modal-title {
+        text-align: center;
+        flex-grow: 1;
+        color: var(--darkGrey900, #344858);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0;
+      }
+
+      .close-btn {
+        align-self: end;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+
+      .modal-content {
+        padding: 16px 30px;
+      }
+
+      .month-year-selector {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .selector-btn {
+        background: var(--darkGrey150);
+        border: none;
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: var(--darkGrey700);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--darkGrey700, #6c8490);
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        img.active {
+          transform: rotate(180deg);
+        }
+      }
+
+      .calendar {
+        margin-bottom: 16px;
+      }
+
+      .weekdays {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+        color: var(--darkGrey700);
+        margin-bottom: 8px;
+      }
+
+      .weekdays div {
+        font-size: 12px;
+        padding: 4px 0;
+      }
+
+      .days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+        text-align: center;
+      }
+
+      .day {
+        position: relative;
+        padding: 8px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--darkGrey900);
+        font-size: 14px;
+        z-index: 1;
+      }
+
+      .day:hover {
+        background: var(--darkGrey150);
+      }
+
+      .day.selected {
+        background: var(--primary600);
+        color: var(--white);
+        border-radius: 50%;
+      }
+
+      .day.range-start {
+        border-radius: 50%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .day.range-end {
+        border-radius: 50%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      .day.single-selected {
+        border-radius: 50% !important;
+      }
+
+      .in-range {
+        border-radius: 0;
+        background: var(--darkGrey150);
+      }
+
+      .day.other-month {
+        color: var(--darkGrey700);
+      }
+
+      .day.selected:is(.range-start.range-end) {
+        border-radius: 100% !important;
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 0px 30px 20px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .btn-cancel {
+        background: var(--darkGrey150);
+        color: var(--darkGrey700);
+      }
+
+      .btn-confirm {
+        background: var(--primary600);
+        color: var(--white);
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+
+      .dropdown {
+        position: absolute;
+        background: var(--white);
+        border: 1px solid var(--darkGrey200);
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1002;
+        display: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .dropdown-item {
+        padding: 12px 33px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--darkGrey150);
+      }
+
+      .range-preview {
+        font-size: 14px;
+        color: var(--darkGrey700);
+        text-align: center;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="date-input" id="dateInput">
+      <span id="dateText">選擇日期</span>
+      <img src="../assets/icons/icon_calendar.svg" alt="" />
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="modal" id="calendarModal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">選擇日期</h2>
+        <button class="close-btn" id="closeModal">
+          <img src="../assets/icons/icon_close.svg" alt="" />
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <div class="month-year-selector">
+          <button class="selector-btn" id="monthSelector">
+            <span>11 月</span>
+            <img src="../assets/icons/icon_arrow_down.svg" alt="" />
+          </button>
+          <button class="selector-btn" id="yearSelector">
+            <span>2024</span>
+            <img src="../assets/icons/icon_arrow_down.svg" alt="" />
+          </button>
+
+          <div class="dropdown" id="monthDropdown"></div>
+          <div class="dropdown" id="yearDropdown"></div>
+        </div>
+
+        <div class="calendar">
+          <div class="weekdays">
+            <div>一</div>
+            <div>二</div>
+            <div>三</div>
+            <div>四</div>
+            <div>五</div>
+            <div>六</div>
+            <div>日</div>
+          </div>
+          <div class="days" id="calendarDays"></div>
+        </div>
+
+        <div class="range-preview" id="rangePreview"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-cancel" id="cancelBtn">取消</button>
+        <button class="btn btn-confirm" id="confirmBtn">確認</button>
+      </div>
+    </div>
+
+    <script>
+      const dateInput = document.getElementById("dateInput");
+      const dateText = document.getElementById("dateText");
+      const calendarModal = document.getElementById("calendarModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const overlay = document.getElementById("overlay");
+      const closeModal = document.getElementById("closeModal");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const confirmBtn = document.getElementById("confirmBtn");
+      const calendarDays = document.getElementById("calendarDays");
+      const monthSelector = document.getElementById("monthSelector");
+      const yearSelector = document.getElementById("yearSelector");
+      const monthDropdown = document.getElementById("monthDropdown");
+      const yearDropdown = document.getElementById("yearDropdown");
+      const rangePreview = document.getElementById("rangePreview");
+
+      let currentDate = new Date();
+      let selectedDate = null;
+      let startDate = null;
+      let endDate = null;
+      let tempEndDate = null;
+
+      const months = [
+        "1 月",
+        "2 月",
+        "3 月",
+        "4 月",
+        "5 月",
+        "6 月",
+        "7 月",
+        "8 月",
+        "9 月",
+        "10 月",
+        "11 月",
+        "12 月",
+      ];
+
+      // Format date to YYYY-MM-DD
+      function formatDate(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
+          2,
+          "0"
+        )}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+
+      // Update date display
+      function updateDateText() {
+        if (startDate && endDate) {
+          dateText.textContent = `${formatDate(startDate)} — ${formatDate(
+            endDate
+          )}`;
+        } else if (startDate) {
+          // 如果只選擇了一天，顯示 startDate - startDate
+          dateText.textContent = `${formatDate(startDate)} — ${formatDate(
+            startDate
+          )}`;
+        } else {
+          dateText.textContent = "選擇日期區間";
+        }
+      }
+
+      // Update range preview
+      function updateRangePreview() {
+        if (startDate && tempEndDate) {
+          rangePreview.textContent = `${formatDate(startDate)} — ${formatDate(
+            tempEndDate
+          )}`;
+        } else if (startDate) {
+          rangePreview.textContent = `${formatDate(startDate)} — 選擇結束日期`;
+        } else {
+          rangePreview.textContent = "選擇開始日期";
+        }
+        rangePreview.style.display = "block";
+      }
+
+      // Show modal
+      dateInput.addEventListener("click", () => {
+        calendarModal.style.display = "block";
+        overlay.style.display = "block";
+        modalTitle.textContent = "選擇日期區間";
+        renderCalendar();
+        updateRangePreview();
+      });
+
+      // Close modal handlers
+      [closeModal, cancelBtn, overlay].forEach((element) => {
+        element.addEventListener("click", () => {
+          calendarModal.style.display = "none";
+          overlay.style.display = "none";
+          tempEndDate = null;
+          renderCalendar();
+        });
+      });
+
+      // Confirm selection
+      confirmBtn.addEventListener("click", () => {
+        if (tempEndDate) {
+          endDate = tempEndDate;
+        }
+        updateDateText();
+        calendarModal.style.display = "none";
+        overlay.style.display = "none";
+        tempEndDate = null;
+      });
+
+      function isInRange(date) {
+        if (!startDate) return false;
+        const end = tempEndDate || endDate;
+        if (!end) return false;
+        return date > startDate && date < end;
+      }
+
+      function renderCalendar() {
+        calendarDays.innerHTML = "";
+
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+
+        let firstDayIndex = firstDay.getDay() || 7;
+        firstDayIndex--;
+
+        // 前置空白天數
+        for (let i = 0; i < firstDayIndex; i++) {
+          const dayElement = document.createElement("div");
+          dayElement.className = "day other-month";
+          calendarDays.appendChild(dayElement);
+        }
+
+        // 當月日期
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+          const currentDate = new Date(year, month, i);
+          const dayElement = document.createElement("div");
+          dayElement.className = "day";
+          dayElement.textContent = i;
+
+          if (startDate && currentDate.getTime() === startDate.getTime()) {
+            dayElement.classList.add("selected");
+
+            // 如果沒有 endDate，讓它保持圓形
+            if (!endDate && !tempEndDate) {
+              dayElement.style.borderRadius = "50%";
+            } else {
+              // 只有區間選擇時，才調整成半圓形
+              dayElement.classList.add("range-start");
+              dayElement.style.borderTopRightRadius = "0";
+              dayElement.style.borderBottomRightRadius = "0";
+            }
+          }
+
+          if (
+            (endDate || tempEndDate) &&
+            currentDate.getTime() === (tempEndDate || endDate).getTime()
+          ) {
+            dayElement.classList.add("selected", "range-end");
+            dayElement.style.borderTopLeftRadius = "0";
+            dayElement.style.borderBottomLeftRadius = "0";
+          }
+
+          if (isInRange(currentDate)) {
+            dayElement.classList.add("in-range");
+          }
+
+          dayElement.addEventListener("click", () => {
+            if (!startDate || (startDate && (endDate || tempEndDate))) {
+              // 開始新選擇
+              startDate = currentDate;
+              endDate = null;
+              tempEndDate = null;
+            } else {
+              // 完成區間選擇
+              if (currentDate < startDate) {
+                tempEndDate = startDate;
+                startDate = currentDate;
+              } else {
+                tempEndDate = currentDate;
+              }
+            }
+            renderCalendar();
+            updateRangePreview();
+          });
+
+          calendarDays.appendChild(dayElement);
+        }
+      }
+
+      // Month selector
+      monthSelector.addEventListener("click", (e) => {
+        const monthImg = monthSelector.querySelector("img");
+        monthImg.classList.toggle("active");
+        e.stopPropagation();
+
+        if (monthDropdown.style.display === "block") {
+          monthDropdown.style.display = "none";
+        } else {
+          monthDropdown.style.display = "block";
+          monthDropdown.style.top = `${
+            monthSelector.offsetTop + monthSelector.offsetHeight
+          }px`;
+          monthDropdown.style.left = `${monthSelector.offsetLeft}px`;
+          monthDropdown.innerHTML = "";
+
+          months.forEach((month, index) => {
+            const item = document.createElement("div");
+            item.className = "dropdown-item";
+            item.textContent = month;
+            item.addEventListener("click", () => {
+              currentDate.setMonth(index);
+              renderCalendar();
+              monthDropdown.style.display = "none";
+            });
+            monthDropdown.appendChild(item);
+          });
+        }
+      });
+
+      // Year selector
+      yearSelector.addEventListener("click", (e) => {
+        const yearImg = yearSelector.querySelector("img");
+        yearImg.classList.toggle("active");
+        e.stopPropagation();
+
+        if (yearDropdown.style.display === "block") {
+          yearDropdown.style.display = "none";
+        } else {
+          yearDropdown.style.display = "block";
+          yearDropdown.style.top = `${
+            yearSelector.offsetTop + yearSelector.offsetHeight
+          }px`;
+          yearDropdown.style.left = `${yearSelector.offsetLeft}px`;
+          yearDropdown.innerHTML = "";
+
+          const currentYear = new Date().getFullYear();
+          for (let year = currentYear - 10; year <= currentYear + 10; year++) {
+            const item = document.createElement("div");
+            item.className = "dropdown-item";
+            item.textContent = year;
+            item.addEventListener("click", () => {
+              currentDate.setFullYear(year);
+              renderCalendar();
+              yearDropdown.style.display = "none";
+            });
+            yearDropdown.appendChild(item);
+          }
+        }
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener("click", () => {
+        const arrowImg = document.querySelectorAll(".selector-btn img");
+        arrowImg.forEach((img) => {
+          img.classList.remove("active");
+        });
+        monthDropdown.style.display = "none";
+        yearDropdown.style.display = "none";
+      });
+
+      // Initial render
+      renderCalendar();
+      updateDateText();
+    </script>
+  </body>
+</html>

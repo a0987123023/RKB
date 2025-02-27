@@ -130,6 +130,8 @@
 @media (max-width: 1024px) {
   :root {
     --container-width: 840px;
+    --spacing-6xl: 3.25rem; /* 52px */
+    --spacing-7xl: 5.5rem; /* 88px */
   }
 }
 
