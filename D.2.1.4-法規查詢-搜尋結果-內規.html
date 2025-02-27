@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      #header-container .frame-2 .div-wrapper:nth-child(1) {
+        border-bottom: 4px solid var(--primary600) !important;
+        .text-wrapper-2 {
+          color: var(--primary600) !important;
+        }
+      }
+
+      .nav {
+        margin-top: 72px;
+        li {
+          margin-left: 30px;
+          padding-left: 20px;
+          margin-bottom: 16px;
+          font-weight: var(--weight-bold);
+          color: var(--darkGrey600);
+          border-left: 3px solid var(--darkGrey600);
+          cursor: pointer;
+        }
+
+        li.active {
+          border-left: 3px solid var(--darkGrey900);
+          color: var(--darkGrey900);
+        }
+      }
+
+      #search-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 24px;
+        background-color: var(--white);
+        border-radius: var(--border-radius-l);
+        border: 1px solid transparent;
+        box-shadow: 0px 5px 12px 0px #e3eff1;
+        background: var(--white);
+        margin-bottom: 45px;
+
+        .search-bar {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-end;
+          gap: 12px;
+        }
+
+        .search-bar > div {
+          min-width: 150px;
+        }
+
+        .search-bar input[type="text"],
+        .search-bar select,
+        .search-bar input[type="date"] {
+          padding: 10px 16px;
+          border-radius: var(--border-radius-m);
+          font-size: var(--font-p-sm);
+          color: var(--darkGrey900);
+          border-radius: var(--border-radius-m);
+          background: var(--darkGrey100);
+        }
+
+        .bubble {
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .speech-bubble {
+            position: absolute;
+            z-index: -1;
+            left: -99px;
+            top: -40px;
+            display: inline-block;
+            background-color: var(--darkGrey800);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--border-radius-m);
+            font-size: var(--font-caption);
+            font-weight: var(--weight-medium);
+            width: 210px;
+            opacity: 0;
+          }
+
+          .speech-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            transform: translateX(-50%);
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid var(--darkGrey800);
+          }
+        }
+        .bubble:hover .speech-bubble {
+          z-index: 1;
+          opacity: 1;
+          transition: 0.5s opacity ease-in;
+        }
+
+        .text-wrapper {
+          display: inline-block;
+          font-size: var(--font-small);
+          color: var(--darkGrey700);
+          margin-bottom: var(--spacing-xs);
+        }
+
+        .text-info {
+          margin-right: 4px;
+        }
+
+        .search-bar select {
+          width: 100%;
+          color: var(--darkGrey500);
+          font-size: var(--font-p-sm);
+          font-style: normal;
+          font-weight: var(--weight-regular);
+          line-height: normal;
+        }
+
+        .search-bar input[type="date"] {
+          width: 100%;
+        }
+
+        .search-bar .date-range {
+          flex-direction: column;
+          display: flex;
+          align-items: flex-start;
+        }
+
+        .search-bar .date-range span {
+          margin: 0 5px;
+          font-size: var(--font-p-sm);
+          color: var(--darkGrey500);
+        }
+
+        .search-bar button {
+          padding: 10px 20px;
+          border: none;
+          background-color: var(--primary600);
+          color: var(--white);
+          border-radius: var(--border-radius-m);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-bold);
+          cursor: pointer;
+        }
+
+        .search-bar .helper {
+          align-items: start;
+        }
+
+        .info {
+          font-size: var(--font-small);
+          color: var(--darkGrey700);
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c11-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c11-template"></div>
+          <div id="search-container">
+            <div class="search-bar flex">
+              <div class="flex-[30%]">
+                <div class="flex helper">
+                  <label for="" class="text-wrapper text-info">關鍵字</label>
+                  <div class="bubble">
+                    <img class="img" src="./assets/icons/icon_info.svg" />
+                    <div class="speech-bubble">可查詢法規名稱、發文字號...</div>
+                  </div>
+                </div>
+                <input
+                  class="w-full"
+                  type="text"
+                  id=""
+                  placeholder="輸入關鍵字"
+                />
+              </div>
+
+              <div class="flex-[30%]">
+                <label for="" class="text-wrapper">法規類型</label>
+                <div class="select-content">
+                  <select id="">
+                    <option selected>全部</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="date-range min-w-[240px] flex-[20%]">
+                <label for="" class="text-wrapper">日期區間</label>
+                <input type="date" id="start-date" value="2024-12-28" />
+              </div>
+
+              <button class="button flex-[8%] max-w-[100px] max-h-[42px]">
+                搜尋
+              </button>
+            </div>
+          </div>
+          <div id="tab-table-element-2"></div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              // const newScript = document.createElement("script");
+              // newScript.textContent = script.textContent;
+              // document.body.appendChild(newScript);
+              eval(script.textContent);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c11.html", "nav-c11-template");
+      loadComponent(
+        "./components/breadcrumb-c11.html",
+        "breadcrumb-c11-template"
+      );
+      loadComponent("./components/tab-table-3.html", "tab-table-element-2");
+    </script>
+  </body>
+</html>
