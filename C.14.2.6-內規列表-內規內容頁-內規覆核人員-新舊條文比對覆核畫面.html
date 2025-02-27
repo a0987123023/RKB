@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h5);
+        font-weight: var(--weight-bold);
+        margin-bottom: 40px;
+      }
+
+      .back-button img {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: var(--text-secondary);
+        margin-right: 12px;
+      }
+
+      .title-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 35px;
+
+        .page-title {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h2);
+          font-weight: var(--weight-bold);
+        }
+
+        button {
+          padding: 10px 20px;
+          border-radius: var(--border-radius-s);
+          background: var(--Primary600, #009eb8);
+          color: var(--White, #fff);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-medium);
+        }
+      }
+
+      .card {
+        padding: 20px 24px;
+        margin-bottom: 24px;
+        border-radius: var(--border-radius-l);
+        border: 1px solid var(--darkGrey200, #e1eaef);
+        background: var(--White, #fff);
+        box-shadow: 0px 5px 12px 0px #e3eff1;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-title {
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+      }
+
+      .legal-info {
+        width: 100%;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 12px;
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .info-label {
+        color: var(--darkGrey700, #6c8490);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .version {
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-m);
+        margin-bottom: 16px;
+      }
+
+      .version-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--status-bg);
+        border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+        margin-bottom: 16px;
+      }
+
+      .version-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .date {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+        .number,
+        .member {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+
+        .member {
+          font-weight: var(--weight-bold);
+        }
+
+        .employee {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+      }
+
+      .toggle-btn {
+        cursor: pointer;
+      }
+
+      .toggle-btn .open,
+      .toggle-btn .close {
+        display: flex;
+        color: var(--darkGrey700, #6c8490);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        span {
+          margin-right: 8px;
+        }
+      }
+      .toggle-btn .open.disable,
+      .toggle-btn .close.disable {
+        display: none;
+      }
+
+      .button-status {
+        display: inline-block;
+        max-width: 100px;
+        text-align: center;
+        padding: 6px 12px;
+        font-size: var(--font-caption);
+        font-weight: var(--weight-bold);
+        border-radius: var(--border-radius-s);
+      }
+
+      .button-status.reviewed {
+        background: var(--Link600, #0fada8);
+        color: var(--White, #fff);
+      }
+
+      .button-status.unpublished {
+        background: var(--darkGrey500, #aabcc4);
+        color: var(--White, #fff);
+      }
+
+      .frame-sm {
+        height: 0;
+        padding: 0;
+        background-color: rgba(243, 249, 252, 1);
+        border-radius: var(--border-radius-l);
+        width: 100%;
+        max-width: 1152px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .frame-sm.active {
+        height: 100%;
+        padding: 16px 20px;
+      }
+
+      .frame-sm-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .frame-sm-table thead {
+        border-bottom: 1px solid rgba(225, 234, 239, 1);
+      }
+
+      .frame-sm-table th,
+      .frame-sm-table td {
+        padding: 8px;
+        text-align: left;
+      }
+
+      .text-bold {
+        font-family: "Roboto", sans-serif;
+        font-weight: var(--weight-bold);
+        font-size: var(--font-caption);
+        color: rgba(159, 178, 188, 1);
+        letter-spacing: -0.4px;
+      }
+
+      .text-regular {
+        color: var(--darkGrey800, #576972);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+      }
+
+      .text-link {
+        color: rgba(15, 173, 168, 1);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+        cursor: pointer;
+      }
+
+      /* Attachment Styles */
+      .attachment-link {
+        color: var(--Link600, #0fada8);
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        text-decoration: none;
+      }
+
+      .attachment-link:hover {
+        text-decoration: underline;
+      }
+
+      .attachments {
+        margin-bottom: 100px;
+      }
+
+      .page-h2 {
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h3);
+        font-weight: var(--weight-bold);
+        margin-bottom: 25px;
+      }
+
+      .section {
+        .title {
+          color: var(--darkGrey700, #6c8490);
+          font-size: var(--font-p-lg);
+          font-weight: var(--weight-regular);
+          margin-bottom: 25px;
+        }
+
+        .card {
+          padding: 24px;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          .title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-bold);
+          }
+          .table-header {
+            display: grid;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            padding: 8px 0px;
+            color: #6c8490;
+            font-size: var(--font-caption);
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+            font-weight: var(--weight-bold);
+          }
+
+          > .table-row {
+            display: grid;
+            align-items: start;
+            grid-template-columns: 3fr 1fr 2fr 1fr;
+            padding: 16px 0;
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+          }
+
+          .regulation-name {
+            color: var(--darkGrey800, #576972);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-bold);
+            line-height: 150%;
+          }
+
+          .article-number {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .content {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .status-text {
+            color: var(--darkGrey700, #6c8490);
+            text-align: center;
+            font-size: var(--font-small);
+            font-weight: var(--weight-bold);
+            border-radius: var(--border-radius-s);
+            padding: 6px 12px;
+            line-height: normal;
+          }
+
+          .status-pending {
+            color: var(--darkGrey700, #6c8490);
+            background: var(--darkGrey150, #eff5f9);
+          }
+
+          .status-linked {
+            color: var(--Primary600, #009eb8);
+            background: var(--Primary200, #e8f6f9);
+          }
+
+          .suggested-section {
+            margin-top: 24px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            align-self: stretch;
+            border-radius: var(--border-radius-l);
+            background: var(--darkGrey50, #f7fafd);
+            .table-row {
+              display: grid;
+              align-items: start;
+              grid-template-columns: 3fr 1fr 2.5fr 0.5fr;
+              padding: 16px 0;
+              border-bottom: 1px solid #e1eaef;
+              gap: 20px;
+            }
+          }
+
+          .title-outer {
+            display: flex;
+
+            .star {
+              margin-right: 6px;
+            }
+
+            .suggested-title {
+              font-family: "Noto Sans TC";
+              font-size: var(--font-p-lg);
+              font-style: normal;
+              font-weight: var(--weight-bold);
+              line-height: normal;
+              background: var(
+                --gradientLogotype,
+                linear-gradient(90deg, #2f5d70 0%, #01a7bf 100%)
+              );
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+
+      .workflow-container {
+        width: 100%;
+        margin: 0 auto 24px;
+        background: #fff;
+        border: 1px solid #ebebeb;
+        border-radius: var(--border-radius-l);
+        padding: 28px 24px 24px 24px;
+        box-shadow: 0 5px 12px rgba(226, 239, 241, 1);
+      }
+
+      .workflow-title {
+        color: var(--Cathay-Grey700, #555);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-p-lg);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+      }
+
+      .workflow-steps {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .step {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .step-number {
+        width: 18px;
+        height: 18px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: var(--font-small);
+      }
+
+      .step.active .step-number {
+        background-color: #009eb8;
+      }
+
+      .step:not(.active) .step-number {
+        background-color: #9fb2bc;
+      }
+
+      .step-title {
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+      }
+
+      .step.active .step-title {
+        color: var(--Primary600, #009eb8);
+      }
+
+      .step:not(.active) .step-title {
+        color: var(--darkGrey600, #9fb2bc);
+      }
+
+      .step-content {
+        padding: 20px 0;
+        border-top: 4px solid var(--darkGrey500, #aabcc4);
+      }
+
+      .step.active .step-content {
+        color: var(--darkGrey700, #6c8490);
+        border-top: 4px solid var(--Primary600, #009eb8);
+        font-size: var(--font-small);
+        font-weight: var(--weight-medium);
+      }
+
+      .step:not(.active) .step-content {
+        color: var(--darkGrey600, #9fb2bc);
+        font-size: var(--font-footnote);
+        font-weight: var(--weight-bold);
+      }
+
+      .department-info {
+        margin-bottom: 6px;
+        font-size: var(--font-small);
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: var(--font-small);
+      }
+
+      .user-icon {
+        width: var(--font-caption);
+        height: var(--font-caption);
+      }
+
+      .add-reviewer {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background: var(--Primary600, #009eb8);
+        color: var(--White, #fff);
+        border: none;
+        border-radius: var(--border-radius-s);
+        cursor: pointer;
+        font-size: var(--font-h6);
+        text-align: center;
+        gap: 8px;
+        font-weight: var(--weight-bold);
+      }
+
+      .reviewed {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+        .date {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+        }
+        .name {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-bold);
+          line-height: 150%;
+        }
+        .feedback {
+          cursor: pointer;
+          color: var(--Link600, #0fada8);
+          font-size: var(--font-footnote);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          text-decoration: underline;
+        }
+      }
+
+      #section-1 {
+        .container {
+          width: 100%;
+          margin: 0 auto;
+          background-color: #ffffff;
+          border-radius: var(--border-radius-l);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+          padding: var(--spacing-2xl);
+        }
+
+        .regulation-row {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: var(--spacing-3xl);
+          overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+          .regulation-row {
+            flex-direction: row;
+          }
+        }
+
+        .old-regulation,
+        .new-regulation {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          background-color: #ffffff;
+          overflow: hidden;
+          margin-bottom: 10px;
+        }
+
+        @media (min-width: 1024px) {
+          .old-regulation {
+            margin-left: 10px;
+            margin-bottom: 0;
+          }
+          .new-regulation {
+            margin-right: 10px;
+            margin-bottom: 0;
+          }
+        }
+
+        .regulation-header {
+          background-color: #ffffff;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 12px;
+          .tag {
+            font-weight: var(--weight-bold);
+            font-size: var(--font-footnote);
+            padding: 6px 22.5px;
+            border-radius: var(--border-radius-s);
+          }
+          .tag.delete {
+            color: var(--white);
+            background: var(--danger500);
+          }
+          .add {
+            color: var(--white);
+            background: var(--primary600);
+          }
+        }
+
+        .version-container {
+          display: flex;
+          align-items: center;
+        }
+
+        .regulation-version {
+          width: 100%;
+          color: var(--darkGrey700);
+          font-weight: 700;
+          font-size: var(--font-caption);
+          margin-bottom: var(--spacing-md);
+        }
+
+        .status {
+          font-size: var(--font-caption);
+          color: var(--darkGrey900);
+          margin-bottom: var(--spacing-md);
+          margin-left: var(--spacing-lg);
+          font-weight: var(--weight-bold);
+        }
+
+        .article-nav {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          padding: 6px 0;
+        }
+
+        .article-nav.delete {
+          position: relative;
+        }
+
+        .article-nav.delete::after {
+          position: absolute;
+          content: "";
+          display: block;
+          height: 1px;
+          width: 100%;
+          background: var(--darkGrey700);
+          left: calc(50% - var(--spacing-lg) / 2);
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .chapter,
+        .section,
+        .article {
+          position: relative;
+          padding: 0 12px;
+          font-size: var(--font-caption);
+          color: var(--darkGrey700);
+          font-weight: var(--weight-bold);
+        }
+
+        .article {
+          .edit {
+            color: var(--primary600);
+          }
+        }
+
+        .chapter {
+          padding-left: 0;
+        }
+
+        .section::after,
+        .article::after {
+          content: "";
+          display: block;
+          height: 100%;
+          width: 1px;
+          background: var(--darkGrey200);
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        .dropdown-icon {
+          margin-left: 5px;
+          color: #6c8490;
+        }
+
+        .regulation-content {
+          padding: var(--spacing-2xl);
+          background-color: var(--darkGrey50);
+          border-radius: 12px;
+          font-weight: var(--weight-regular);
+          font-size: var(--font-p-md);
+          line-height: var(--spacing-2xl);
+          height: 100%;
+        }
+
+        .regulation-content.highlight {
+          color: var(--primary600);
+          font-size: var(--font-p-md);
+        }
+
+        .regulation-content.delete {
+          text-decoration: line-through;
+          color: var(--danger500);
+        }
+
+        .chinese-list {
+          list-style-type: none;
+          .delete {
+            color: var(--danger500);
+            text-decoration: line-through;
+          }
+          .edit {
+            color: var(--primary600);
+          }
+        }
+
+        .chinese-list li {
+          position: relative;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+          .container {
+            padding: 10px;
+          }
+
+          .article-nav {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .chapter,
+          .section,
+          .article {
+            display: inline-block;
+          }
+        }
+
+        @media (max-width: 480px) {
+          body {
+            padding: 10px;
+          }
+
+          .regulation-content {
+            padding: 10px;
+          }
+
+          .chinese-list li {
+            padding-left: 20px;
+          }
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .workflow-steps {
+          flex-direction: column;
+        }
+
+        .step {
+          min-width: 100%;
+        }
+      }
+      .section-text {
+        margin-bottom: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c12-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c12-template"></div>
+
+          <div class="container">
+            <header class="header">
+              <button class="back-button">
+                <img src="./assets/icons/icon_arrow_left.svg" alt="" />
+                <span>法規內容管理</span>
+              </button>
+              <div class="title-group">
+                <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
+                <!-- 這邊要卡控顯示 -->
+                <button>編輯</button>
+              </div>
+            </header>
+
+            <section class="workflow-container">
+              <h1 class="workflow-title">內規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- Step 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <!-- 這邊要卡控顯示 -->
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="./assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewed">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                  <button id="add-reviewer" class="add-reviewer">
+                    <img src="./assets/icons/icon_add.svg" alt="" />
+                    <span>選擇人員</span>
+                    <!-- <span>重新覆核</span> -->
+                  </button>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <!-- 這邊要卡控顯示 -->
+                  <div class="step-content">
+                    <div>待指定人員覆核</div>
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="./assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                  <div class="reviewed">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已退回</div>
+                    <div class="feedback" id="feedback">查看意見</div>
+                  </div>
+                  <button id="content-reviewer" class="add-reviewer">
+                    <span>覆核</span>
+                  </button>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="card-title">法規資訊</h2>
+              <div class="legal-info">
+                <div class="info-item">
+                  <span class="info-label">公布日期</span>
+                  <span>2023-06-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">修正日期</span>
+                  <span>2024-07-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">權責單位</span>
+                  <span>法令遵循部</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h2 class="card-title">版本資訊總覽</h2>
+
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status unpublished">未公開</span>
+                    <span class="date">2021-10-01</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 劉山雀</span
+                    >
+                  </div>
+                  <div id="toggle-btn2" class="toggle-btn">
+                    <div class="open disable">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div id="frame-sm2" class="frame-sm">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
+            </section>
+
+            <h2 class="page-h2">條文總覽</h2>
+
+            <section id="section-1" class="section section-text">
+              <div class="container">
+                <!-- Article 1 -->
+                <div class="regulation-row">
+                  <div class="new-regulation">
+                    <div class="regulation-header">
+                      <span class="regulation-version">新條文</span>
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 1 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        為健全銀行業務經營，保障存款人權益，適度產業發展，並使銀行信用配合國家金融政策，特制定本法。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="old-regulation">
+                    <div class="regulation-header">
+                      <span class="regulation-version">舊條文</span>
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 1 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        為健全銀行業務經營，保障存款人權益，適度產業發展，並使銀行信用配合國家金融政策，特制定本法。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="regulation-row">
+                  <div class="new-regulation">
+                    <div class="regulation-header">
+                      <div class="tag add">新增</div>
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article"
+                          >第 <strong class="edit">2</strong> 條</span
+                        >
+                      </div>
+                    </div>
+                    <div class="regulation-content highlight">
+                      <p>本法稱銀行，謂依本法組織登記，經營銀行業務之機構。</p>
+                    </div>
+                  </div>
+                  <div class="old-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">無對應條文</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="regulation-row">
+                  <div class="new-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article"
+                          >第 <strong class="edit">3</strong> 條</span
+                        >
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>銀行經營之業務如左：</p>
+                      <ol class="chinese-list">
+                        <li>一、收受支票存款。</li>
+                        <li>
+                          二、收受其<span class="delete">他</span
+                          ><span class="edit">它</span>各種存款。
+                        </li>
+                        <li>三、受託經理信託資金。</li>
+                        <li>四、發行金融債券。</li>
+                        <li>五、辦理放款。</li>
+                        <li>六、辦理票據貼現。</li>
+                        <li class="edit">七、投資有價證券。</li>
+                        <li class="delete">八、直接投資生產事業。</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="old-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 2 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>銀行經營之業務如左：</p>
+                      <ol class="chinese-list">
+                        <li>一、收受支票存款。</li>
+                        <li>二、收受其他各種存款。</li>
+                        <li>三、受託經理信託資金。</li>
+                        <li>四、發行金融債券。</li>
+                        <li>五、辦理放款。</li>
+                        <li>六、辦理票據貼現。</li>
+                        <li>七、投資有價證券。</li>
+                        <li>八、直接投資生產事業。</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="regulation-row">
+                  <div class="new-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article"
+                          >第 <strong class="edit">4</strong> 條</span
+                        >
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        各銀行得經營之業務項目，由中央主管機關按其類別，就本法所定之範圍內分別核定，並於營業執照上載明之。但其有關外匯業務之經營，須經中央銀行之許可。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="old-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 3 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        各銀行得經營之業務項目，由中央主管機關按其類別，就本法所定之範圍內分別核定，並於營業執照上載明之。但其有關外匯業務之經營，須經中央銀行之許可。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="regulation-row">
+                  <div class="new-regulation">
+                    <div class="regulation-header">
+                      <div class="tag delete">刪除</div>
+                      <div class="article-nav delete">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 4 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content delete">
+                      <p>
+                        銀行依本法辦理授信，其期限在一年以內者，為短期信用；超過一年而在七年以內者，為中期信用；超過七年者，為長期信用。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="old-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 4 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        銀行依本法辦理授信，其期限在一年以內者，為短期信用；超過一年而在七年以內者，為中期信用；超過七年者，為長期信用。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="regulation-row">
+                  <div class="new-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 5 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        本法稱收受存款，謂向不特定多數人收受款項或吸收資金，並約定返還本金或給付相當或高於本金之行為
+                      </p>
+                    </div>
+                  </div>
+                  <div class="old-regulation">
+                    <div class="regulation-header">
+                      <div class="article-nav">
+                        <span class="chapter">第一章</span>
+                        <span class="section">第一節</span>
+                        <span class="article">第 5 條</span>
+                      </div>
+                    </div>
+                    <div class="regulation-content">
+                      <p>
+                        本法稱收受存款，謂向不特定多數人收受款項或吸收資金，並約定返還本金或給付相當或高於本金之行為
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      const frameSm2 = document.getElementById("frame-sm2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm2.classList.toggle("active");
+        });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c12.html", "nav-c12-template");
+      loadComponent(
+        "./components/breadcrumb-c12.html",
+        "breadcrumb-c12-template"
+      );
+    </script>
+  </body>
+</html>
