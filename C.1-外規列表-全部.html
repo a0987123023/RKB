@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>C.1-外規列表-全部</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+
+      .nav {
+        margin-top: 72px;
+        li {
+          margin-left: 30px;
+          padding-left: 20px;
+          margin-bottom: 16px;
+          font-weight: var(--weight-bold);
+          color: var(--darkGrey600);
+          border-left: 3px solid var(--darkGrey600);
+          cursor: pointer;
+        }
+
+        li.active {
+          border-left: 3px solid var(--darkGrey900);
+          color: var(--darkGrey900);
+        }
+      }
+
+      #table-container {
+        background: transparent;
+        .layout {
+          border-radius: var(--border-radius-l);
+          border: 1px solid var(--white);
+          background: var(--white);
+          box-shadow: 0px 5px 12px 0px #d9e8e9;
+          backdrop-filter: blur(5px);
+          width: 100%;
+        }
+
+        .tab-container {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          border-bottom: 1px solid var(--darkGrey200);
+          .tab {
+            margin-left: 24px;
+            button {
+              cursor: pointer;
+              font-weight: var(--weight-regular);
+              color: var(--darkGrey600);
+              padding: var(--spacing-xl) var(--spacing-2xl);
+            }
+
+            button.active {
+              font-weight: var(--weight-bold);
+              color: var(--primary600);
+              border-bottom: 2px solid var(--primary600);
+            }
+          }
+          .title {
+            padding: 16px 24px;
+            color: var(--darkGrey900, #344858);
+
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+          }
+          .upload-btn {
+            display: flex;
+            margin: 8px 24px;
+            min-width: 85px;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            gap: 8px;
+            border-radius: var(--border-radius-s);
+            background: var(--Primary600, #009eb8);
+            color: var(--White, #fff);
+            text-align: center;
+
+            font-size: var(--font-caption);
+            font-weight: var(--weight-bold);
+          }
+        }
+
+        .table-container {
+          display: flex;
+          flex-direction: column;
+          padding: 24px;
+          gap: 10px;
+          align-items: flex-start;
+          background-color: var(--white);
+          margin-bottom: 45px;
+
+          .table-head {
+            font-size: var(--font-p-sm);
+            padding-right: 16px;
+            min-width: 110px;
+          }
+          .table-body {
+            padding-right: 16px;
+            font-weight: var(--weight-regular);
+            min-width: 110px;
+            tr > td {
+              padding: 16px 0;
+              color: var(--darkGrey900);
+              font-size: var(--font-p-sm);
+              border-bottom: 1px solid var(--darkGrey200);
+            }
+            tr:hover > td {
+              background: var(--Primary100, #eff9fb);
+              color: var(--Primary600, #009eb8);
+              font-weight: var(--weight-bold);
+            }
+            /* 內容管理按鈕 */
+            .button-status {
+              position: relative;
+              display: inline-block;
+              max-width: 100px;
+              text-align: center;
+              padding: 6px 12px;
+              font-size: var(--font-caption);
+              font-weight: var(--weight-bold);
+              border-radius: var(--border-radius-s);
+            }
+
+            .speech-bubble {
+              position: absolute;
+              z-index: -1;
+              left: 50%;
+              transform: translateX(-50%);
+              top: -40px;
+              display: inline-block;
+              background-color: var(--darkGrey800);
+              color: var(--white);
+              padding: 6px 12px;
+              border-radius: var(--border-radius-m);
+              font-size: var(--font-caption);
+              font-weight: var(--weight-medium);
+              min-width: 150px;
+              opacity: 0;
+              z-index: 999;
+            }
+
+            .speech-bubble::after {
+              content: "";
+              position: absolute;
+              bottom: -6px;
+              transform: translateX(-50%);
+              left: 50%;
+              width: 0;
+              height: 0;
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-top: 6px solid var(--darkGrey800);
+            }
+
+            .button-status:hover .speech-bubble {
+              z-index: 1;
+              opacity: 1;
+              transition: 0.5s opacity ease-in;
+            }
+
+            .processing {
+              color: var(--darkGrey700);
+              background: var(--darkGrey100);
+              border: 1px solid var(--darkGrey300);
+            }
+            .review {
+              color: var(--sky500);
+              background: var(--sky100);
+              border: 1px solid var(--sky300);
+            }
+            .done {
+              color: var(--primary600);
+              background: var(--primary50);
+              border: 1px solid var(--primary300);
+            }
+            /* 關聯進度 */
+            .not-started {
+              color: var(--white);
+              background: var(--darkGrey500);
+              border: 1px solid var(--darkGrey500);
+            }
+            .comparing {
+              color: var(--danger500);
+              background: var(--danger50);
+              border: 1px solid var(--danger200);
+            }
+            .case-sharing {
+              color: var(--link600);
+              background: var(--link100);
+              border: 1px solid var(--link300);
+            }
+            .control {
+              vertical-align: middle;
+              button {
+                cursor: pointer;
+              }
+              .line {
+                padding: 0 6px;
+              }
+            }
+          }
+        }
+
+        .text-left {
+          font-weight: var(--weight-medium);
+          color: var(--darkGrey500);
+        }
+
+        .pagination-container {
+          display: flex;
+          justify-content: center;
+          margin: 48px auto;
+          gap: 5px;
+          width: 328px;
+          height: 32px;
+
+          .control,
+          .page {
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-m);
+            background: var(--darkGrey200);
+            box-shadow: 0 5px 12px #e3eff1;
+            background-color: var(--white);
+            border: 1px solid var(--darkGrey200);
+          }
+          .page.active {
+            background-color: var(--primary600);
+            color: var(--white);
+          }
+          .page span {
+            font-family: "Roboto", sans-serif;
+            font-size: var(--font-footnote);
+            font-weight: var(--weight-semibold);
+            color: var(--primary600);
+          }
+          .page.active span {
+            color: var(--white);
+          }
+        }
+      }
+
+      .title-container {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c11-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c11-template"></div>
+          <div id="search-template"></div>
+          <div id="table-container" class="bg-white rounded-lg">
+            <div class="layout">
+              <div class="tab-container flex">
+                <div>
+                  <!-- tab按鈕型 -->
+                  <div class="tab flex border-b px-6">
+                    <button class="active">全部</button>
+                    <button class="">法規</button>
+                    <button class="">函釋</button>
+                    <button class="">其他</button>
+                  </div>
+                  <!-- 一般文字型 -->
+                  <!-- <div class="title flex border-b px-6">內規列表</div> -->
+                </div>
+                <a href="javascript:void(0)" class="upload-btn">
+                  <img src="../assets/icons/icon_upload.svg" alt="" />
+                  <span>上傳</span>
+                </a>
+              </div>
+
+              <div class="table-container">
+                <!-- Table -->
+                <table class="w-full">
+                  <thead class="text-sm table-head">
+                    <tr>
+                      <th class="text-left">法令類型</th>
+                      <th class="text-left">來文機關</th>
+                      <th class="text-left">法規名稱/發文字號</th>
+                      <th class="text-left">摘要</th>
+                      <th class="text-left">創建日期</th>
+                      <th class="text-left">內容處理進度</th>
+                      <th class="text-left">關聯處理進度</th>
+                      <th class="text-left">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-sm table-body">
+                    <tr class="border-b">
+                      <td class="max-w-[300px]">法規</td>
+                      <td class="max-w-[300px]">金融監督管理委員會</td>
+                      <td class="max-w-[300px]">法制字第 11202513650 號</td>
+                      <td class="max-w-[300px]">
+                        本法第十三條所稱之替代服務，係指依法令...
+                      </td>
+                      <td class="max-w-[300px]">YYYY/MM/DD</td>
+                      <td class="max-w-[300px]">
+                        <span class="button-status review"
+                          >覆核中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="button-status not-started"
+                          >未開始
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4 control">
+                        <div class="flex items-center space-x-2">
+                          <a class="p-1 mr-0">
+                            <img
+                              class="img"
+                              src="./assets/icons/icon_edit_disable.svg"
+                            />
+                          </a>
+                          <img class="line" src="./assets/icons/line.svg" />
+                          <button class="p-1">
+                            <img class="img" src="./assets/icons/eye.svg" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="max-w-[300px]">法規</td>
+                      <td class="max-w-[300px]">金融監督管理委員會</td>
+                      <td class="max-w-[300px]">
+                        證券投資人及期貨交易人保護法
+                      </td>
+                      <td class="max-w-[300px]">
+                        本法第十三條所稱之替代證券，係指依法令或...
+                      </td>
+                      <td class="max-w-[300px]">YYYY/MM/DD</td>
+                      <td class="max-w-[300px]">
+                        <span class="button-status done"
+                          >已完成
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="button-status comparing"
+                          >比對中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4 control">
+                        <div class="flex items-center space-x-2">
+                          <a class="p-1 mr-0">
+                            <img
+                              class="img"
+                              src="./assets/icons/icon_edit.svg"
+                            />
+                          </a>
+                          <img class="line" src="./assets/icons/line.svg" />
+                          <button class="p-1">
+                            <img class="img" src="./assets/icons/eye.svg" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="max-w-[300px]">函釋</td>
+                      <td class="max-w-[300px]">內政部國土管理署</td>
+                      <td class="max-w-[300px]">國署住字第 1131095822 號</td>
+                      <td class="max-w-[300px]">
+                        內政部國土管理署公告 114 年 300 億元中央...
+                      </td>
+                      <td class="max-w-[300px]">YYYY/MM/DD</td>
+                      <td class="max-w-[300px]">
+                        <span class="button-status processing"
+                          >承辦處理中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="button-status case-sharing"
+                          >分案中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4 control">
+                        <div class="flex items-center space-x-2">
+                          <a class="p-1 mr-0">
+                            <img
+                              class="img"
+                              src="./assets/icons/icon_edit_disable.svg"
+                            />
+                          </a>
+                          <img class="line" src="./assets/icons/line.svg" />
+                          <button class="p-1">
+                            <img class="img" src="./assets/icons/eye.svg" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="max-w-[300px]">函釋</td>
+                      <td class="max-w-[300px]">內政部</td>
+                      <td class="max-w-[300px]">台內戶字第 1130243599 號</td>
+                      <td class="max-w-[300px]">
+                        依據戶籍法第 27 條第 2 項規定，新增未滿 1...
+                      </td>
+                      <td class="max-w-[300px]">YYYY/MM/DD</td>
+                      <td class="max-w-[300px]">
+                        <span class="button-status processing"
+                          >承辦處理中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="button-status processing"
+                          >承辦處理中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4 control">
+                        <div class="flex items-center space-x-2">
+                          <a class="p-1 mr-0">
+                            <img
+                              class="img"
+                              src="./assets/icons/icon_edit_disable.svg"
+                            />
+                          </a>
+                          <img class="line" src="./assets/icons/line.svg" />
+                          <button class="p-1">
+                            <img class="img" src="./assets/icons/eye.svg" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="max-w-[300px]">法規</td>
+                      <td class="max-w-[300px]">銀行局</td>
+                      <td class="max-w-[300px]">電子支付機構管理條例</td>
+                      <td class="max-w-[300px]">
+                        修正電子支付機構管理條例條文
+                      </td>
+                      <td class="max-w-[300px]">YYYY/MM/DD</td>
+                      <td class="max-w-[300px]">
+                        <span class="button-status processing"
+                          >承辦處理中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="button-status review"
+                          >覆核中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4 control">
+                        <div class="flex items-center space-x-2">
+                          <a class="p-1 mr-0">
+                            <img
+                              class="img"
+                              src="./assets/icons/icon_edit.svg"
+                            />
+                          </a>
+                          <img class="line" src="./assets/icons/line.svg" />
+                          <button class="p-1">
+                            <img class="img" src="./assets/icons/eye.svg" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="border-b">
+                      <td class="max-w-[300px]">法規</td>
+                      <td class="max-w-[300px]">銀行局</td>
+                      <td class="max-w-[300px]">銀行法</td>
+                      <td class="max-w-[300px]">
+                        茲增訂銀行法第一百二十五條之七及第一百二...
+                      </td>
+                      <td class="max-w-[300px]">YYYY/MM/DD</td>
+                      <td class="max-w-[300px]">
+                        <span class="button-status processing"
+                          >承辦處理中
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4">
+                        <span class="button-status done"
+                          >已完成
+                          <div class="speech-bubble">
+                            10/26 12:00 覆核中
+                          </div></span
+                        >
+                      </td>
+                      <td class="py-4 px-4 control">
+                        <div class="flex items-center space-x-2">
+                          <a class="p-1 mr-0">
+                            <img
+                              class="img"
+                              src="./assets/icons/icon_edit_disable.svg"
+                            />
+                          </a>
+                          <img class="line" src="./assets/icons/line.svg" />
+                          <button class="p-1">
+                            <img class="img" src="./assets/icons/eye.svg" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Pagination -->
+            <!-- <div class="flex justify-center py-4">
+              <nav class="flex items-center space-x-1">
+                <button class="px-3 py-1 rounded border">«</button>
+                <button class="px-3 py-1 rounded bg-[#009eb8] text-white">1</button>
+                <button class="px-3 py-1 rounded">2</button>
+                <button class="px-3 py-1 rounded">3</button>
+                <span class="px-3 py-1">...</span>
+                <button class="px-3 py-1 rounded">10</button>
+                <button class="px-3 py-1 rounded border">»</button>
+              </nav>
+            </div> -->
+            <div class="pagination-container">
+              <div class="control">
+                <!-- <img class="img" src="./assets/icons/pagination_first_enable.svg" /> -->
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_first_disable.svg"
+                />
+              </div>
+              <div class="control">
+                <!-- <img class="img" src="./assets/icons/pagination_prev_enable.svg" /> -->
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_prev_disable.svg"
+                />
+              </div>
+              <div class="page active">
+                <span>1</span>
+              </div>
+              <div class="page">
+                <span>2</span>
+              </div>
+              <div class="page">
+                <span>3</span>
+              </div>
+              <div class="page">
+                <span>...</span>
+              </div>
+              <div class="page">
+                <span>10</span>
+              </div>
+              <div class="control">
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_next_enable.svg"
+                />
+                <!-- <img class="img" src="./assets/icons/pagination_next_disable.svg" /> -->
+              </div>
+              <div class="control">
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_last_enable.svg"
+                />
+                <!-- <img class="img" src="./assets/icons/pagination_last_disable.svg" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              // const newScript = document.createElement("script");
+              // newScript.textContent = script.textContent;
+              // document.body.appendChild(newScript);
+              eval(script.textContent);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c11.html", "nav-c11-template");
+      loadComponent(
+        "./components/breadcrumb-c11.html",
+        "breadcrumb-c11-template"
+      );
+      loadComponent("./components/search.html", "search-template");
+    </script>
+  </body>
+</html>

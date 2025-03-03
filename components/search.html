@@ -93,7 +93,9 @@
         width: 100%;
         color: var(--darkGrey500);
         font-size: var(--font-p-sm);
+        font-style: normal;
         font-weight: var(--weight-regular);
+        line-height: normal;
       }
 
       .search-bar input[type="date"] {
@@ -137,7 +139,7 @@
   </style>
   <div id="search-container">
     <div class="search-bar flex">
-      <div class="flex-[20%]">
+      <div class="flex-[15%]">
         <div class="flex helper">
           <label for="" class="text-wrapper text-info">關鍵字</label>
           <div class="bubble">
@@ -148,17 +150,26 @@
         <input class="w-full" type="text" id="" placeholder="輸入關鍵字" />
       </div>
 
-      <div class="flex-[20%]">
-        <label for="" class="text-wrapper">權責單位</label>
+      <div class="flex-[15%]">
+        <label for="" class="text-wrapper">主管機關</label>
         <div class="select-content">
           <select id="">
-            <option selected>所有部門</option>
+            <option selected>所有機關</option>
           </select>
         </div>
       </div>
 
-      <div class="flex-[20%]">
+      <div class="flex-[15%]">
         <label for="" class="text-wrapper">處理進度</label>
+        <div class="select-content">
+          <select id="">
+            <option selected>請選擇</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex-[10%]">
+        <label for="" class="text-wrapper">負責承辦</label>
         <div class="select-content">
           <select id="">
             <option selected>請選擇</option>
