@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <title>D.3.4-內規搜尋-內規內容頁</title>
+    <title>C.2-外規列表-法規內容頁-檢視</title>
     <style>
       @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
@@ -49,13 +49,37 @@
         stroke: var(--text-secondary);
         margin-right: 12px;
       }
-
-      .page-title {
-        color: var(--darkGrey900, #344858);
-        font-size: var(--font-h2);
-        font-style: normal;
-        font-weight: var(--weight-bold);
-        line-height: normal;
+      .page-title-outer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .page-title {
+          display: flex;
+          align-items: center;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h2);
+          font-style: normal;
+          font-weight: var(--weight-bold);
+          line-height: normal;
+          span {
+            border: 1px solid var(--primary400);
+            padding: var(--spacing-xs) var(--spacing-lg);
+            font-size: var(--font-p-md);
+            color: var(--primary600);
+            background: var(--white);
+            margin-right: var(--spacing-lg);
+            border-radius: var(--border-radius-s);
+          }
+        }
+        button {
+          line-height: normal;
+          background: var(--primary600);
+          padding: var(--spacing-md-plus) 20px;
+          font-size: var(--font-p-md);
+          font-weight: var(--weight-bold);
+          color: var(--white);
+          border-radius: var(--border-radius-m);
+        }
       }
 
       .card {
@@ -244,10 +268,6 @@
         text-decoration: underline;
       }
 
-      .attachments {
-        margin-bottom: 100px;
-      }
-
       .page-h2 {
         color: var(--darkGrey900, #344858);
         font-size: var(--font-h3);
@@ -255,23 +275,50 @@
         margin-bottom: 25px;
       }
 
+      .page-h4 {
+        font-weight: var(--weight-bold);
+        color: var(--darkGrey800);
+        font-size: var(--font-h4);
+        padding-left: var(--spacing-2xl);
+        margin-bottom: var(--spacing-2xl);
+        border-left: 3px solid var(--darkGrey700);
+        span {
+          margin-left: var(--spacing-md);
+        }
+      }
+
       .section {
         .title-outer {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          margin-bottom: 25px;
+          margin-bottom: var(--spacing-2xl);
+          .title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-regular);
+            display: flex;
+            align-items: center;
+            button {
+              display: flex;
+              align-items: center;
+              margin-left: var(--spacing-md-plus);
+              gap: var(--spacing-sm);
+              font-size: var(--font-caption);
+              font-weight: var(--weight-bold);
+              color: var(--link600);
+              background: var(--white);
+              border-radius: var(--border-radius-s);
+              padding: var(--spacing-sm) var(--spacing-lg);
+              border: 1px solid var(--link600);
+            }
+          }
+          .status {
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--darkGrey700);
+          }
         }
-        .title {
-          color: var(--darkGrey700, #6c8490);
-          font-size: var(--font-p-lg);
-          font-weight: var(--weight-regular);
-        }
-        .sub {
-          color: var(--darkGrey700, #6c8490);
-          font-size: var(--font-p-md);
-          font-weight: var(--weight-regular);
-        }
+
         .card {
           padding: 24px;
           color: var(--darkGrey900, #344858);
@@ -279,13 +326,26 @@
           font-weight: var(--weight-regular);
           line-height: 150%;
           .title {
+            display: flex;
+            align-items: center;
             color: var(--darkGrey700, #6c8490);
             font-size: var(--font-p-lg);
             font-weight: var(--weight-bold);
+            margin-bottom: var(--spacing-2xl);
+            .edit-btn {
+              background: var(--primary600);
+              margin-left: var(--spacing-xl);
+              border-radius: var(--border-radius-s);
+              padding: var(--spacing-sm) var(--spacing-lg);
+              color: var(--white);
+              font-weight: var(--weight-bold);
+              font-size: var(--font-footnote);
+              line-height: normal;
+            }
           }
           .table-header {
             display: grid;
-            grid-template-columns: 3fr 1fr 2fr 1fr;
+            grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
             padding: 8px 0px;
             color: var(--darkGrey500);
             font-size: var(--font-caption);
@@ -298,7 +358,7 @@
           > .table-row {
             display: grid;
             align-items: start;
-            grid-template-columns: 3fr 1fr 2fr 1fr;
+            grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
             padding: 51px 0 16px;
             border-bottom: 1px solid #e1eaef;
             gap: 20px;
@@ -316,7 +376,7 @@
               font-weight: var(--weight-bold);
               font-size: var(--font-footnote);
               color: var(--primary700);
-              margin-bottom: 8px;
+              margin-bottom: var(--spacing-md);
               border-radius: 4px;
               line-height: normal;
             }
@@ -339,6 +399,25 @@
             font-size: var(--font-h6);
             font-weight: var(--weight-regular);
             line-height: 150%;
+          }
+
+          .relation {
+            .tag {
+              padding: 6px 18px;
+              display: inline-block;
+              font-size: var(--font-small);
+              margin-bottom: 8px;
+              border-radius: 4px;
+              background: var(--darkGrey150);
+              color: var(--darkGrey700);
+              font-weight: var(--weight-bold);
+              line-height: normal;
+            }
+            .tag.check {
+              background: var(--primary200);
+              color: var(--primary600);
+              font-weight: var(--weight-medium);
+            }
           }
 
           .content {
@@ -395,10 +474,15 @@
             align-self: stretch;
             border-radius: var(--border-radius-l);
             background: var(--darkGrey50, #f7fafd);
+            .table-header {
+              display: grid;
+              align-items: start;
+              grid-template-columns: 3fr 1fr 4fr 1fr;
+            }
             .table-row {
               display: grid;
               align-items: start;
-              grid-template-columns: 3fr 1fr 2.5fr 0.5fr;
+              grid-template-columns: 3fr 1fr 4fr 1fr;
               padding: 16px 0;
               border-bottom: 1px solid #e1eaef;
               gap: 20px;
@@ -428,6 +512,13 @@
             }
           }
         }
+      }
+      .attachments-text {
+        color: var(--darkGrey900);
+        font-weight: var(--weight-regular);
+        font-size: var(--font-p-md);
+        line-height: var(--spacing-2xl);
+        margin-bottom: 50px;
       }
 
       /* Responsive Design */
@@ -477,9 +568,14 @@
             <header class="header">
               <button class="back-button">
                 <img src="./assets/icons/icon_arrow_left.svg" alt="" />
-                <span>法規查詢</span>
+                <span>法規內容管理</span>
               </button>
-              <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
+              <div class="page-title-outer">
+                <h1 class="page-title">
+                  <span>法規</span>證券投資人及期貨交易人保護法
+                </h1>
+                <button>編輯</button>
+              </div>
             </header>
 
             <!-- Legal Information -->
@@ -495,10 +591,33 @@
                   <span>2024-07-10</span>
                 </div>
                 <div class="info-item">
-                  <span class="info-label">權責單位</span>
-                  <span>法令遵循部</span>
+                  <span class="info-label">施行狀態</span>
+                  <span>現行有效/廢止...</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">資料來源</span>
+                  <span>證券暨期貨法令判解查詢系統</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">主管機關</span>
+                  <span>金融監督管理委員會證券期貨局</span>
                 </div>
               </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">法規沿革</h2>
+              <p class="attachments-text">
+                中華民國一百零九年六月十日總統華總一經字第 10900064271
+                號令修正公布第 10-1、19、26 條條文；增訂第 10-2、40-1
+                條條文；施行日期，由行政院定之中華民國一百零九年七月七日行政院院臺金字第
+                1090021932 號令發布定自一百零九年八月一日施行
+              </p>
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
             </section>
 
             <!-- Version History -->
@@ -619,20 +738,19 @@
               </div>
             </section>
 
-            <!-- Attachments -->
-            <section class="card attachments">
-              <h2 class="card-title">附件</h2>
-              <a href="javascript:void(0);" class="attachment-link"
-                >證券投資人及期貨交易人保護法.pdf</a
-              >
-            </section>
+            <h2 class="page-h2">條文總覽</h2>
 
-            <h2 class="page-h2">所有條文</h2>
+            <h3 class="page-h4">第一章<span>總則</span></h3>
 
             <section id="section-1" class="section">
               <div class="title-outer">
-                <h3 class="title">第 1 條 <span>目的</span></h3>
-                <div class="sub">施行狀態：自 2022-12-20 施行</div>
+                <h3 class="title">
+                  <span>第 1 條</span>
+                  <button class="">
+                    查看沿革<img src="./assets/icons/arrow_right.svg" alt="" />
+                  </button>
+                </h3>
+                <div class="status">施行狀態：自 2022-12-20 施行</div>
               </div>
               <div class="card">
                 本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
@@ -640,12 +758,15 @@
               </div>
 
               <div class="card">
-                <h1 class="title">關聯內規</h1>
+                <h1 class="title">
+                  關聯內規<span class="edit-btn">編輯</span>
+                </h1>
 
                 <div class="table-header">
                   <div>權責單位與內規名稱</div>
                   <div>條號</div>
                   <div>條文內容</div>
+                  <div>關聯狀態</div>
                 </div>
 
                 <div class="table-row">
@@ -659,21 +780,8 @@
                   <div class="content highlight">
                     本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
                   </div>
-                  <div class="status">
-                    <img class="eye-icon" src="./assets/icons/eye.svg" alt="" />
-                  </div>
-                </div>
-
-                <div class="table-row">
-                  <div class="regulation-name">
-                    <span class="tag">策略規劃處投資管理部</span>
-                    <div class="content">
-                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
-                    </div>
-                  </div>
-                  <div class="article-number">第 1999 條<br />第 22 項</div>
-                  <div class="content highlight">
-                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  <div class="relation">
+                    <span class="tag">尚未確認</span>
                   </div>
                   <div class="status">
                     <img
@@ -695,8 +803,38 @@
                   <div class="content highlight">
                     本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
                   </div>
+                  <div class="relation">
+                    <span class="tag check">已關聯</span>
+                  </div>
                   <div class="status">
-                    <img class="eye-icon" src="./assets/icons/eye.svg" alt="" />
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">策略規劃處投資管理部</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag check">已關聯</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
                   </div>
                 </div>
 
@@ -728,7 +866,160 @@
                     <div class="status">
                       <img
                         class="eye-icon"
-                        src="./assets/icons/eye.svg"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row" style="margin: 10px 0">
+                    <div class="regulation-name">
+                      <span class="tag sub-tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="section-2" class="section">
+              <div class="title-outer">
+                <h3 class="title">
+                  <span>第 2 條</span>
+                  <button class="">
+                    查看沿革<img src="./assets/icons/arrow_right.svg" alt="" />
+                  </button>
+                </h3>
+                <div class="status">施行狀態：自 2022-12-20 施行</div>
+              </div>
+              <div class="card">
+                本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
+                有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
+              </div>
+
+              <div class="card">
+                <h1 class="title">
+                  關聯內規<span class="edit-btn">編輯</span>
+                </h1>
+
+                <div class="table-header">
+                  <div>權責單位與內規名稱</div>
+                  <div>條號</div>
+                  <div>條文內容</div>
+                  <div>關聯狀態</div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">內控風險科</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag">尚未確認</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">策略規劃處投資管理部</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag check">已關聯</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">策略規劃處投資管理部</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag check">已關聯</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="suggested-section">
+                  <div class="title-outer">
+                    <span class="star"
+                      ><img src="./assets/icons/general_AI.svg" alt=""
+                    /></span>
+                    <h2 class="suggested-title">模型建議關聯內規</h2>
+                  </div>
+
+                  <div class="table-header">
+                    <div>權責單位與內規名稱</div>
+                    <div>條號</div>
+                    <div>條文內容</div>
+                  </div>
+
+                  <div class="table-row" style="margin: 10px 0">
+                    <div class="regulation-name">
+                      <span class="tag sub-tag">內控風險科</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
                         alt=""
                       />
                     </div>
