@@ -118,8 +118,8 @@
     display: inline-block;
     width: 14px;
     height: 10px;
-    background-image: url("./assets/icons/polygon.svg");
-    background-size: cover;
+    background-image: url("../../../assets/icons/polygon.svg");
+    background-size: contain;
     margin-right: 8px;
   }
 
@@ -135,8 +135,9 @@
 
   .reviewer-item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    padding-left: 20px;
+    width: 50%;
     gap: 8px;
 
     label {
@@ -149,6 +150,13 @@
 
   .reviewer-radio {
     position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
   }
 
   .reviewer-radio::after {
@@ -160,13 +168,13 @@
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    border-radius: 100%;
-    border: 1px solid var(--Primary-Gray-300, #d2d5da);
-    background: var(--Primary-Base-White, #fff);
+    background-position: center center;
+    background-size: contain;
+    background-image: url(../../../assets/icons/icon_radio_button.svg);
   }
 
   .reviewer-radio:checked::after {
-    border: 5px solid var(--Primary600, #009eb8);
+    background-image: url(../../../assets/icons/icon_radio_button_active.svg);
   }
 
   /* Footer Section */
