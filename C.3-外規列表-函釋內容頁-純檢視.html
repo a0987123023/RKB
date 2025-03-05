@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>C.3-外規列表-函釋內容頁-純檢視</title>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        gap: 0.5rem;
+      }
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--darkGrey900, #344858);
+        font-size: var(--font-h5);
+        font-weight: var(--weight-medium);
+        margin-bottom: 40px;
+      }
+
+      .back-button img {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: var(--text-secondary);
+        margin-right: 12px;
+      }
+      .page-title-outer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .page-title {
+          display: flex;
+          align-items: center;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h2);
+          font-style: normal;
+          font-weight: var(--weight-bold);
+          line-height: normal;
+          span {
+            border: 1px solid var(--primary400);
+            padding: var(--spacing-xs) var(--spacing-lg);
+            font-size: var(--font-p-md);
+            color: var(--primary600);
+            background: var(--white);
+            margin-right: var(--spacing-lg);
+            border-radius: var(--border-radius-s);
+          }
+        }
+        button {
+          line-height: normal;
+          background: var(--primary600);
+          padding: var(--spacing-md-plus) 20px;
+          font-size: var(--font-p-md);
+          font-weight: var(--weight-bold);
+          color: var(--white);
+          border-radius: var(--border-radius-m);
+        }
+      }
+
+      .card {
+        padding: 20px 24px;
+        margin-bottom: 24px;
+        border-radius: var(--border-radius-l);
+        border: 1px solid var(--darkGrey200, #e1eaef);
+        background: var(--White, #fff);
+        box-shadow: 0px 5px 12px 0px #e3eff1;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-title {
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-h6);
+        font-weight: var(--weight-bold);
+        margin-bottom: 16px;
+      }
+
+      .legal-info {
+        width: 100%;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 12px;
+        color: var(--darkGrey900, #344858);
+
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+      }
+
+      .info-label {
+        color: var(--darkGrey700, #6c8490);
+        font-size: var(--font-p-sm);
+        font-weight: var(--weight-medium);
+        min-width: var(--spacing-6xl);
+      }
+
+      .version {
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-m);
+        margin-bottom: 16px;
+      }
+
+      .version-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--status-bg);
+        border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+        margin-bottom: 16px;
+      }
+
+      .version-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        .date {
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+        .number,
+        .member {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+
+        .member {
+          font-weight: var(--weight-bold);
+        }
+
+        .employee {
+          color: var(--darkGrey800, #576972);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+        }
+      }
+
+      .toggle-btn {
+        cursor: pointer;
+      }
+
+      .toggle-btn .open,
+      .toggle-btn .close {
+        display: flex;
+        color: var(--darkGrey700, #6c8490);
+        font-family: "Noto Sans TC";
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        span {
+          margin-right: 8px;
+        }
+      }
+      .toggle-btn .open.disable,
+      .toggle-btn .close.disable {
+        display: none;
+      }
+
+      .button-status {
+        display: inline-block;
+        max-width: 100px;
+        text-align: center;
+        padding: 6px 12px;
+        font-size: var(--font-caption);
+        font-weight: var(--weight-bold);
+        border-radius: var(--border-radius-s);
+      }
+
+      .button-status.reviewed {
+        background: var(--Link600, #0fada8);
+        color: var(--White, #fff);
+      }
+
+      .button-status.unpublished {
+        background: var(--darkGrey500, #aabcc4);
+        color: var(--White, #fff);
+      }
+
+      .frame-sm {
+        height: 0;
+        padding: 0;
+        background-color: rgba(243, 249, 252, 1);
+        border-radius: var(--border-radius-l);
+        width: 100%;
+        max-width: 1152px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .frame-sm.active {
+        height: 100%;
+        padding: 16px 20px;
+      }
+
+      .frame-sm-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .frame-sm-table thead {
+        border-bottom: 1px solid rgba(225, 234, 239, 1);
+      }
+
+      .frame-sm-table th,
+      .frame-sm-table td {
+        padding: 8px;
+        text-align: left;
+      }
+
+      .text-bold {
+        font-family: "Roboto", sans-serif;
+        font-weight: var(--weight-bold);
+        font-size: var(--font-caption);
+        color: rgba(159, 178, 188, 1);
+        letter-spacing: -0.4px;
+      }
+
+      .text-regular {
+        color: var(--darkGrey800, #576972);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+      }
+
+      .text-link {
+        color: rgba(15, 173, 168, 1);
+        font-size: var(--font-caption);
+        font-weight: var(--weight-regular);
+        cursor: pointer;
+      }
+
+      /* Attachment Styles */
+      .attachment-link {
+        color: var(--Link600, #0fada8);
+        font-size: var(--font-h6);
+        font-weight: var(--weight-regular);
+        text-decoration: none;
+      }
+
+      .attachment-link:hover {
+        text-decoration: underline;
+      }
+
+      .section {
+        .title-outer {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: var(--spacing-2xl);
+          .title {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-regular);
+            display: flex;
+            align-items: center;
+            button {
+              display: flex;
+              align-items: center;
+              margin-left: var(--spacing-md-plus);
+              gap: var(--spacing-sm);
+              font-size: var(--font-caption);
+              font-weight: var(--weight-bold);
+              color: var(--link600);
+              background: var(--white);
+              border-radius: var(--border-radius-s);
+              padding: var(--spacing-sm) var(--spacing-lg);
+              border: 1px solid var(--link600);
+            }
+          }
+          .status {
+            font-weight: 400;
+            font-size: 16px;
+            color: var(--darkGrey700);
+          }
+        }
+
+        .card {
+          padding: 24px;
+          color: var(--darkGrey900, #344858);
+          font-size: var(--font-h6);
+          font-weight: var(--weight-regular);
+          line-height: 150%;
+          .title {
+            display: flex;
+            align-items: center;
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-p-lg);
+            font-weight: var(--weight-bold);
+            margin-bottom: var(--spacing-2xl);
+            .edit-btn {
+              background: var(--primary600);
+              margin-left: var(--spacing-xl);
+              border-radius: var(--border-radius-s);
+              padding: var(--spacing-sm) var(--spacing-lg);
+              color: var(--white);
+              font-weight: var(--weight-bold);
+              font-size: var(--font-footnote);
+              line-height: normal;
+            }
+          }
+          .table-header {
+            display: grid;
+            grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
+            padding: 8px 0px;
+            color: var(--darkGrey500);
+            font-size: var(--font-caption);
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+            font-weight: var(--weight-bold);
+            width: 100%;
+          }
+
+          > .table-row {
+            display: grid;
+            align-items: start;
+            grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
+            padding: 51px 0 16px;
+            border-bottom: 1px solid #e1eaef;
+            gap: 20px;
+          }
+
+          .regulation-name {
+            position: relative;
+            .tag {
+              position: absolute;
+              left: 0;
+              top: -41px;
+              background: var(--primary200);
+              padding: 6px 12px;
+              display: inline-block;
+              font-weight: var(--weight-bold);
+              font-size: var(--font-footnote);
+              color: var(--primary700);
+              margin-bottom: var(--spacing-md);
+              border-radius: 4px;
+              line-height: normal;
+            }
+
+            .sub-tag {
+              background: var(--white);
+              border: 1px solid var(--darkGrey300);
+            }
+
+            .content {
+              color: var(--darkGrey800, #576972);
+              font-size: var(--font-h6);
+              font-weight: var(--weight-bold);
+              line-height: 150%;
+            }
+          }
+
+          .article-number {
+            color: var(--darkGrey900, #344858);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .relation {
+            .tag {
+              padding: 6px 18px;
+              display: inline-block;
+              font-size: var(--font-small);
+              margin-bottom: 8px;
+              border-radius: 4px;
+              background: var(--darkGrey150);
+              color: var(--darkGrey700);
+              font-weight: var(--weight-bold);
+              line-height: normal;
+            }
+            .tag.check {
+              background: var(--primary200);
+              color: var(--primary600);
+              font-weight: var(--weight-medium);
+            }
+          }
+
+          .content {
+            color: var(--darkGrey700, #6c8490);
+            font-size: var(--font-h6);
+            font-weight: var(--weight-regular);
+            line-height: 150%;
+          }
+
+          .highlight:hover {
+            cursor: pointer;
+            color: var(--primary600);
+          }
+
+          .status {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+          }
+
+          .status-text {
+            color: var(--darkGrey700, #6c8490);
+            text-align: center;
+            font-size: var(--font-small);
+            font-weight: var(--weight-bold);
+            border-radius: var(--border-radius-s);
+            padding: 6px 12px;
+            line-height: normal;
+          }
+
+          .status-pending {
+            color: var(--darkGrey700, #6c8490);
+            background: var(--darkGrey150, #eff5f9);
+          }
+
+          .status-linked {
+            color: var(--Primary600, #009eb8);
+            background: var(--Primary200, #e8f6f9);
+          }
+
+          .eye-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+          }
+
+          .suggested-section {
+            margin-top: 24px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            align-self: stretch;
+            border-radius: var(--border-radius-l);
+            background: var(--darkGrey50, #f7fafd);
+            .table-header {
+              display: grid;
+              align-items: start;
+              grid-template-columns: 3fr 1fr 4fr 1fr;
+            }
+            .table-row {
+              display: grid;
+              align-items: start;
+              grid-template-columns: 3fr 1fr 4fr 1fr;
+              padding: 16px 0;
+              border-bottom: 1px solid #e1eaef;
+              gap: 20px;
+            }
+          }
+
+          .title-outer {
+            display: flex;
+
+            .star {
+              margin-right: 6px;
+            }
+
+            .suggested-title {
+              font-family: "Noto Sans TC";
+              font-size: var(--font-p-lg);
+              font-style: normal;
+              font-weight: var(--weight-bold);
+              line-height: normal;
+              background: var(
+                --gradientLogotype,
+                linear-gradient(90deg, #2f5d70 0%, #01a7bf 100%)
+              );
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+      .attachments-text {
+        color: var(--darkGrey900);
+        font-weight: var(--weight-regular);
+        font-size: var(--font-p-md);
+        line-height: var(--spacing-2xl);
+        margin-bottom: 50px;
+
+        .part {
+          display: block;
+          color: var(--darkGrey900);
+          font-weight: var(--weight-regular);
+          font-size: var(--font-p-md);
+          line-height: var(--spacing-2xl);
+          margin-bottom: var(--spacing-xl);
+        }
+      }
+
+      /* Responsive Design */
+      @media screen and (min-width: 768px) {
+        .legal-info {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .version-info {
+          flex-wrap: nowrap;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .version-table {
+          display: block;
+          overflow-x: auto;
+        }
+
+        .info-item {
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+
+        .info-label {
+          width: auto;
+        }
+
+        .version-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div id="nav-c12-template"></div>
+        <div class="main flex-[80%]">
+          <div id="breadcrumb-c12-template"></div>
+
+          <div class="container">
+            <!-- Header -->
+            <header class="header">
+              <button class="back-button">
+                <img src="./assets/icons/icon_arrow_left.svg" alt="" />
+                <span>法規內容管理</span>
+              </button>
+              <div class="page-title-outer">
+                <h1 class="page-title">
+                  <span>法規</span>法律字第 11103512140 號
+                </h1>
+              </div>
+            </header>
+
+            <!-- Legal Information -->
+            <section class="card">
+              <h2 class="card-title">函釋資訊</h2>
+              <div class="legal-info">
+                <div class="info-item">
+                  <span class="info-label">發文日期</span>
+                  <span>2023-06-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">標題&#12288;&#12288;</span>
+                  <span
+                    >非以公益為目的之長期照顧服務機構社團法人適用虧損扣抵及試算暫繳之規定</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">資料來源</span>
+                  <span>法務部</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">發文單位</span>
+                  <span>金融監督管理委員會證券期貨局</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Version History -->
+            <section class="card">
+              <h2 class="card-title">版本資訊總覽</h2>
+
+              <!-- Expanded Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status reviewed">已覆核</span>
+                    <span class="date">2024-10-14</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 郭珮昕</span
+                    >
+                  </div>
+                  <div id="toggle-btn1" class="toggle-btn">
+                    <div class="open">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close disable">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="frame-sm1" class="frame-sm active">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Collapsed Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status unpublished">未公開</span>
+                    <span class="date">2021-10-01</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 劉山雀</span
+                    >
+                  </div>
+                  <div id="toggle-btn2" class="toggle-btn">
+                    <div class="open disable">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div id="frame-sm2" class="frame-sm">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">要旨</h2>
+              <p class="attachments-text">
+                中華民國一百零九年六月十日總統華總一經字第 10900064271
+                號令修正公布第 10-1、19、26 條條文；增訂第 10-2、40-1
+                條條文；施行日期，由行政院定之中華民國一百零九年七月七日行政院院臺金字第
+                1090021932 號令發布定自一百零九年八月一日施行
+              </p>
+              <h2 class="card-title">主旨</h2>
+              <p class="attachments-text">
+                有關醫療財團法人基於投資資金多元配置需求，其購買國外股票，是否符合財團法人法第
+                19 條第 3 項規定乙案，復如說明二、三，請查照。
+              </p>
+              <h2 class="card-title">說明</h2>
+              <p class="attachments-text">
+                <span class="part"
+                  >一、復貴部 111 年 9 月 19 日衛部醫字第 1110136144
+                  號函。</span
+                >
+                <span class="part">
+                  二、財團法人法（以下簡稱本法）第 19 條第 1 項及第
+                  3項規定：「財團法人財產之保管及運用，應以法人名義為之，並受主管機關之監督；……（第1
+                  項）。…… 第
+                  1項規定財產之運用方法如下：……五、於財團法人財產總額百分之
+                  5範圍內購買股票，且對單一公司持股比率不得逾該公司資本額百分之5。六、本於安全可靠
+                  之原則所為其他有助於增加財源之投資；其項目及額度，由主管機關定之（第3項）。……」按財團法人如欲投資外國之上市、上櫃股票，除外國發行人依證券交易法
+                  規相關規定在我國上市、上櫃或登錄興櫃者外，仍須經主管機關將該投資項目列入依本法第19
+                  條第 3 項第6款授權所定「本於安全可靠原則所為其他有助於增加
+                  財源之投資項目及額度」中，始得為之。
+                </span>
+                <span class="part">
+                  三、次按本法第 1 條第
+                  2項規定：「財團法人之許可設立、組織、運作及監督管理，除民法以外之其他法律有特別規定者外，適用本法；本法未規定者，適用民法
+                  規定。」其所稱「其他法律有特別規定」，例如醫療財團法人、學校財團法人等特殊性質之財團法人，因已定有醫療法及私立學校法等專法加以規範，自應優先適用
+                  各該專業法律之規定；各該專業法律未規定者，始適用本法；本法未規定者，適用民法之規定（立法理由參照）。查醫療法第35條規定：「醫療法人不得為公司之無
+                  限責任股東或合夥事業之合夥人；如為公司之有限責任股東時，其所有投資總額及對單一公司之投資額或其比例應不得超過一定之限制（第1
+                  項）。前項投資限制， 由中央主管機關定之（第
+                  2項）。……」貴部業以 94 年 11 月 8 日衛署醫字第
+                  0940219014號公告（以下簡稱 94 年 11 月 8 日公告）上開第 35 條
+                  所稱投資限制。有關旨案所詢，因關於醫療財團法人之投資限制，醫療法第35
+                  條及貴部 94 年 11 月
+                  8日公告已定有相關規定，惟似未限制投資國內或國外公司
+                  ，其是否有意未為限制？或未予規範，而依本法第19 條第 3
+                  項規定（醫療法第
+                  1條規定參照）？此涉及醫療法相關規範之解釋適用，宜請貴部本於權責予以審認。
+                </span>
+              </p>
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
+            </section>
+
+            <div>
+              <section id="section-1" class="section">
+                <div class="card">
+                  <h1 class="title">
+                    關聯內規<span class="edit-btn">編輯</span>
+                  </h1>
+
+                  <div class="table-header">
+                    <div>權責單位與內規名稱</div>
+                    <div>條號</div>
+                    <div>條文內容</div>
+                    <div>關聯狀態</div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">內控風險科</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag">尚未確認</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag check">已關聯</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag check">已關聯</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="suggested-section">
+                    <div class="title-outer">
+                      <span class="star"
+                        ><img src="./assets/icons/general_AI.svg" alt=""
+                      /></span>
+                      <h2 class="suggested-title">模型建議關聯內規</h2>
+                    </div>
+
+                    <div class="table-header">
+                      <div>權責單位與內規名稱</div>
+                      <div>條號</div>
+                      <div>條文內容</div>
+                    </div>
+
+                    <div class="table-row" style="margin: 10px 0">
+                      <div class="regulation-name">
+                        <span class="tag sub-tag">內控風險科</span>
+                        <div class="content">
+                          資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                        </div>
+                      </div>
+                      <div class="article-number">第 1999 條<br />第 22 項</div>
+                      <div class="content highlight">
+                        本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                      </div>
+                      <div class="status">
+                        <img
+                          class="eye-icon"
+                          src="./assets/icons/green_eye.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="table-row" style="margin: 10px 0">
+                      <div class="regulation-name">
+                        <span class="tag sub-tag">策略規劃處投資管理部</span>
+                        <div class="content">
+                          資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                        </div>
+                      </div>
+                      <div class="article-number">第 1999 條<br />第 22 項</div>
+                      <div class="content highlight">
+                        本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                      </div>
+                      <div class="status">
+                        <img
+                          class="eye-icon"
+                          src="./assets/icons/green_eye.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      //表單欄位收合
+      const frameSm1 = document.getElementById("frame-sm1");
+      document
+        .getElementById("toggle-btn1")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm1.classList.toggle("active");
+        });
+
+      const frameSm2 = document.getElementById("frame-sm2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm2.classList.toggle("active");
+        });
+
+      // 彈窗
+      const eyes = document.querySelectorAll(".eye-icon");
+      const dialog = document.getElementById("dialog-modal");
+      eyes.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.add("active");
+        });
+      });
+
+      const closeDialog = document.querySelectorAll(".close-active");
+      closeDialog.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.remove("active");
+        });
+      });
+
+      // // 偵測滑動區塊
+      // window.addEventListener("scroll", function () {
+      //   let sections = document.querySelectorAll(".section");
+      //   let navLinks = document.querySelectorAll(
+      //     "#nav-c12-container .sidebar a"
+      //   );
+
+      //   sections.forEach((section) => {
+      //     let rect = section.getBoundingClientRect();
+      //     if (rect.top >= 0 && rect.top < window.innerHeight / 8) {
+      //       let id = section.id;
+      //       console.log("🚀 ~ sections.forEach ~ id:", id);
+      //       navLinks.forEach((link) => {
+      //         link.classList.remove("active");
+      //         if (link.getAttribute("href").substring(1) === id) {
+      //           link.classList.add("active");
+      //         }
+      //       });
+      //     }
+      //   });
+      // });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/nav-c12.html", "nav-c12-template");
+      loadComponent(
+        "./components/breadcrumb-c12.html",
+        "breadcrumb-c12-template"
+      );
+    </script>
+  </body>
+</html>
