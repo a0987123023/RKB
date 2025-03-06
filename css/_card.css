@@ -1,0 +1,32 @@
+.header_shadow {
+  box-shadow: var(--shadow-header-x) var(--shadow-header-y)
+    var(--shadow-header-blur) var(--shadow-header-spread)
+    var(--shadow-header-color);
+  backdrop-filter: blur(var(--shadow-header-blur-bg));
+  -webkit-backdrop-filter: blur(var(--shadow-header-blur-bg));
+}
+
+.popup_shadow {
+  box-shadow: var(--shadow-popup-x) var(--shadow-popup-y)
+    var(--shadow-popup-blur) var(--shadow-popup-spread)
+    var(--shadow-popup-color);
+}
+
+.card_shadow {
+  box-shadow: var(--shadow-card-x) var(--shadow-card-y) var(--shadow-card-blur)
+    var(--shadow-card-spread) var(--shadow-card-color);
+  backdrop-filter: blur(var(--shadow-card-blur-bg));
+  -webkit-backdrop-filter: blur(var(--shadow-card-blur-bg));
+}
+
+.card {
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  border-radius: var(--border-radius-l);
+  border: 1px solid var(--darkGrey200, #e1eaef);
+  background: var(--White, #fff);
+  box-shadow: var(--shadow-card-x) var(--shadow-card-y) var(--shadow-card-blur)
+    var(--shadow-card-spread) var(--shadow-card-color);
+  backdrop-filter: blur(var(--shadow-card-blur-bg));
+  -webkit-backdrop-filter: blur(var(--shadow-card-blur-bg));
+}

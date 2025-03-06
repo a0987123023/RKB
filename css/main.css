@@ -3,6 +3,7 @@
 @import url("./_button.css");
 @import url("./_nav.css");
 @import url("./_breadcrumb.css");
+@import url("./_card.css");
 /* ========== BASE STYLES ========== */
 * {
   -webkit-font-smoothing: antialiased;
@@ -27,30 +28,6 @@ body {
 }
 
 /* ========== COMPONENTS ========== */
-/* Card Component */
-.card {
-  padding: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
-  border-radius: var(--border-radius-l);
-  border: 1px solid var(--darkGrey200);
-  background: var(--white);
-  box-shadow: 0px 5px 12px 0px var(--shadow-card-color);
-  backdrop-filter: blur(10px);
-}
-
-.card-title {
-  color: var(--darkGrey900);
-  font-size: var(--font-h6);
-  font-weight: var(--weight-bold);
-  margin-bottom: var(--spacing-xl);
-}
-
-.card-content {
-  color: var(--darkGrey900);
-  font-size: var(--font-h6);
-  font-weight: var(--weight-regular);
-  line-height: 150%;
-}
 
 /* Button Component */
 .btn {
