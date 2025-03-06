@@ -184,26 +184,6 @@
         display: none;
       }
 
-      .button-status {
-        display: inline-block;
-        max-width: 100px;
-        text-align: center;
-        padding: 6px 12px;
-        font-size: var(--font-caption);
-        font-weight: var(--weight-bold);
-        border-radius: var(--border-radius-s);
-      }
-
-      .button-status.reviewed {
-        background: var(--Link600, #0fada8);
-        color: var(--White, #fff);
-      }
-
-      .button-status.unpublished {
-        background: var(--darkGrey500, #aabcc4);
-        color: var(--White, #fff);
-      }
-
       .frame-sm {
         height: 0;
         padding: 0;
@@ -559,9 +539,32 @@
     <div class="w-full">
       <div id="header-template"></div>
       <div class="w-full flex">
-        <div id="nav-c12-template"></div>
+        <div class="nav min-w-[200px] flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"
+                ><span>第 2 條</span><span class="sub3">產品說明</span></a
+              >
+            </li>
+          </ul>
+        </div>
         <div class="main flex-[80%]">
-          <div id="breadcrumb-c12-template"></div>
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper">法規內容管理</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">內規內容頁</span>
+              </p>
+            </div>
+          </div>
 
           <div class="container">
             <!-- Header -->
@@ -747,7 +750,7 @@
                 <div class="title-outer">
                   <h3 class="title">
                     <span>第 1 條</span>
-                    <button class="">
+                    <button>
                       查看沿革<img
                         src="./assets/icons/arrow_right.svg"
                         alt=""
@@ -903,7 +906,7 @@
                 <div class="title-outer">
                   <h3 class="title">
                     <span>第 2 條</span>
-                    <button class="">
+                    <button>
                       查看沿革<img
                         src="./assets/icons/arrow_right.svg"
                         alt=""
@@ -1136,35 +1139,8 @@
         });
       });
 
-      // // 偵測滑動區塊
-      // window.addEventListener("scroll", function () {
-      //   let sections = document.querySelectorAll(".section");
-      //   let navLinks = document.querySelectorAll(
-      //     "#nav-c12-container .sidebar a"
-      //   );
-
-      //   sections.forEach((section) => {
-      //     let rect = section.getBoundingClientRect();
-      //     if (rect.top >= 0 && rect.top < window.innerHeight / 8) {
-      //       let id = section.id;
-      //       console.log("🚀 ~ sections.forEach ~ id:", id);
-      //       navLinks.forEach((link) => {
-      //         link.classList.remove("active");
-      //         if (link.getAttribute("href").substring(1) === id) {
-      //           link.classList.add("active");
-      //         }
-      //       });
-      //     }
-      //   });
-      // });
-
       // 載入 header.html
       loadComponent("./components/header.html", "header-template");
-      loadComponent("./components/nav-c12.html", "nav-c12-template");
-      loadComponent(
-        "./components/breadcrumb-c12.html",
-        "breadcrumb-c12-template"
-      );
     </script>
   </body>
 </html>

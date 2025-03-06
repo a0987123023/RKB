@@ -1,0 +1,16 @@
+.breadcrumb {
+  margin: 24px 0;
+  width: 100%;
+
+  .label .text-wrapper {
+    color: #00bfa7;
+    font-size: var(--font-p-sm);
+    font-weight: var(--weight-regular);
+  }
+
+  .label .active {
+    color: var(--darkGrey700);
+    font-size: var(--font-p-sm);
+    font-weight: var(--weight-regular);
+  }
+}

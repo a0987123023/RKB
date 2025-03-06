@@ -583,9 +583,32 @@
     <div class="w-full">
       <div id="header-template"></div>
       <div class="w-full flex">
-        <div id="nav-c13-template"></div>
+        <div class="nav min-w-[200px] flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"
+                ><span>第 2 條</span><span class="sub3">產品說明</span></a
+              >
+            </li>
+          </ul>
+        </div>
         <div class="main flex-[80%]">
-          <div id="breadcrumb-c13-template"></div>
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper">法規內容管理</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">上傳新版內規</span>
+              </p>
+            </div>
+          </div>
           <div class="go-back">
             <img src="./assets/icons/icon_arrow_left.svg" alt="" />
             <span>法規內容管理</span>
@@ -1025,11 +1048,6 @@
 
       // 載入 header.html
       loadComponent("./components/header.html", "header-template");
-      loadComponent("./components/nav-c13.html", "nav-c13-template");
-      loadComponent(
-        "./components/breadcrumb-c13.html",
-        "breadcrumb-c13-template"
-      );
     </script>
   </body>
 </html>

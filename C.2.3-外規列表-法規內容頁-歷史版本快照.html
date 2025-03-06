@@ -125,26 +125,6 @@
         font-weight: var(--weight-medium);
       }
 
-      .button-status {
-        display: inline-block;
-        max-width: 100px;
-        text-align: center;
-        padding: 6px 12px;
-        font-size: var(--font-caption);
-        font-weight: var(--weight-bold);
-        border-radius: var(--border-radius-s);
-      }
-
-      .button-status.reviewed {
-        background: var(--Link600, #0fada8);
-        color: var(--White, #fff);
-      }
-
-      .button-status.unpublished {
-        background: var(--darkGrey500, #aabcc4);
-        color: var(--White, #fff);
-      }
-
       .frame-sm {
         height: 0;
         padding: 0;
@@ -464,161 +444,6 @@
         font-size: var(--font-p-md);
         line-height: var(--spacing-2xl);
         margin-bottom: 50px;
-      }
-
-      .workflow-container {
-        width: 100%;
-        margin: 0 auto 24px;
-        background: #fff;
-        border: 1px solid #ebebeb;
-        border-radius: var(--border-radius-l);
-        padding: 28px 24px 24px 24px;
-        box-shadow: 0 5px 12px rgba(226, 239, 241, 1);
-      }
-
-      .workflow-title {
-        color: var(--Cathay-Grey700, #555);
-        font-family: "Noto Sans TC";
-        font-size: var(--font-p-lg);
-        font-weight: var(--weight-bold);
-        margin-bottom: 16px;
-      }
-
-      .workflow-steps {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .step {
-        flex: 1;
-        min-width: 300px;
-        position: relative;
-      }
-
-      .step-header {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-
-      .step-number {
-        width: 18px;
-        height: 18px;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: var(--font-small);
-      }
-
-      .step.active .step-number {
-        background-color: #009eb8;
-      }
-
-      .step:not(.active) .step-number {
-        background-color: #9fb2bc;
-      }
-
-      .step-title {
-        font-size: var(--font-h6);
-        font-weight: var(--weight-bold);
-      }
-
-      .step.active .step-title {
-        color: var(--Primary600, #009eb8);
-      }
-
-      .step:not(.active) .step-title {
-        color: var(--darkGrey600, #9fb2bc);
-      }
-
-      .step-content {
-        padding: 20px 0;
-        border-top: 4px solid var(--darkGrey500, #aabcc4);
-      }
-
-      .step.active .step-content {
-        color: var(--darkGrey700, #6c8490);
-        border-top: 4px solid var(--Primary600, #009eb8);
-        font-size: var(--font-small);
-        font-weight: var(--weight-medium);
-      }
-
-      .step:not(.active) .step-content {
-        color: var(--darkGrey600, #9fb2bc);
-        font-size: var(--font-footnote);
-        font-weight: var(--weight-bold);
-      }
-
-      .department-info {
-        margin-bottom: 6px;
-        font-size: var(--font-small);
-      }
-
-      .user-info {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        font-size: var(--font-small);
-      }
-
-      .user-icon {
-        width: 14px;
-        height: 14px;
-      }
-
-      .add-reviewer {
-        display: inline-flex;
-        align-items: center;
-        padding: 8px 16px;
-        background: var(--Primary600, #009eb8);
-        color: var(--White, #fff);
-        border: none;
-        border-radius: var(--border-radius-s);
-        cursor: pointer;
-        font-size: var(--font-h6);
-        text-align: center;
-        gap: 8px;
-        font-weight: var(--weight-bold);
-      }
-
-      .reviewed {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 20px;
-        .date {
-          color: var(--darkGrey800, #576972);
-          font-size: var(--font-footnote);
-          font-weight: var(--weight-regular);
-          line-height: 150%;
-        }
-        .name {
-          color: var(--darkGrey800, #576972);
-          font-size: var(--font-footnote);
-          font-weight: var(--weight-bold);
-          line-height: 150%;
-        }
-        .feedback {
-          cursor: pointer;
-          color: var(--Link600, #0fada8);
-          font-size: var(--font-footnote);
-          font-weight: var(--weight-regular);
-          line-height: 150%;
-          text-decoration: underline;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .workflow-steps {
-          flex-direction: column;
-        }
-
-        .step {
-          min-width: 100%;
-        }
       }
 
       .dialog-modal {
@@ -1038,7 +863,20 @@
         以下為 YYYYMMDD - 00000000$流水單號 公開版本快照
       </div>
       <div class="w-full flex">
-        <div id="nav-c12-template"></div>
+        <div class="nav min-w-[200px] flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"
+                ><span>第 2 條</span><span class="sub3">產品說明</span></a
+              >
+            </li>
+          </ul>
+        </div>
         <div class="main flex-[80%]">
           <div class="container">
             <header class="header">
@@ -1105,7 +943,7 @@
                 <div class="title-outer">
                   <h3 class="title">
                     <span>第 1 條</span>
-                    <button class="">
+                    <button>
                       查看沿革<img
                         src="./assets/icons/arrow_right.svg"
                         alt=""
@@ -1259,7 +1097,7 @@
                 <div class="title-outer">
                   <h3 class="title">
                     <span>第 2 條</span>
-                    <button class="">
+                    <button>
                       查看沿革<img
                         src="./assets/icons/arrow_right.svg"
                         alt=""
@@ -1451,7 +1289,6 @@
 
       // 載入 header.html
       loadComponent("./components/header.html", "header-template");
-      loadComponent("./components/nav-c12.html", "nav-c12-template");
     </script>
   </body>
 </html>

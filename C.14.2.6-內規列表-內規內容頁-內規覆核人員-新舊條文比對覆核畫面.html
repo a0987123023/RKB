@@ -163,26 +163,6 @@
         display: none;
       }
 
-      .button-status {
-        display: inline-block;
-        max-width: 100px;
-        text-align: center;
-        padding: 6px 12px;
-        font-size: var(--font-caption);
-        font-weight: var(--weight-bold);
-        border-radius: var(--border-radius-s);
-      }
-
-      .button-status.reviewed {
-        background: var(--Link600, #0fada8);
-        color: var(--White, #fff);
-      }
-
-      .button-status.unpublished {
-        background: var(--darkGrey500, #aabcc4);
-        color: var(--White, #fff);
-      }
-
       .frame-sm {
         height: 0;
         padding: 0;
@@ -396,7 +376,6 @@
         border: 1px solid #ebebeb;
         border-radius: var(--border-radius-l);
         padding: 28px 24px 24px 24px;
-        box-shadow: 0 5px 12px rgba(226, 239, 241, 1);
       }
 
       .workflow-title {
@@ -508,7 +487,7 @@
         font-weight: var(--weight-bold);
       }
 
-      .reviewed {
+      .reviewer {
         display: flex;
         gap: 8px;
         margin-bottom: 20px;
@@ -770,9 +749,32 @@
     <div class="w-full">
       <div id="header-template"></div>
       <div class="w-full flex">
-        <div id="nav-c12-template"></div>
+        <div class="nav min-w-[200px] flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"
+                ><span>第 2 條</span><span class="sub3">產品說明</span></a
+              >
+            </li>
+          </ul>
+        </div>
         <div class="main flex-[80%]">
-          <div id="breadcrumb-c12-template"></div>
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper">法規內容管理</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">內規內容頁</span>
+              </p>
+            </div>
+          </div>
 
           <div class="container">
             <header class="header">
@@ -787,7 +789,7 @@
               </div>
             </header>
 
-            <section class="workflow-container">
+            <section class="workflow-container card_shadow">
               <h1 class="workflow-title">內規內容管理歷程</h1>
 
               <div class="workflow-steps">
@@ -810,7 +812,7 @@
                       <span>王小明</span>
                     </div>
                   </div>
-                  <div class="reviewed">
+                  <div class="reviewer">
                     <div class="date">YYYY-MM-DD</div>
                     <div class="name">已選覆核人員</div>
                   </div>
@@ -841,7 +843,7 @@
                       <span>曹群珮</span>
                     </div>
                   </div>
-                  <div class="reviewed">
+                  <div class="reviewer">
                     <div class="date">YYYY-MM-DD</div>
                     <div class="name">已退回</div>
                     <div class="feedback" id="feedback">查看意見</div>
@@ -1223,11 +1225,6 @@
 
       // 載入 header.html
       loadComponent("./components/header.html", "header-template");
-      loadComponent("./components/nav-c12.html", "nav-c12-template");
-      loadComponent(
-        "./components/breadcrumb-c12.html",
-        "breadcrumb-c12-template"
-      );
     </script>
   </body>
 </html>

@@ -20,24 +20,6 @@
         }
       }
 
-      .nav {
-        margin-top: 72px;
-        li {
-          margin-left: 30px;
-          padding-left: 20px;
-          margin-bottom: 16px;
-          font-weight: var(--weight-bold);
-          color: var(--darkGrey600);
-          border-left: 3px solid var(--darkGrey600);
-          cursor: pointer;
-        }
-
-        li.active {
-          border-left: 3px solid var(--darkGrey900);
-          color: var(--darkGrey900);
-        }
-      }
-
       #search-container {
         display: flex;
         flex-direction: column;
@@ -180,9 +162,22 @@
     <div class="w-full">
       <div id="header-template"></div>
       <div class="w-full flex">
-        <div id="nav-c11-template"></div>
+        <div class="nav min-w-[200px] flex-[10%]">
+          <ul>
+            <li class="sub1 active">外規列表</li>
+            <li class="sub1">內規列表</li>
+          </ul>
+        </div>
         <div class="main flex-[80%]">
-          <div id="breadcrumb-c11-template"></div>
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">法規內容管理</span>
+              </p>
+            </div>
+          </div>
           <div id="search-container">
             <div class="search-bar flex">
               <div class="flex-[30%]">
@@ -263,11 +258,6 @@
 
       // 載入 header.html
       loadComponent("./components/header.html", "header-template");
-      loadComponent("./components/nav-c11.html", "nav-c11-template");
-      loadComponent(
-        "./components/breadcrumb-c11.html",
-        "breadcrumb-c11-template"
-      );
       loadComponent("./components/tab-table-3.html", "tab-table-element-2");
     </script>
   </body>

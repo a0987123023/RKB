@@ -1,0 +1,87 @@
+/* 標籤 start  */
+.button-status {
+  position: relative;
+  display: inline-block;
+  max-width: 100px;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: var(--font-caption);
+  font-weight: var(--weight-bold);
+  border-radius: var(--border-radius-s);
+  line-height: 1;
+  .button-status-bubble {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    display: inline-block;
+    background-color: var(--darkGrey800);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: var(--border-radius-m);
+    font-size: var(--font-caption);
+    font-weight: var(--weight-medium);
+    min-width: 150px;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .button-status-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--darkGrey800);
+  }
+}
+
+.button-status:hover .button-status-bubble {
+  z-index: 1;
+  opacity: 1;
+  transition: 0.3s opacity ease-in;
+}
+
+.button-status.processing {
+  color: var(--darkGrey700);
+  background: var(--darkGrey100);
+  border: 1px solid var(--darkGrey300);
+}
+.button-status.review {
+  color: var(--sky500);
+  background: var(--sky100);
+  border: 1px solid var(--sky300);
+}
+.button-status.done {
+  color: var(--primary600);
+  background: var(--primary50);
+  border: 1px solid var(--primary300);
+}
+.button-status.not-started {
+  color: var(--white);
+  background: var(--darkGrey500);
+  border: 1px solid var(--darkGrey500);
+}
+.button-status.comparing {
+  color: var(--danger500);
+  background: var(--danger50);
+  border: 1px solid var(--danger200);
+}
+.button-status.case-sharing {
+  color: var(--link600);
+  background: var(--link100);
+  border: 1px solid var(--link300);
+}
+.button-status.reviewed {
+  background: var(--Link600, #0fada8);
+  color: var(--White, #fff);
+}
+.button-status.unpublished {
+  background: var(--darkGrey500, #aabcc4);
+  color: var(--White, #fff);
+}
+/* table進度標籤 end  */
