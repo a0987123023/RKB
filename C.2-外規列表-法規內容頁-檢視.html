@@ -257,7 +257,7 @@
         }
       }
 
-      .section {
+      .basic-content {
         .title-outer {
           display: flex;
           justify-content: space-between;
@@ -288,201 +288,11 @@
             color: var(--darkGrey700);
           }
         }
-
         .card {
-          padding: 24px;
-          color: var(--darkGrey900, #344858);
-          font-size: var(--font-h6);
-          font-weight: var(--weight-regular);
           line-height: 150%;
-          .title {
-            display: flex;
-            align-items: center;
-            color: var(--darkGrey700, #6c8490);
-            font-size: var(--font-p-lg);
-            font-weight: var(--weight-bold);
-            margin-bottom: var(--spacing-2xl);
-            .edit-btn {
-              background: var(--primary600);
-              margin-left: var(--spacing-xl);
-              border-radius: var(--border-radius-s);
-              padding: var(--spacing-sm) var(--spacing-lg);
-              color: var(--white);
-              font-weight: var(--weight-bold);
-              font-size: var(--font-footnote);
-              line-height: normal;
-            }
-          }
-          .table-header {
-            display: grid;
-            grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
-            padding: 8px 0px;
-            color: var(--darkGrey500);
-            font-size: var(--font-caption);
-            border-bottom: 1px solid #e1eaef;
-            gap: 20px;
-            font-weight: var(--weight-bold);
-            width: 100%;
-          }
-
-          > .table-row {
-            display: grid;
-            align-items: start;
-            grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
-            padding: 51px 0 16px;
-            border-bottom: 1px solid #e1eaef;
-            gap: 20px;
-          }
-
-          .regulation-name {
-            position: relative;
-            .tag {
-              position: absolute;
-              left: 0;
-              top: -41px;
-              background: var(--primary200);
-              padding: 6px 12px;
-              display: inline-block;
-              font-weight: var(--weight-bold);
-              font-size: var(--font-footnote);
-              color: var(--primary700);
-              margin-bottom: var(--spacing-md);
-              border-radius: 4px;
-              line-height: normal;
-            }
-
-            .sub-tag {
-              background: var(--white);
-              border: 1px solid var(--darkGrey300);
-            }
-
-            .content {
-              color: var(--darkGrey800, #576972);
-              font-size: var(--font-h6);
-              font-weight: var(--weight-bold);
-              line-height: 150%;
-            }
-          }
-
-          .article-number {
-            color: var(--darkGrey900, #344858);
-            font-size: var(--font-h6);
-            font-weight: var(--weight-regular);
-            line-height: 150%;
-          }
-
-          .relation {
-            .tag {
-              padding: 6px 18px;
-              display: inline-block;
-              font-size: var(--font-small);
-              margin-bottom: 8px;
-              border-radius: 4px;
-              background: var(--darkGrey150);
-              color: var(--darkGrey700);
-              font-weight: var(--weight-bold);
-              line-height: normal;
-            }
-            .tag.check {
-              background: var(--primary200);
-              color: var(--primary600);
-              font-weight: var(--weight-medium);
-            }
-          }
-
-          .content {
-            color: var(--darkGrey700, #6c8490);
-            font-size: var(--font-h6);
-            font-weight: var(--weight-regular);
-            line-height: 150%;
-          }
-
-          .highlight:hover {
-            cursor: pointer;
-            color: var(--primary600);
-          }
-
-          .status {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-          }
-
-          .status-text {
-            color: var(--darkGrey700, #6c8490);
-            text-align: center;
-            font-size: var(--font-small);
-            font-weight: var(--weight-bold);
-            border-radius: var(--border-radius-s);
-            padding: 6px 12px;
-            line-height: normal;
-          }
-
-          .status-pending {
-            color: var(--darkGrey700, #6c8490);
-            background: var(--darkGrey150, #eff5f9);
-          }
-
-          .status-linked {
-            color: var(--Primary600, #009eb8);
-            background: var(--Primary200, #e8f6f9);
-          }
-
-          .eye-icon {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-          }
-
-          .suggested-section {
-            margin-top: 24px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 24px;
-            align-self: stretch;
-            border-radius: var(--border-radius-l);
-            background: var(--darkGrey50, #f7fafd);
-            .table-header {
-              display: grid;
-              align-items: start;
-              grid-template-columns: 3fr 1fr 4fr 1fr;
-            }
-            .table-row {
-              display: grid;
-              align-items: start;
-              grid-template-columns: 3fr 1fr 4fr 1fr;
-              padding: 16px 0;
-              border-bottom: 1px solid #e1eaef;
-              gap: 20px;
-            }
-          }
-
-          .title-outer {
-            display: flex;
-
-            .star {
-              margin-right: 6px;
-            }
-
-            .suggested-title {
-              font-family: "Noto Sans TC";
-              font-size: var(--font-p-lg);
-              font-style: normal;
-              font-weight: var(--weight-bold);
-              line-height: normal;
-              background: var(
-                --gradientLogotype,
-                linear-gradient(90deg, #2f5d70 0%, #01a7bf 100%)
-              );
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
-          }
         }
       }
+
       .attachments-text {
         color: var(--darkGrey900);
         font-weight: var(--weight-regular);
@@ -736,7 +546,7 @@
 
               <h3 class="page-h4">第一章<span>總則</span></h3>
 
-              <section id="section-1" class="section">
+              <div class="basic-content">
                 <div class="title-outer">
                   <h3 class="title">
                     <span>第 1 條</span>
@@ -753,7 +563,9 @@
                   本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
                   有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
                 </div>
+              </div>
 
+              <section id="section-1" class="regulation-table tag-version">
                 <div class="card">
                   <h1 class="title">
                     關聯內規<span class="edit-btn">編輯</span>
@@ -892,7 +704,7 @@
                 </div>
               </section>
 
-              <section id="section-2" class="section">
+              <div class="basic-content">
                 <div class="title-outer">
                   <h3 class="title">
                     <span>第 2 條</span>
@@ -909,7 +721,9 @@
                   本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
                   有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
                 </div>
+              </div>
 
+              <section id="section-2" class="regulation-table tag-version">
                 <div class="card">
                   <h1 class="title">
                     關聯內規<span class="edit-btn">編輯</span>

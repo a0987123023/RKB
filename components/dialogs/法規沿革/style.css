@@ -73,7 +73,7 @@
   }
 
   /* Sections */
-  .section {
+  .section-content {
     margin-bottom: var(--spacing-4xl);
 
     .main-title {

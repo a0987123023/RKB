@@ -24,7 +24,7 @@
   margin-bottom: 24px;
   border-radius: var(--border-radius-l);
   border: 1px solid var(--darkGrey200, #e1eaef);
-  background: var(--White, #fff);
+  background: var(--white, #fff);
   box-shadow: var(--shadow-card-x) var(--shadow-card-y) var(--shadow-card-blur)
     var(--shadow-card-spread) var(--shadow-card-color);
   backdrop-filter: blur(var(--shadow-card-blur-bg));
