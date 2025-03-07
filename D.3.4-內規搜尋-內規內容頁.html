@@ -17,47 +17,6 @@
         color: var(--primary600) !important;
       }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .header {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin-bottom: 1.5rem;
-        gap: 0.5rem;
-      }
-
-      .back-button {
-        display: flex;
-        align-items: center;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--darkGrey900, #344858);
-        font-size: var(--font-h5);
-        font-weight: var(--weight-medium);
-        margin-bottom: 40px;
-      }
-
-      .back-button img {
-        width: 24px;
-        height: 24px;
-        fill: none;
-        stroke: var(--text-secondary);
-        margin-right: 12px;
-      }
-
-      .page-title {
-        color: var(--darkGrey900, #344858);
-        font-size: var(--font-h2);
-        font-style: normal;
-        font-weight: var(--weight-bold);
-        line-height: normal;
-      }
-
       .card-title {
         color: var(--darkGrey900, #344858);
 
@@ -313,12 +272,14 @@
 
           <div class="container">
             <!-- Header -->
-            <header class="header">
+            <header class="container-header">
               <button class="back-button">
                 <img src="./assets/icons/icon_arrow_left.svg" alt="" />
                 <span>法規查詢</span>
               </button>
-              <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
+              <div class="page-title-outer">
+                <h1 class="page-title">法令遵循自行評估及自行查核作業要點</h1>
+              </div>
             </header>
 
             <!-- Legal Information -->
