@@ -433,16 +433,30 @@
 
         .article-grid {
           display: flex;
-          justify-content: space-between;
           gap: 32px;
         }
 
+        .article-section {
+          flex: 1;
+          .title-outer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            .new-area {
+              font-size: 14px;
+              font-weight: 700;
+              color: var(--darkGrey900);
+            }
+          }
+        }
+
         .article-section-title {
+          margin: 0;
           color: var(--darkGrey700, #6c8490);
           font-size: var(--font-caption);
           font-weight: var(--weight-bold);
-          margin-bottom: 8px;
         }
+
         .low {
           display: flex;
           align-items: center;
@@ -451,32 +465,83 @@
           line-height: 150%;
         }
 
-        .law-separator {
-          display: inline-block;
-          padding: 12px;
-        }
-
         .low.old-area {
           color: var(--darkGrey700, #6c8490);
           height: 100%;
+
+          .law-separator {
+            display: inline-block;
+            padding: 12px;
+          }
         }
 
         .low.new-area {
           color: var(--darkGrey900, #344858);
+          .law-separator {
+            display: inline-block;
+            padding: 0 12px;
+          }
         }
 
         .article-navigation {
           display: flex;
           align-items: center;
-          justify-content: space-between;
           gap: 12px;
           white-space: nowrap;
         }
+        .change,
+        .chapter,
+        .section,
+        .article {
+          position: relative;
+          padding: 0 var(--spacing-lg);
+          font-size: var(--font-p-md);
+          color: var(--primary700);
+          font-weight: var(--weight-bold);
+        }
 
-        .nav-container {
-          max-width: 600px;
-          margin: 0 auto;
-          height: 38px;
+        .change {
+          padding-left: 0;
+        }
+
+        .chapter::after,
+        .section::after,
+        .article::after {
+          content: "";
+          display: block;
+          height: 100%;
+          width: 1px;
+          background: var(--darkGrey200);
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        .old-regulation-header {
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: var(--spacing-xs);
+          border: 1px solid var(--darkGrey300);
+          border-radius: var(--border-radius-m);
+          .tag {
+            line-height: 19.5px;
+            font-weight: var(--weight-bold);
+            font-size: var(--font-footnote);
+            padding: 4px 16px;
+            border-radius: var(--border-radius-s);
+          }
+          .old-tag {
+            color: var(--white);
+            background: var(--primary700);
+          }
+          .article-nav {
+            display: flex;
+          }
+          .arrow {
+            padding-right: var(--spacing-sm);
+          }
         }
 
         .nav-button {
@@ -842,7 +907,9 @@
                   <div class="article-grid">
                     <!-- Old Article Section -->
                     <div class="article-section">
-                      <h3 class="article-section-title">舊條號</h3>
+                      <div class="title-outer">
+                        <h3 class="article-section-title">舊條號</h3>
+                      </div>
                       <div class="article-navigation">
                         <nav class="low old-area">
                           <a href="#" class="law-link">第一章</a>
@@ -859,14 +926,13 @@
                           />
                           <a href="#" class="law-link">第1條</a>
                         </nav>
-                        <div class="nav-container"></div>
                       </div>
                     </div>
 
                     <div class="article-section">
-                      <h3 class="article-section-title">新條號</h3>
-                      <div class="article-navigation">
-                        <nav class="low new-area">
+                      <div class="title-outer new-area">
+                        <h3 class="article-section-title">新條號</h3>
+                        <nav class="low new-area ml-lg">
                           <a href="#" class="law-link">第一章</a>
                           <img
                             class="law-separator"
@@ -881,32 +947,22 @@
                           />
                           <a href="#" class="law-link">第1條</a>
                         </nav>
-                        <img src="./assets/icons/icon_arrow_right.svg" alt="" />
-                        <div class="nav-container">
-                          <button class="nav-button">
-                            <div class="nav-left">
-                              <span class="nav-label">舊條號</span>
-                            </div>
-                            <div class="nav-right">
-                              <span class="nav-item">第一章</span>
+                      </div>
+                      <div class="article-navigation">
+                        <div class="old-regulation-header">
+                          <div class="tag old-tag">舊條號</div>
+                          <div class="article-nav">
+                            <span class="change">第五編</span>
+                            <span class="chapter">第一章</span>
+                            <span class="section">第一節</span>
+                            <span class="article">第 100 條</span>
+                            <span>
                               <img
-                                class="law-separator"
-                                src="./assets/icons/line.svg"
-                                alt=""
-                              />
-                              <span class="nav-item">第一節</span>
-                              <img
-                                class="law-separator"
-                                src="./assets/icons/line.svg"
-                                alt=""
-                              />
-                              <span class="nav-item">第1條</span>
-                              <img
+                                class="arrow"
                                 src="./assets/icons/icon_arrow_down.svg"
                                 alt=""
-                              />
-                            </div>
-                          </button>
+                            /></span>
+                          </div>
                         </div>
                       </div>
                     </div>
