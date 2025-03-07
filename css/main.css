@@ -1,10 +1,11 @@
 @import url("./_variables.css");
 @import url("./_table.css");
-@import url("./_button.css");
-@import url("./_nav.css");
+@import url("./_tag.css");
+@import url("./_side_nav.css");
 @import url("./_breadcrumb.css");
 @import url("./_card.css");
 @import url("./_container_header.css");
+@import url("./_previous_page.css");
 
 /* ========== BASE STYLES ========== */
 * {

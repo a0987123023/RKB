@@ -19,6 +19,7 @@
   -webkit-backdrop-filter: blur(var(--shadow-card-blur-bg));
 }
 
+/* 一般卡片 */
 .card {
   padding: 20px 24px;
   margin-bottom: 24px;
@@ -30,3 +31,5 @@
   backdrop-filter: blur(var(--shadow-card-blur-bg));
   -webkit-backdrop-filter: blur(var(--shadow-card-blur-bg));
 }
+
+/* 收合卡片 */

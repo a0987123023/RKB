@@ -1,0 +1,9 @@
+.previous-page {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  img {
+    margin-right: 12px;
+  }
+}

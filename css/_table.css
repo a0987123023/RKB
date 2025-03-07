@@ -1,4 +1,4 @@
-/* Table Components */
+/* ========== Table Components ========== */
 #table-container {
   background: transparent;
   .layout {
@@ -194,6 +194,7 @@
   }
 }
 
+/* 沒有 tag 的版本 */
 .regulation-table {
   .title {
     color: var(--darkGrey700, #6c8490);
