@@ -1,3 +1,11 @@
+/* Import reset CSS */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("./_variables.css");
 @import url("./_header.css");
 @import url("./_searchbar.css");
