@@ -2,8 +2,8 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: var(--spacing-4xl);
   img {
-    margin-right: 12px;
+    margin-right: var(--spacing-lg);
   }
 }

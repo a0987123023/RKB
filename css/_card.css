@@ -785,8 +785,8 @@
 .toggle-card.style2 .subsection-header {
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-4xl);
 }
 
 .toggle-card.style2 .subsection-header > p {
@@ -797,7 +797,7 @@
 
 .toggle-card.style2 .subsection-header .btn {
   display: flex;
-  padding: 12px 20px;
+  padding: var(--spacing-lg) 20px;
   justify-content: flex-start;
   align-items: center;
   border-radius: var(--border-radius-m);
@@ -808,32 +808,32 @@
 }
 
 .toggle-card.style2 .subsection-header img {
-  margin-right: 8px;
+  margin-right: var(--spacing-md);
 }
 
 .toggle-card.style2 .subsection-body h2 {
   color: var(--darkGrey900, #344858);
   font-size: var(--font-h4);
   font-weight: var(--weight-bold);
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-xl);
 }
 
 .toggle-card.style2 .btn-group {
   display: flex;
   width: 100%;
-  padding: 24px 0;
+  padding: var(--spacing-2xl) 0;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: var(--spacing-xl);
 }
 
 .toggle-card.style2 .btn-group button {
   width: 100%;
   display: flex;
-  padding: 16px 20px;
+  padding: var(--spacing-xl) 20px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-md-plus);
   flex: 1 0 0;
   border-radius: var(--border-radius-m);
   font-size: var(--font-h6);
@@ -1076,7 +1076,7 @@
 
   .workflow-steps {
     display: flex;
-    gap: 16px;
+    gap: var(--spacing-xl);
     flex-wrap: wrap;
   }
 
@@ -1089,8 +1089,8 @@
   .step-header {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .step-number {
@@ -1163,7 +1163,7 @@
   .add-reviewer {
     display: inline-flex;
     align-items: center;
-    padding: 8px 16px;
+    padding: var(--spacing-md) var(--spacing-xl);
     background: var(--Primary600, #009eb8);
     color: var(--White, #fff);
     border: none;
@@ -1171,13 +1171,13 @@
     cursor: pointer;
     font-size: var(--font-h6);
     text-align: center;
-    gap: 8px;
+    gap: var(--spacing-md);
     font-weight: var(--weight-bold);
   }
 
   .reviewer {
     display: flex;
-    gap: 8px;
+    gap: var(--spacing-md);
     margin-bottom: 20px;
     .date {
       color: var(--darkGrey800, #576972);

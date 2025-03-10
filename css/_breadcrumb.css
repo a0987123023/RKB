@@ -1,5 +1,5 @@
 .breadcrumb {
-  margin: 24px 0;
+  margin: var(--spacing-2xl) 0;
   width: 100%;
 
   .label .text-wrapper {

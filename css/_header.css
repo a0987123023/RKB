@@ -10,7 +10,7 @@
   background-color: var(--white);
   .frame {
     justify-content: center;
-    gap: 12px;
+    gap: var(--spacing-lg);
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -29,7 +29,7 @@
   }
 
   .div {
-    gap: 12px;
+    gap: var(--spacing-lg);
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -65,7 +65,7 @@
 
   .div-wrapper {
     justify-content: center;
-    gap: 10px;
+    gap: var(--spacing-md-plus);
     align-self: stretch;
     display: inline-flex;
     align-items: center;
@@ -103,7 +103,7 @@
 
   .frame-4 {
     justify-content: flex-end;
-    gap: 24px;
+    gap: var(--spacing-2xl);
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -111,7 +111,7 @@
   }
 
   .frame-5 {
-    gap: 16px;
+    gap: var(--spacing-xl);
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -125,7 +125,7 @@
   }
 
   .div-wrapper-2 {
-    gap: 8px;
+    gap: var(--spacing-md);
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -156,38 +156,34 @@
         border-bottom: 1px solid var(--darkGrey200, #e1eaef);
         background: var(--White, #fff);
         margin-bottom: 10px;
-        padding: 16px 16px 12px;
+        padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
       }
 
       .sidebar__company {
         color: var(--darkGrey700, #6c8490);
-
         font-size: var(--font-small);
         font-weight: var(--weight-regular);
-        margin-bottom: 6px;
+        margin-bottom: var(--spacing-sm);
       }
 
       .sidebar__department {
         color: var(--darkGrey700, #6c8490);
-
         font-size: var(--font-p-sm);
         font-weight: var(--weight-regular);
-        margin-bottom: 10px;
+        margin-bottom: var(--spacing-md-plus);
       }
 
       .sidebar__greeting {
         color: var(--darkGrey900, #344858);
-
         font-size: var(--font-p-sm);
         font-weight: var(--weight-bold);
       }
 
       .sidebar__section-title {
         color: var(--darkGrey600, #9fb2bc);
-
         font-size: var(--font-small);
         font-weight: var(--weight-bold);
-        padding: 12px 16px 0;
+        padding: var(--spacing-lg) var(--spacing-xl) 0;
       }
 
       .sidebar__nav {
@@ -201,7 +197,7 @@
 
         font-size: var(--font-p-sm);
         font-weight: var(--weight-regular);
-        padding: 12px 16px;
+        padding: var(--spacing-lg) var(--spacing-xl);
       }
     }
     .visible {
@@ -212,7 +208,7 @@
   }
 
   .frame-6 {
-    gap: 4px;
+    gap: var(--spacing-xs);
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -236,14 +232,14 @@
   .frame {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--spacing-lg);
     width: 200px;
   }
 
   .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--spacing-lg);
   }
 
   .site-title {
@@ -297,7 +293,7 @@
   .frame-5 {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--spacing-2xl);
     .notification {
       cursor: pointer;
       position: relative;
@@ -333,7 +329,7 @@
           justify-content: center;
           width: 20px;
           height: 20px;
-          margin-left: 8px;
+          margin-left: var(--spacing-md);
           background-color: #0fada8;
           border-radius: 100%;
           color: #fff;
@@ -346,11 +342,11 @@
           padding: 2px;
           background-color: #e1ebf0;
           border-radius: var(--border-radius-m);
-          margin: 16px 0 20px;
+          margin: var(--spacing-xl) 0 20px;
         }
         .tab {
           flex: 1;
-          padding: 4px;
+          padding: var(--spacing-xs);
           background-color: #fff;
           border-radius: var(--border-radius-s);
           text-align: center;
@@ -382,7 +378,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 16px 0;
+          padding: var(--spacing-xl) 0;
           border-bottom: 1px solid #e1ebf0;
         }
 
@@ -406,7 +402,7 @@
           font-family: "Roboto", sans-serif;
           font-size: var(--font-p-sm);
           font-weight: var(--weight-bold);
-          padding: 16px 0 8px;
+          padding: var(--spacing-xl) 0 var(--spacing-md);
           line-height: 20px;
           color: var(--darkGrey900);
           letter-spacing: -0.4px;
@@ -422,7 +418,7 @@
           height: 8px;
           background-color: #0fada8;
           border-radius: 100%;
-          margin-left: 8px;
+          margin-left: var(--spacing-md);
         }
 
         .button-container {
@@ -435,7 +431,7 @@
         .button {
           width: 100%;
           display: inline-block;
-          padding: 12px 16px;
+          padding: var(--spacing-lg) var(--spacing-xl);
           background-color: #e1ebf0;
           border-radius: var(--border-radius-m);
           font-family: "Roboto", sans-serif;
@@ -463,13 +459,13 @@
   .user-info {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing-md);
   }
 
   .frame-6 {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: var(--spacing-xs);
   }
 
   .text-wrapper-4 {
@@ -500,7 +496,7 @@
     height: 100vh;
     background: #ffffff;
     box-shadow: -5px 0 12px rgba(0, 0, 0, 0.08);
-    padding: 24px;
+    padding: var(--spacing-2xl);
     transition: right 0.3s ease-in-out;
     z-index: 999;
     .close-btn {
@@ -511,8 +507,8 @@
       border: none;
       cursor: pointer;
       color: #9fb2bc;
-      font-size: 24px;
-      margin-bottom: 60px;
+      font-size: var(--font-h2);
+      margin-bottom: var(--spacing-6xl);
     }
 
     .menu-list {
@@ -522,15 +518,15 @@
 
     .menu-item {
       text-align: left;
-      margin-bottom: 48px;
+      margin-bottom: var(--spacing-5xl);
     }
 
     .menu-link {
       display: block;
       text-decoration: none;
       color: #344858;
-      font-size: 16px;
-      padding: 0 8px;
+      font-size: var(--font-p-md);
+      padding: 0 var(--spacing-md);
       transition: color 0.2s ease;
     }
 

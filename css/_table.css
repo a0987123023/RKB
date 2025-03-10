@@ -17,7 +17,7 @@
     border-bottom: 1px solid var(--darkGrey200);
 
     .tab {
-      margin-left: 24px;
+      margin-left: var(--spacing-2xl);
       button {
         cursor: pointer;
         font-weight: var(--weight-regular);
@@ -32,7 +32,7 @@
       }
     }
     .title {
-      padding: 16px 24px;
+      padding: var(--spacing-xl) var(--spacing-2xl);
       color: var(--darkGrey900, #344858);
 
       font-size: var(--font-h6);
@@ -41,7 +41,7 @@
     .sort-group {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: var(--spacing-2xl);
       .sort-title {
         color: var(--darkGrey700, #6c8490);
         font-family: "Noto Sans TC";
@@ -55,7 +55,7 @@
           width: 24px;
           height: 24px;
           position: relative;
-          margin-right: 6px;
+          margin-right: var(--spacing-sm);
           background-image: url(../assets/icons/icon_checkbox.svg);
           input {
             left: 50%;
@@ -73,12 +73,12 @@
     }
     .upload-btn {
       display: flex;
-      margin: 8px 24px;
+      margin: var(--spacing-md) var(--spacing-2xl);
       min-width: 85px;
       align-items: center;
       justify-content: center;
       vertical-align: middle;
-      gap: 8px;
+      gap: var(--spacing-md);
       border-radius: var(--border-radius-s);
       background: var(--Primary600, #009eb8);
       color: var(--White, #fff);
@@ -117,23 +117,23 @@
   .table-container.basic {
     display: flex;
     flex-direction: column;
-    padding: 24px;
-    gap: 10px;
+    padding: var(--spacing-2xl);
+    gap: var(--spacing-md-plus);
     align-items: flex-start;
     background-color: var(--white);
     margin-bottom: 45px;
 
     .table-head {
       font-size: var(--font-p-sm);
-      padding-right: 16px;
+      padding-right: var(--spacing-xl);
       min-width: 110px;
     }
     .table-body {
-      padding-right: 16px;
+      padding-right: var(--spacing-xl);
       font-weight: var(--weight-regular);
       min-width: 110px;
       tr > td {
-        padding: 16px 0;
+        padding: var(--spacing-xl) 0;
         color: var(--darkGrey900);
         font-size: var(--font-p-sm);
         border-bottom: 1px solid var(--darkGrey200);
@@ -150,7 +150,7 @@
           cursor: pointer;
         }
         .line {
-          padding: 0 6px;
+          padding: 0 var(--spacing-sm);
         }
       }
     }
@@ -200,7 +200,7 @@
     color: var(--darkGrey700, #6c8490);
     font-size: var(--font-p-lg);
     font-weight: var(--weight-regular);
-    margin-bottom: 25px;
+    margin-bottom: var(--spacing-2xl);
   }
 
   .card {
@@ -229,7 +229,7 @@
       display: grid;
       align-items: start;
       grid-template-columns: 3fr 1fr 2fr 1fr;
-      padding: 16px 0;
+      padding: var(--spacing-xl) 0;
       border-bottom: 1px solid #e1eaef;
       gap: 20px;
     }
@@ -279,7 +279,7 @@
       font-size: var(--font-small);
       font-weight: var(--weight-bold);
       border-radius: var(--border-radius-s);
-      padding: 6px 12px;
+      padding: var(--spacing-sm) var(--spacing-lg);
       line-height: normal;
     }
 
@@ -301,12 +301,12 @@
     }
 
     .suggested-section {
-      margin-top: 24px;
-      padding: 24px;
+      margin-top: var(--spacing-2xl);
+      padding: var(--spacing-2xl);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 24px;
+      gap: var(--spacing-2xl);
       align-self: stretch;
       border-radius: var(--border-radius-l);
       background: var(--darkGrey50, #f7fafd);
@@ -314,7 +314,7 @@
         display: grid;
         align-items: start;
         grid-template-columns: 3fr 1fr 2.5fr 0.5fr;
-        padding: 16px 0;
+        padding: var(--spacing-xl) 0;
         border-bottom: 1px solid #e1eaef;
         gap: 20px;
       }
@@ -324,7 +324,7 @@
       display: flex;
 
       .star {
-        margin-right: 6px;
+        margin-right: var(--spacing-sm);
       }
 
       .suggested-title {
@@ -370,7 +370,7 @@
     }
     > .table-row {
       grid-template-columns: 3fr 1fr 4fr 1fr 1fr;
-      padding: 51px 0 16px;
+      padding: 51px 0 var(--spacing-xl);
     }
     .regulation-name {
       position: relative;
@@ -395,11 +395,11 @@
     }
     .relation {
       .tag {
-        padding: 6px 18px;
+        padding: var(--spacing-sm) 18px;
         display: inline-block;
         font-size: var(--font-small);
-        margin-bottom: 8px;
-        border-radius: 4px;
+        margin-bottom: var(--spacing-md);
+        border-radius: var(--spacing-xs);
         background: var(--darkGrey150);
         color: var(--darkGrey700);
         font-weight: var(--weight-bold);

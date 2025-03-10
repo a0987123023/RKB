@@ -3,8 +3,8 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  gap: 10px;
-  padding: 24px;
+  gap: var(--spacing-md-plus);
+  padding: var(--spacing-2xl);
   background-color: var(--white);
   border-radius: var(--border-radius-l);
   border: 1px solid transparent;
@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    gap: 12px;
+    gap: var(--spacing-lg);
   }
 
   .search-bar > div {
@@ -27,7 +27,7 @@
   .search-bar input[type="text"],
   .search-bar select,
   .search-bar input[type="date"] {
-    padding: 10px 16px;
+    padding: var(--spacing-md-plus) var(--spacing-xl);
     border-radius: var(--border-radius-m);
     font-size: var(--font-p-sm);
     color: var(--darkGrey900);
@@ -50,7 +50,7 @@
       display: inline-block;
       background-color: var(--darkGrey800);
       color: var(--white);
-      padding: 6px 12px;
+      padding: var(--spacing-sm) var(--spacing-lg);
       border-radius: var(--border-radius-m);
       font-size: var(--font-caption);
       font-weight: var(--weight-medium);
@@ -85,7 +85,7 @@
   }
 
   .text-info {
-    margin-right: 4px;
+    margin-right: var(--spacing-xs);
   }
 
   .search-bar select {
@@ -108,7 +108,7 @@
   }
 
   .search-bar .date-range span {
-    margin: 0 5px;
+    margin: 0 var(--spacing-xs);
     font-size: var(--font-p-sm);
     color: var(--darkGrey500);
   }
@@ -131,7 +131,7 @@
   .info {
     font-size: var(--font-small);
     color: var(--darkGrey700);
-    margin-left: 5px;
+    margin-left: var(--spacing-xs);
     cursor: pointer;
   }
 }

@@ -64,7 +64,7 @@
 
 .fixed-btn-group div button {
   width: 100%;
-  padding: 16px 20px;
+  padding: var(--spacing-xl) 20px;
   border-radius: var(--border-radius-m);
   font-size: var(--font-h6);
   font-weight: var(--weight-bold);
@@ -92,7 +92,7 @@
     cursor: pointer;
     display: none;
     position: absolute;
-    top: 40px;
+    top: var(--spacing-4xl);
     right: 0;
     border-radius: var(--border-radius-m);
     border: 1px solid var(--darkGrey200, #e1eaef);
@@ -132,7 +132,7 @@
   font-size: var(--font-h6);
   font-weight: var(--weight-regular);
   span {
-    margin-right: 8px;
+    margin-right: var(--spacing-md);
   }
 }
 .toggle-btn .open.disable,

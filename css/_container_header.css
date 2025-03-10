@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 1.5rem;
-  gap: 0.5rem;
+  margin-bottom: var(--spacing-2xl);
+  gap: var(--spacing-md);
 
   .back-button {
     display: flex;
@@ -14,7 +14,7 @@
     color: var(--darkGrey900, #344858);
     font-size: var(--font-h5);
     font-weight: var(--weight-medium);
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-4xl);
   }
 
   .back-button img {
@@ -22,7 +22,7 @@
     height: 24px;
     fill: none;
     stroke: var(--text-secondary);
-    margin-right: 12px;
+    margin-right: var(--spacing-lg);
   }
   .page-title-outer {
     display: flex;

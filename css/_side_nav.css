@@ -3,7 +3,7 @@
   li {
     margin-left: 30px;
     padding-left: 20px;
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-xl);
     font-weight: var(--weight-bold);
     color: var(--darkGrey600);
     border-left: 3px solid transparent;
@@ -35,7 +35,7 @@
     line-height: 150%; /* 21px */
   }
   .sub3 {
-    margin-left: 8px;
+    margin-left: var(--spacing-md);
   }
 
   li.active {
