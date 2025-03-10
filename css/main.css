@@ -1,4 +1,6 @@
 @import url("./_variables.css");
+@import url("./_header.css");
+@import url("./_searchbar.css");
 @import url("./_table.css");
 @import url("./_tag.css");
 @import url("./_side_nav.css");
