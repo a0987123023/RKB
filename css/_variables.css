@@ -124,10 +124,10 @@
 }
 
 .text-h2 {
-  font-size: var(--font-h2);
-  font-weight: var(--weight-bold);
   color: var(--darkGrey900);
-  line-height: 1.2;
+  font-size: var(--font-h3);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .text-h3 {
@@ -198,6 +198,18 @@
   font-weight: var(--weight-regular);
   color: var(--darkGrey600);
   line-height: 1.4;
+}
+
+.page-h3 {
+  font-weight: var(--weight-bold);
+  color: var(--darkGrey800);
+  font-size: var(--font-h4);
+  padding-left: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  border-left: 3px solid var(--darkGrey700);
+  span {
+    margin-left: var(--spacing-md);
+  }
 }
 
 /* Font weight modifiers */

@@ -74,3 +74,25 @@
 .edit-dropdown-btn.active .drop-down {
   display: block;
 }
+
+/* 收合按鈕 */
+
+.toggle-btn {
+  cursor: pointer;
+}
+
+.toggle-btn .open,
+.toggle-btn .close {
+  display: flex;
+  color: var(--darkGrey700, #6c8490);
+  font-family: "Noto Sans TC";
+  font-size: var(--font-h6);
+  font-weight: var(--weight-regular);
+  span {
+    margin-right: 8px;
+  }
+}
+.toggle-btn .open.disable,
+.toggle-btn .close.disable {
+  display: none;
+}
