@@ -1,3 +1,46 @@
+/* Button Component */
+.btn-primary {
+  background-color: var(--primary600);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--darkGrey150);
+  color: var(--darkGrey900);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary600);
+  color: var(--primary600);
+}
+
+.btn-link {
+  background-color: transparent;
+  color: var(--link600);
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.btn-sm {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-caption);
+}
+
+.btn-lg {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: var(--font-p-md);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.btn-icon-only {
+  padding: var(--spacing-sm);
+}
+
 /* 下方固定彈窗按鈕 */
 .fixed-btn-group {
   position: fixed;

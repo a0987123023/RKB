@@ -43,6 +43,7 @@
   .search-form {
     display: flex;
     gap: 16px;
+    height: 43px;
   }
 
   .search-input {
