@@ -43,3 +43,7 @@
     color: var(--darkGrey900);
   }
 }
+
+.side-nav.same-width {
+  min-width: 200px;
+}
