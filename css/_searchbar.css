@@ -94,7 +94,7 @@
     font-size: var(--font-p-sm);
     font-style: normal;
     font-weight: var(--weight-regular);
-    line-height: normal;
+    line-height: 1;
   }
 
   .search-bar input[type="date"] {

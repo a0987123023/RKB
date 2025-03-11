@@ -156,10 +156,12 @@
   }
 
   .attachment-link {
+    display: block;
     color: var(--Link600, #0fada8);
     font-size: var(--font-h6);
     font-weight: var(--weight-regular);
     text-decoration: none;
+    margin-bottom: var(--spacing-lg);
   }
 
   .attachment-link:hover {
@@ -895,7 +897,7 @@
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
     .tag {
-      line-height: normal;
+      line-height: 1;
       font-weight: var(--weight-bold);
       font-size: var(--font-footnote);
       padding: 2px 22.5px;

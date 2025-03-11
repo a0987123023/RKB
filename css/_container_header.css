@@ -35,7 +35,7 @@
       font-size: var(--font-h2);
       font-style: normal;
       font-weight: var(--weight-bold);
-      line-height: normal;
+      line-height: 1;
       span {
         border: 1px solid var(--primary400);
         padding: var(--spacing-xs) var(--spacing-lg);
@@ -47,7 +47,7 @@
       }
     }
     button {
-      line-height: normal;
+      line-height: 1;
       background: var(--primary600);
       padding: var(--spacing-md-plus) 20px;
       font-size: var(--font-p-md);

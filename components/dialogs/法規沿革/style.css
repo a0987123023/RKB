@@ -166,7 +166,7 @@
     font-size: var(--font-h6);
     font-weight: var(--weight-medium);
     cursor: pointer;
-    line-height: normal;
+    line-height: 1;
   }
 
   /* Responsive styles */
