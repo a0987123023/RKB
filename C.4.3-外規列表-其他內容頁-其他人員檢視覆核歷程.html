@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>C.4.3-外規列表-其他內容頁-其他人員檢視覆核歷程</title>
+    <style>
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div class="side-nav same-width flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"
+                ><span>第 2 條</span><span class="sub3">產品說明</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="main flex-[80%]">
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper">法規內容管理</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">其他內容頁</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="container">
+            <!-- Header -->
+            <header class="container-header">
+              <button class="back-button">
+                <img src="./assets/icons/icon_arrow_left.svg" alt="" />
+                <span>法規內容管理</span>
+              </button>
+              <div class="page-title-outer">
+                <h1 class="page-title">
+                  <span>其他</span>期貨顧問事業內部稽核實施細則
+                </h1>
+              </div>
+            </header>
+
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- Step 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <!-- 這邊要卡控顯示 -->
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>外規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="./assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <!-- 這邊要卡控顯示 -->
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="./assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Legal Information -->
+            <section class="card">
+              <h2 class="card-title">其他資訊</h2>
+              <div class="legal-info">
+                <div class="info-item">
+                  <span class="info-label">發文日期</span>
+                  <span>2023-06-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">標題&#12288;&#12288;</span>
+                  <span
+                    >非以公益為目的之長期照顧服務機構社團法人適用虧損扣抵及試算暫繳之規定</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">備註說明</span>
+                  <span>財團法人如欲投資外國上市、上櫃股票</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">資料來源</span>
+                  <span>中華民國期貨業商業同業公會</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">資料類型</span>
+                  <span>問答集</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Version History -->
+            <section class="card">
+              <h2 class="card-title">版本資訊總覽</h2>
+
+              <!-- Expanded Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status reviewed">已覆核</span>
+                    <span class="date">2024-10-14</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 郭珮昕</span
+                    >
+                  </div>
+                  <div id="toggle-btn1" class="toggle-btn">
+                    <div class="open">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close disable">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="frame-sm1" class="frame-sm active">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Collapsed Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status unpublished">未公開</span>
+                    <span class="date">2021-10-01</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 劉山雀</span
+                    >
+                  </div>
+                  <div id="toggle-btn2" class="toggle-btn">
+                    <div class="open disable">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div id="frame-sm2" class="frame-sm">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
+              <a href="javascript:void(0);" class="attachment-link"
+                >期貨顧問事業內稽制度目錄.docx</a
+              >
+            </section>
+
+            <section id="section-1" class="regulation-table tag-version">
+              <div class="card">
+                <h1 class="title">
+                  關聯內規<span class="edit-btn">編輯</span>
+                </h1>
+
+                <div class="table-header">
+                  <div>權責單位與內規名稱</div>
+                  <div>條號</div>
+                  <div>條文內容</div>
+                  <div>關聯狀態</div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">內控風險科</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag">尚未確認</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">策略規劃處投資管理部</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag check">已關聯</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <div class="table-row">
+                  <div class="regulation-name">
+                    <span class="tag">策略規劃處投資管理部</span>
+                    <div class="content">
+                      資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                    </div>
+                  </div>
+                  <div class="article-number">第 1999 條<br />第 22 項</div>
+                  <div class="content highlight">
+                    本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                  </div>
+                  <div class="relation">
+                    <span class="tag check">已關聯</span>
+                  </div>
+                  <div class="status">
+                    <img
+                      class="eye-icon"
+                      src="./assets/icons/green_eye.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      //表單欄位收合
+      const frameSm1 = document.getElementById("frame-sm1");
+      document
+        .getElementById("toggle-btn1")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm1.classList.toggle("active");
+        });
+
+      const frameSm2 = document.getElementById("frame-sm2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm2.classList.toggle("active");
+        });
+
+      // 彈窗
+      const eyes = document.querySelectorAll(".eye-icon");
+      const dialog = document.getElementById("dialog-modal");
+      eyes.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.add("active");
+        });
+      });
+
+      const closeDialog = document.querySelectorAll(".close-active");
+      closeDialog.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.remove("active");
+        });
+      });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+    </script>
+  </body>
+</html>
