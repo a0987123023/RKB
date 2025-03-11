@@ -1155,6 +1155,9 @@
     align-items: center;
     gap: 2px;
     font-size: var(--font-small);
+    img {
+      margin-left: var(--spacing-sm);
+    }
   }
 
   .user-icon {
@@ -1175,6 +1178,7 @@
     text-align: center;
     gap: var(--spacing-md);
     font-weight: var(--weight-bold);
+    line-height: 1;
   }
 
   .reviewer {
