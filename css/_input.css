@@ -1,0 +1,41 @@
+.file-group {
+  .file-title {
+    display: flex;
+    align-items: center;
+    color: var(--darkGrey700, #6c8490);
+    font-size: var(--font-caption);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--spacing-xl);
+    .title {
+      margin-right: var(--spacing-md);
+    }
+    .sub {
+      font-size: var(--font-footnote);
+      font-weight: var(--weight-regular);
+    }
+  }
+
+  .file-input {
+    display: none;
+  }
+
+  .upload-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: var(--border-radius-m);
+    border: 1px dashed var(--darkGrey300, #cfdbe1);
+    color: var(--darkGrey900, #344858);
+    font-family: "Noto Sans TC";
+    font-size: var(--font-h6);
+    font-weight: var(--weight-regular);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .upload-area img {
+    margin-right: 10px;
+  }
+}

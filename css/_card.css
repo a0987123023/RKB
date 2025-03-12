@@ -341,26 +341,12 @@
   .info-icon {
     width: 20px;
     height: 20px;
-    margin-right: 6px;
+    margin-right: var(--spacing-sm);
   }
 
   /* Form Group Styles */
   .form-group {
-    margin-bottom: 32px;
-  }
-
-  .form-group label {
-    display: inline-block;
-    color: var(--darkGrey700, #6c8490);
-    font-size: var(--font-caption);
-    font-weight: var(--weight-bold);
-    margin-bottom: 16px;
-  }
-
-  .form-group label .sub {
-    font-size: var(--font-footnote);
-    font-weight: var(--weight-regular);
-    margin-left: 8px;
+    margin-bottom: var(--spacing-3xl);
   }
 
   .form-group input[type="date"],
@@ -408,27 +394,6 @@
 
   .date-input input[type="date"] {
     padding-right: 35px;
-  }
-
-  /* Upload Area Styles */
-  .upload-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px 16px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: var(--border-radius-m);
-    border: 1px dashed var(--darkGrey300, #cfdbe1);
-    color: var(--darkGrey900, #344858);
-    font-family: "Noto Sans TC";
-    font-size: var(--font-h6);
-    font-weight: var(--weight-regular);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .upload-area img {
-    margin-right: 10px;
   }
 
   /* File List Styles */
@@ -505,7 +470,7 @@
     line-height: 1;
   }
 
-  .form-section-2 .label {
+  .form-section-2 label {
     color: var(--darkGrey700, #6c8490);
     font-size: var(--font-p-sm);
     font-weight: var(--weight-regular);

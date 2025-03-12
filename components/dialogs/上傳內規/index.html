@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- 上傳內規 -->
+    <!-- C.11.1.1 -->
+    <div
+      id="upload-internal-regulations-modal"
+      class="upload-internal-regulations-modal open"
+    >
+      <div class="content-modal">
+        <header class="modal-header">
+          <p></p>
+          <h2 class="modal-title">上傳內規</h2>
+          <button class="close-button overlay-close">
+            <img src="../../../assets/icons/icon_close.svg" alt="" />
+          </button>
+        </header>
+
+        <div class="modal-body">
+          <div class="review-section">
+            <div class="radio-group">
+              <div class="reviewer-item">
+                <input
+                  type="radio"
+                  name="reviewer"
+                  id="reviewer7"
+                  class="reviewer-radio"
+                  checked
+                />
+                <label for="reviewer7">上傳全新內規</label>
+              </div>
+              <div class="reviewer-item">
+                <input
+                  type="radio"
+                  name="reviewer"
+                  id="reviewer8"
+                  class="reviewer-radio"
+                />
+                <label for="reviewer8">更新既有內規</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-section select-section">
+            <div class="search-title">輸入欲更新的內規</div>
+            <div class="search-box">
+              <input value="作業" type="text" placeholder="輸入關鍵字" />
+              <button class="search-btn">
+                <img src="../../../assets/icons/search.svg" alt="" />
+              </button>
+            </div>
+            <div class="content-title">共 5 筆結果</div>
+            <div class="search-content">
+              <ul>
+                <li>
+                  <label for="item1" class="reviewer-item search-item">
+                    <input
+                      type="checkbox"
+                      name="item1"
+                      id="item1"
+                      class="reviewer-radio"
+                    />
+                    <p>營業單位預告終止勞動契約<strong>作業</strong>辦法</p>
+                  </label>
+                </li>
+                <li>
+                  <label for="item2" class="reviewer-item search-item">
+                    <input
+                      type="checkbox"
+                      name="item2"
+                      id="item2"
+                      class="reviewer-radio"
+                    />
+                    <p>辦理共同行銷證券暨期貨業務<strong>作業</strong>要點</p>
+                  </label>
+                </li>
+                <li>
+                  <label for="item3" class="reviewer-item search-item">
+                    <input
+                      type="checkbox"
+                      name="item3"
+                      id="item3"
+                      class="reviewer-radio"
+                    />
+                    <p>營業單位預告終止勞動契約<strong>作業</strong>辦法</p>
+                  </label>
+                </li>
+                <li>
+                  <label for="item4" class="reviewer-item search-item">
+                    <input
+                      type="checkbox"
+                      name="item4"
+                      id="item4"
+                      class="reviewer-radio"
+                    />
+                    <p>辦理共同行銷證券暨期貨業務<strong>作業</strong>要點</p>
+                  </label>
+                </li>
+                <li>
+                  <label for="item5" class="reviewer-item search-item">
+                    <input
+                      type="checkbox"
+                      name="item5"
+                      id="item5"
+                      class="reviewer-radio"
+                    />
+                    <p>營業單位預告終止勞動契約<strong>作業</strong>辦法</p>
+                  </label>
+                </li>
+              </ul>
+              <!-- 沒資料時顯示 -->
+              <div class="empty">
+                <img
+                  src="../../../assets/icons/illustration_search.svg"
+                  alt=""
+                />
+                <h4>開始搜尋法規</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="modal-footer">
+          <button
+            class="button button-confirm"
+            id="upload-internal-regulations-modal-check"
+          >
+            前往上傳
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
