@@ -36,6 +36,12 @@
     height: 43px;
   }
 
+  .search-bar input[type="text"]:focus,
+  .search-bar select:focus,
+  .search-bar input[type="date"]:focus {
+    outline: 2px solid var(--primary400);
+  }
+
   .bubble {
     position: relative;
     display: flex;

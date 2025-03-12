@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>上傳人員視角</title>
+    <link rel="stylesheet" href="../../../css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="w-full">
+      <div class="w-full flex">
+        <div class="flex-[10%]"></div>
+        <div class="main flex-[80%]">
+          <div class="container">
+            <br />
+            <br />
+            <br />
+            <h1>1.上傳人員，尚未指定內規上傳人員</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <button id="add-reviewer" class="add-reviewer">
+                    <img src="../../../assets/icons/icon_add.svg" alt="" />
+                    <span>選擇人員</span>
+                  </button>
+                </div>
+                <!-- 2 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="wait-review">待指定人員覆核</div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>2.上傳人員，已指定覆核人員</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                  <button id="add-reviewer" class="add-reviewer">
+                    <span>重新選擇</span>
+                  </button>
+                </div>
+                <!-- 2 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">
+                      綜合企劃部市場處業務規劃科
+                    </div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>3.上傳人員，覆核人員已退回</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                  <button id="add-reviewer" class="add-reviewer">
+                    <span>重新覆核</span>
+                  </button>
+                </div>
+                <!-- 2 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">
+                      綜合企劃部市場處業務規劃科
+                    </div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已退回</div>
+                    <div class="feedback" id="feedback">查看意見</div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>4.覆核人員，尚未覆核</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">
+                      綜合企劃部市場處業務規劃科
+                    </div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <button class="review-btn">覆核</button>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>5.覆核人員，覆核完成</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">
+                      綜合企劃部市場處業務規劃科
+                    </div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已完成覆核</div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>6.純檢視，尚未指定內規上傳人員</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已上傳</div>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="wait-review">待指定人員覆核</div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>7.純檢視，已指定覆核人員</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">
+                      綜合企劃部市場處業務規劃科
+                    </div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+
+            <br />
+            <br />
+            <br />
+            <h1>8.純檢視，覆核人員已退回</h1>
+            <!-- start -->
+            <section class="card workflow-container">
+              <h1 class="workflow-title">法規內容管理歷程</h1>
+
+              <div class="workflow-steps">
+                <!-- 1 -->
+                <div class="step active">
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">選擇覆核人員</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">綜合企劃部場處業務規劃科</div>
+                    <div class="user-info">
+                      <span>內規上傳人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>王小明</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已選覆核人員</div>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">內容覆核</div>
+                  </div>
+                  <div class="step-content">
+                    <div class="department-info">
+                      綜合企劃部市場處業務規劃科
+                    </div>
+                    <div class="user-info">
+                      <span>外規覆核人員</span>
+                      <img
+                        class="user-icon"
+                        src="../../../assets/icons/icon_profile.svg"
+                        alt=""
+                      />
+                      <span>曹群珮</span>
+                    </div>
+                  </div>
+                  <div class="reviewer">
+                    <div class="date">YYYY-MM-DD</div>
+                    <div class="name">已退回</div>
+                    <div class="feedback" id="feedback">查看意見</div>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div class="step">
+                  <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">完成</div>
+                  </div>
+                  <div class="step-content">
+                    <div>待文書主管分案給承辦，派送通知給相關單位</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- end -->
+          </div>
+        </div>
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+  </body>
+</html>

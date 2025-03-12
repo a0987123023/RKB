@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <title>C.13-內規列表-上傳內規</title>
+    <title>C.5-外規上傳頁-上傳全新法規</title>
     <style>
       #header-container .frame-2 .div-wrapper:nth-child(3) {
         border-bottom: 4px solid var(--primary600) !important;
@@ -39,7 +39,7 @@
                 &nbsp;&nbsp;&gt;&nbsp;&nbsp;
                 <span class="text-wrapper">法規內容管理</span>
                 &nbsp;&nbsp;&gt;&nbsp;&nbsp;
-                <span class="text-wrapper active">上傳新版內規</span>
+                <span class="text-wrapper active">上傳新版法規</span>
               </p>
             </div>
           </div>
@@ -111,7 +111,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="authority">權責單位</label>
+                    <label for="authority">主管機關</label>
                     <input
                       type="text"
                       id="authority"
@@ -122,9 +122,7 @@
 
                 <div class="form-group">
                   <label for="lawHistory">法規沿革</label>
-                  <textarea id="lawHistory" rows="4">
-中華民國一百零九年六月十日總統華總一經字第 10900064271 號令修正公布第10-1、19、26 條條文;增訂第10-2、40-1 條條文;施行日期,由行政院定之中華民國一百零九年七月七日行政院院臺金字第 1090021932 號令發布定自一百零九年八月一日施行</textarea
-                  >
+                  <textarea id="lawHistory" rows="4"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -147,14 +145,14 @@
                         src="./assets/icons/icon_attachment.svg"
                         alt=""
                       />
-                      <!-- <span>證券投資人及期貨交易人保護法.pdf</span> -->
-                      <div class="w-full">
+                      <span>證券投資人及期貨交易人保護法.pdf</span>
+                      <!-- <div class="w-full">
                         <input
                           type="text"
                           id=""
                           value="證券投資人及期貨交易人保護法.pdf"
                         />
-                      </div>
+                      </div> -->
                     </div>
                     <div class="edit-dropdown-btn">
                       <img src="./assets/icons/icon_edit_outline.svg" alt="" />
@@ -190,14 +188,14 @@
                         src="./assets/icons/icon_attachment.svg"
                         alt=""
                       />
-                      <span>證券投資人及期貨交易人保護法.pdf</span>
-                      <!-- <div class="w-full">
+                      <!-- <span>證券投資人及期貨交易人保護法.pdf</span> -->
+                      <div class="w-full">
                         <input
                           type="text"
                           id=""
                           value="證券投資人及期貨交易人保護法.pdf"
                         />
-                      </div> -->
+                      </div>
                     </div>
                     <div class="edit-dropdown-btn">
                       <img src="./assets/icons/icon_edit_outline.svg" alt="" />
@@ -281,7 +279,7 @@
                   </div>
                 </div>
               </div>
-              <button class="submit-button" style="margin-bottom: 32px">
+              <button class="submit-button disable" style="margin-bottom: 32px">
                 解析法規
               </button>
               <div class="section-content">
@@ -312,67 +310,47 @@
               <div class="subsection-body">
                 <h2>條文內容</h2>
                 <div class="law-container">
-                  <div class="article-grid">
-                    <!-- Old Article Section -->
-                    <div class="article-section">
-                      <div class="title-outer">
-                        <h3 class="article-section-title">舊條號</h3>
-                      </div>
-                      <div class="article-navigation">
-                        <nav class="low old-area">
-                          <a href="#" class="law-link">第一章</a>
-                          <img
-                            class="law-separator"
-                            src="./assets/icons/line.svg"
-                            alt=""
-                          />
-                          <a href="#" class="law-link">第一節</a>
-                          <img
-                            class="law-separator"
-                            src="./assets/icons/line.svg"
-                            alt=""
-                          />
-                          <a href="#" class="law-link">第1條</a>
-                        </nav>
-                      </div>
+                  <div>
+                    <div class="law-section-header">
+                      <p>第一章</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第一節</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第 1 條</p>
                     </div>
+                    <div class="content-box">
+                      為健全銀行業務經營，保障存款人權益，適應產業發展，並促進行信用配合國家金融政策，特制定本法。
+                    </div>
+                  </div>
 
-                    <div class="article-section">
-                      <div class="title-outer new-area">
-                        <h3 class="article-section-title">新條號</h3>
-                        <nav class="low new-area ml-lg">
-                          <a href="#" class="law-link">第一章</a>
-                          <img
-                            class="law-separator"
-                            src="./assets/icons/line.svg"
-                            alt=""
-                          />
-                          <a href="#" class="law-link">第一節</a>
-                          <img
-                            class="law-separator"
-                            src="./assets/icons/line.svg"
-                            alt=""
-                          />
-                          <a href="#" class="law-link">第1條</a>
-                        </nav>
-                      </div>
-                      <div class="article-navigation">
-                        <div class="old-regulation-header">
-                          <div class="tag old-tag">舊條號</div>
-                          <div class="article-nav">
-                            <span class="change">第五編</span>
-                            <span class="chapter">第一章</span>
-                            <span class="section">第一節</span>
-                            <span class="article">第 100 條</span>
-                            <span>
-                              <img
-                                class="arrow"
-                                src="./assets/icons/icon_arrow_down.svg"
-                                alt=""
-                            /></span>
-                          </div>
-                        </div>
-                      </div>
+                  <div>
+                    <div class="law-section-header">
+                      <p>第一章</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第一節</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第 2 條</p>
+                    </div>
+                    <div class="content-box">
+                      本法稱銀行，謂依本法組織登記，經營銀行業務之機構。
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="law-section-header">
+                      <p>第一章</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第一節</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第 3 條</p>
+                    </div>
+                    <div class="content-box">
+                      銀行經營之業務如左：
+                      <div class="content-item">一、收受支票存款。</div>
+                      <div class="content-item">二、收受其他各種存款。</div>
+                      <div class="content-item">三、受託經理信託基金。</div>
+                      <div class="content-item">四、發行金融債券。</div>
+                      <div class="content-item">五、辦理放款。</div>
                     </div>
                   </div>
                 </div>
