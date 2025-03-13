@@ -1,0 +1,323 @@
+<template id="table-template">
+  <style></style>
+  <div id="table-container">
+    <div class="layout">
+      <div class="tab-container flex">
+        <div>
+          <!-- tab按鈕型 -->
+          <!-- <div class="tab flex">
+            <button class="px-4 py-3 active">全部</button>
+            <button class="px-4 py-3">法規</button>
+            <button class="px-4 py-3">函釋</button>
+            <button class="px-4 py-3">其他</button>
+          </div> -->
+          <!-- 一般文字型 -->
+          <div class="title flex">內規列表</div>
+        </div>
+        <a href="C.13.1-內規上傳頁-上傳全新內規.html" class="upload-btn">
+          <img src="../assets/icons/icon_upload.svg" alt="" />
+          <span>上傳</span>
+        </a>
+      </div>
+
+      <div class="table-container basic">
+        <!-- Table -->
+        <table class="w-full">
+          <thead class="table-head">
+            <tr class="text-left fw-500 text-darkGrey500">
+              <th>權責單位</th>
+              <th>內規名稱</th>
+              <th>創建日期</th>
+              <th>內容處理進度</th>
+              <th>關聯處理進度</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody class="table-body" id="regulations-table-body">
+            <tr>
+              <td colspan="6" style="text-align: center">載入中...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Pagination -->
+    <div class="pagination-container" id="pagination-container">
+      <!-- 分頁控制項將由 JavaScript 插入到這裡 -->
+    </div>
+  </div>
+</template>
+
+<script>
+  // 配置
+  const itemsPerPage = 2;
+  let currentPage = 1;
+  let regulationsData = [];
+
+  // 載入 api 數據
+  function loadRegulationsData() {
+    // API 獲取數據：換path即可
+    fetch("../mock/內規.json")
+      .then((response) => response.json())
+      .then((data) => {
+        regulationsData = data;
+        renderTable();
+        renderPagination();
+      })
+      .catch((error) => {
+        console.error("載入數據時出錯:", error);
+        document.getElementById("regulations-table-body").innerHTML =
+          '<tr><td colspan="6" style="text-align: center;">載入資料時發生錯誤</td></tr>';
+      });
+    //  目前以假資料替代
+
+    renderTable();
+    renderPagination();
+  }
+
+  // 根據狀態值獲取狀態類別的函數
+  function getStatusClass(status) {
+    switch (status) {
+      case "暫存件":
+        return "temp";
+      case "承辦處理中":
+        return "processing";
+      case "覆核中":
+        return "review";
+      case "已完成":
+        return "done";
+      case "退回件":
+        return "returned";
+      case "未開始":
+        return "not-started";
+      case "比對中":
+        return "comparing";
+      case "分案中":
+        return "case-sharing";
+      case "關聯設定中":
+        return "setting";
+      default:
+        return "";
+    }
+  }
+
+  // 根據狀態檢查是否啟用編輯的函數
+  function isEditEnabled(lawSchedule) {
+    return lawSchedule !== "覆核中" && lawSchedule !== "承辦處理中";
+  }
+
+  // 使用當前頁面數據渲染表格的函數
+  function renderTable() {
+    const tableBody = document.getElementById("regulations-table-body");
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(
+      startIndex + itemsPerPage,
+      regulationsData.length
+    );
+    const currentItems = regulationsData.slice(startIndex, endIndex);
+
+    let tableHtml = "";
+
+    if (currentItems.length === 0) {
+      tableHtml =
+        '<tr><td colspan="6" style="text-align: center;">沒有資料</td></tr>';
+    } else {
+      currentItems.forEach((item) => {
+        const lawStatusClass = getStatusClass(item.LAW_SCHEDULE);
+        const connectStatusClass = getStatusClass(item.CONNECT_SCHEDULE);
+        const editEnabled = isEditEnabled(item.LAW_SCHEDULE);
+
+        tableHtml += `
+                        <tr>
+                            <td>${item.DIV_NAME}</td>
+                            <td>${item.INR_NAME}</td>
+                            <td>${item.CREATE_TIME}</td>
+                            <td>
+                                <span class="button-status ${lawStatusClass}">
+                                    ${item.LAW_SCHEDULE}
+                                    <div class="button-status-bubble">
+                                        ${new Date().toLocaleDateString()} ${
+          item.LAW_SCHEDULE
+        }
+                                    </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="button-status ${connectStatusClass}">
+                                    ${item.CONNECT_SCHEDULE}
+                                    <div class="button-status-bubble">
+                                        ${new Date().toLocaleDateString()} ${
+          item.CONNECT_SCHEDULE
+        }
+                                    </div>
+                                </span>
+                            </td>
+                            <td class="control">
+                                <div class="flex items-center space-x-2">
+                                    <a class="p-1 mr-0">
+                                        <img class="img" src="./assets/icons/${
+                                          editEnabled
+                                            ? "icon_edit.svg"
+                                            : "icon_edit_disable.svg"
+                                        }" />
+                                    </a>
+                                    <img class="line" src="./assets/icons/line.svg" />
+                                    <button class="p-1">
+                                        <img class="img" src="./assets/icons/eye.svg" />
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+      });
+    }
+
+    tableBody.innerHTML = tableHtml;
+  }
+
+  // 渲染分頁控制項的函數
+  function renderPagination() {
+    const paginationContainer = document.getElementById("pagination-container");
+    const totalPages = Math.ceil(regulationsData.length / itemsPerPage);
+
+    let paginationHtml = "";
+
+    // 第一頁按鈕
+    paginationHtml += `
+                <div class="control">
+                    ${
+                      currentPage === 1
+                        ? '<img class="img" src="./assets/icons/pagination_first_disable.svg" />'
+                        : '<img class="img" src="./assets/icons/pagination_first_enable.svg" onclick="goToPage(1)" style="cursor: pointer;" />'
+                    }
+                </div>
+            `;
+
+    // 上一頁按鈕
+    paginationHtml += `
+                <div class="control">
+                    ${
+                      currentPage === 1
+                        ? '<img class="img" src="./assets/icons/pagination_prev_disable.svg" />'
+                        : '<img class="img" src="./assets/icons/pagination_prev_enable.svg" onclick="goToPage(' +
+                          (currentPage - 1) +
+                          ')" style="cursor: pointer;" />'
+                    }
+                </div>
+            `;
+
+    // 頁碼
+    const pageNumbers = getPageNumbers(totalPages);
+    pageNumbers.forEach((page) => {
+      if (page === "...") {
+        paginationHtml += `
+                        <div class="page">
+                            <span>...</span>
+                        </div>
+                    `;
+      } else {
+        paginationHtml += `
+                        <div class="page ${
+                          currentPage === page ? "active" : ""
+                        }" onclick="goToPage(${page})" style="cursor: pointer;">
+                            <span>${page}</span>
+                        </div>
+                    `;
+      }
+    });
+
+    // 下一頁按鈕
+    paginationHtml += `
+                <div class="control">
+                    ${
+                      currentPage === totalPages
+                        ? '<img class="img" src="./assets/icons/pagination_next_disable.svg" />'
+                        : '<img class="img" src="./assets/icons/pagination_next_enable.svg" onclick="goToPage(' +
+                          (currentPage + 1) +
+                          ')" style="cursor: pointer;" />'
+                    }
+                </div>
+            `;
+
+    // 最後一頁按鈕
+    paginationHtml += `
+                <div class="control">
+                    ${
+                      currentPage === totalPages
+                        ? '<img class="img" src="./assets/icons/pagination_last_disable.svg" />'
+                        : '<img class="img" src="./assets/icons/pagination_last_enable.svg" onclick="goToPage(' +
+                          totalPages +
+                          ')" style="cursor: pointer;" />'
+                    }
+                </div>
+            `;
+
+    paginationContainer.innerHTML = paginationHtml;
+  }
+
+  // 為分頁生成頁碼的函數
+  function getPageNumbers(totalPages) {
+    const pages = [];
+    const maxVisiblePages = 5;
+
+    if (totalPages <= maxVisiblePages) {
+      // 如果總頁數少於最大可見頁數，則顯示所有頁面
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // 始終顯示第一頁
+      pages.push(1);
+
+      // 計算中間頁面
+      let startPage = Math.max(2, currentPage - 1);
+      let endPage = Math.min(totalPages - 1, currentPage + 1);
+
+      // 如果我們靠近開頭，進行調整
+      if (currentPage <= 3) {
+        endPage = 4;
+      }
+
+      // 如果我們靠近結尾，進行調整
+      if (currentPage >= totalPages - 2) {
+        startPage = totalPages - 3;
+      }
+
+      // 如果需要，在第一頁後添加省略號
+      if (startPage > 2) {
+        pages.push("...");
+      }
+
+      // 添加中間頁面
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(i);
+      }
+
+      // 如果需要，在最後一頁前添加省略號
+      if (endPage < totalPages - 1) {
+        pages.push("...");
+      }
+
+      // 始終顯示最後一頁
+      pages.push(totalPages);
+    }
+
+    return pages;
+  }
+
+  // 導航到特定頁面的函數
+  function goToPage(page) {
+    const totalPages = Math.ceil(regulationsData.length / itemsPerPage);
+    if (page >= 1 && page <= totalPages) {
+      currentPage = page;
+      renderTable();
+      renderPagination();
+    }
+  }
+
+  // 原本的事件監聽器，這行會被主頁面的 loadComponent 函數替換為直接調用
+  document.addEventListener("DOMContentLoaded", loadRegulationsData);
+
+  // 使 goToPage 函數全局可用
+  window.goToPage = goToPage;
+</script>

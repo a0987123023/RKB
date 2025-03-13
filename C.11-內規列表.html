@@ -34,7 +34,7 @@
             </div>
           </div>
           <div id="search-template"></div>
-          <div id="tab-table-element"></div>
+          <div id="tab-table-4-element"></div>
         </div>
 
         <div class="flex-[10%]"></div>
@@ -66,10 +66,14 @@
             // 取得 <script> 內容並執行
             const script = doc.querySelector("script");
             if (script) {
-              // const newScript = document.createElement("script");
-              // newScript.textContent = script.textContent;
-              // document.body.appendChild(newScript);
-              eval(script.textContent);
+              // 修改腳本內容，將 DOMContentLoaded 事件監聽器替換為直接調用函數
+              const modifiedScript = script.textContent.replace(
+                'document.addEventListener("DOMContentLoaded", loadRegulationsData)',
+                "loadRegulationsData()" // 直接調用函數
+              );
+
+              // 執行修改後的腳本
+              eval(modifiedScript);
             }
           })
           .catch((error) => console.error(`無法載入組件 ${url}:`, error));
@@ -78,7 +82,7 @@
       // 載入 header.html
       loadComponent("./components/header.html", "header-template");
       loadComponent("./components/search.html", "search-template");
-      loadComponent("./components/tab-table.html", "tab-table-element");
+      loadComponent("./components/tab-table-4.html", "tab-table-4-element");
     </script>
   </body>
 </html>
