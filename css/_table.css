@@ -104,13 +104,16 @@
         border-bottom: 1px solid var(--darkGrey300, #cfdbe1);
       }
       strong {
-        color: var(--Primary600, #009eb8);
+        color: var(--primary600, #009eb8);
       }
       p {
         color: var(--darkGrey700, #6c8490);
         font-size: var(--font-caption);
         font-weight: var(--weight-regular);
       }
+    }
+    .button-td {
+      min-width: 100px;
     }
   }
 
@@ -146,6 +149,7 @@
 
       .control {
         vertical-align: middle;
+        min-width: 60px;
         button {
           cursor: pointer;
         }
@@ -161,7 +165,6 @@
     justify-content: center;
     margin: 48px auto;
     gap: 5px;
-    width: 328px;
     height: 32px;
 
     .control,
