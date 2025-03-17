@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>C.18-內規列表-iKnow</title>
+    <style>
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div class="side-nav same-width flex-[10%]">
+          <ul>
+            <li class="sub1 active">外規列表</li>
+            <li class="sub1">內規列表</li>
+          </ul>
+        </div>
+        <div class="main flex-[80%]">
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">法規內容管理</span>
+              </p>
+            </div>
+          </div>
+          <div id="search-container">
+            <div class="search-bar flex">
+              <div class="flex-[20%]">
+                <div class="flex helper">
+                  <label for="" class="text-wrapper text-info">關鍵字</label>
+                  <div class="bubble">
+                    <img class="img" src="./assets/icons/icon_info.svg" />
+                    <div class="speech-bubble">可查詢法規名稱、發文字號...</div>
+                  </div>
+                </div>
+                <input
+                  class="w-full"
+                  type="text"
+                  id=""
+                  placeholder="輸入關鍵字"
+                />
+              </div>
+
+              <div class="flex-[20%]">
+                <label for="" class="text-wrapper">權責單位</label>
+                <div class="select-content">
+                  <select id="">
+                    <option selected>所有部門</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="flex-[20%]">
+                <label for="" class="text-wrapper">處理進度</label>
+                <div class="select-content">
+                  <select id="">
+                    <option selected>請選擇</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="date-range min-w-[240px] flex-[20%]">
+                <label for="" class="text-wrapper">日期區間</label>
+                <input type="date" id="start-date" value="2024-12-28" />
+              </div>
+
+              <button class="button flex-[8%] max-w-[100px] max-h-[42px]">
+                搜尋
+              </button>
+            </div>
+          </div>
+
+          <div id="table-container">
+            <div class="layout">
+              <div class="tab-container flex">
+                <div>
+                  <!-- tab按鈕型 -->
+                  <!-- <div class="tab flex">
+                    <button class="active">全部</button>
+                    <button>法規</button>
+                    <button>函釋</button>
+                    <button>其他</button>
+                  </div> -->
+                  <!-- 一般文字型 -->
+                  <div class="title flex">內規列表</div>
+                </div>
+                <a href="javascript:void(0)" class="upload-btn">
+                  <img src="../assets/icons/icon_upload.svg" alt="" />
+                  <span>上傳</span>
+                </a>
+              </div>
+
+              <div class="table-container basic">
+                <!-- Table -->
+                <table class="w-full">
+                  <thead class="table-head">
+                    <tr class="text-left fw-500 text-darkGrey500">
+                      <th>權責單位</th>
+                      <th>內規名稱</th>
+                      <th>創建日期</th>
+                      <th>內容處理進度</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr>
+                      <td>業務部</td>
+                      <td>營業單位預告終止勞動契約作業辦法</td>
+                      <td>YYYY/MM/DD</td>
+                      <td class="button-td">
+                        <span class="button-status review"
+                          >已分案
+                          <div class="button-status-bubble">
+                            10/26 12:00 已分案給合規發展科 吳尾熊
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>業務部</td>
+                      <td>辦理共同行銷證券暨期貨業務作業要點</td>
+                      <td>YYYY/MM/DD</td>
+                      <td class="button-td">
+                        <span class="button-status not-started"
+                          >待分案
+                          <div class="button-status-bubble">
+                            10/26 12:00 已分案給合規發展科 吳尾熊
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>業務部</td>
+                      <td>營業單位預告終止勞動契約作業辦法</td>
+                      <td>YYYY/MM/DD</td>
+                      <td class="button-td">
+                        <span class="button-status not-started"
+                          >待分案
+                          <div class="button-status-bubble">
+                            10/26 12:00 已分案給合規發展科 吳尾熊
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>業務部</td>
+                      <td>營業單位預告終止勞動契約作業辦法</td>
+                      <td>YYYY/MM/DD</td>
+                      <td class="button-td">
+                        <span class="button-status not-started"
+                          >待分案
+                          <div class="button-status-bubble">
+                            10/26 12:00 已分案給合規發展科 吳尾熊
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>業務部</td>
+                      <td>營業單位預告終止勞動契約作業辦法</td>
+                      <td>YYYY/MM/DD</td>
+                      <td class="button-td">
+                        <span class="button-status not-started"
+                          >待分案
+                          <div class="button-status-bubble">
+                            10/26 12:00 已分案給合規發展科 吳尾熊
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>業務部</td>
+                      <td>營業單位預告終止勞動契約作業辦法</td>
+                      <td>YYYY/MM/DD</td>
+                      <td class="button-td">
+                        <span class="button-status not-started"
+                          >待分案
+                          <div class="button-status-bubble">
+                            10/26 12:00 已分案給合規發展科 吳尾熊
+                          </div></span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="pagination-container">
+              <div class="control">
+                <!-- <img class="img" src="./assets/icons/pagination_first_enable.svg" /> -->
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_first_disable.svg"
+                />
+              </div>
+              <div class="control">
+                <!-- <img class="img" src="./assets/icons/pagination_prev_enable.svg" /> -->
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_prev_disable.svg"
+                />
+              </div>
+              <div class="page active">
+                <span>1</span>
+              </div>
+              <div class="page">
+                <span>2</span>
+              </div>
+              <div class="page">
+                <span>3</span>
+              </div>
+              <div class="page">
+                <span>...</span>
+              </div>
+              <div class="page">
+                <span>10</span>
+              </div>
+              <div class="control">
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_next_enable.svg"
+                />
+                <!-- <img class="img" src="./assets/icons/pagination_next_disable.svg" /> -->
+              </div>
+              <div class="control">
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_last_enable.svg"
+                />
+                <!-- <img class="img" src="./assets/icons/pagination_last_disable.svg" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              // 修改腳本內容，將 DOMContentLoaded 事件監聽器替換為直接調用函數
+              const modifiedScript = script.textContent.replace(
+                'document.addEventListener("DOMContentLoaded", loadRegulationsData)',
+                "loadRegulationsData()" // 直接調用函數
+              );
+
+              // 執行修改後的腳本
+              eval(modifiedScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+    </script>
+  </body>
+</html>
