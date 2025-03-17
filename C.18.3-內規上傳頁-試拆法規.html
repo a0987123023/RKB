@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>C.18.3-內規上傳頁-試拆法規</title>
+    <style>
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div class="side-nav same-width flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span><span class="sub3">目的</span></a>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"
+                ><span>第 2 條</span><span class="sub3">產品說明</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="main flex-[80%]">
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper">法規內容管理</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">試拆法規</span>
+              </p>
+            </div>
+          </div>
+          <div class="previous-page">
+            <img src="./assets/icons/icon_arrow_left.svg" alt="" />
+            <span>回上一頁</span>
+          </div>
+
+          <div id="container-2" class="card toggle-card style2">
+            <div class="form-section">
+              <div class="section-header">
+                <div>
+                  <h1>試拆法規</h1>
+                </div>
+              </div>
+            </div>
+            <div class="form-section-2 required">
+              <div class="section-header-2">
+                <img src="./assets/icons/icon_upload_gray.svg" alt="" />
+                <h2>上傳解析條文用檔案</h2>
+                <span class="required-mark">必填</span>
+              </div>
+              <div class="section-content">
+                <div class="form-group">
+                  <div id="input-file1"></div>
+                  <div class="file-list">
+                    <div class="group">
+                      <img
+                        class="clip"
+                        src="./assets/icons/icon_attachment.svg"
+                        alt=""
+                      />
+                      <!-- 一般狀態 -->
+                      <span>證券投資人及期貨交易人保護法.pdf</span>
+                      <!-- 編輯狀態 -->
+                      <!-- <div class="w-full">
+                        <input
+                          type="text"
+                          id=""
+                          value="證券投資人及期貨交易人保護法.pdf"
+                        />
+                      </div> -->
+                    </div>
+                    <div class="edit-dropdown-btn">
+                      <img src="./assets/icons/icon_edit_outline.svg" alt="" />
+                      <ul class="drop-down">
+                        <li>編輯</li>
+                        <li>預覽</li>
+                        <li>刪除</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="time-list">
+                    <img src="./assets/icons/icon_clock.svg" alt="" />
+                    <span>上傳時間 2025-01-29 15:33:22</span>
+                  </div>
+                </div>
+              </div>
+              <button class="submit-button disable" style="margin-bottom: 32px">
+                解析法規
+              </button>
+              <div class="subsection-header">
+                <h2>解析結果</h2>
+                <div class="success">
+                  <div class="btn">
+                    <img src="./assets/icons/icon_check_circle.svg" alt="" />
+                    <p>解析成功</p>
+                  </div>
+                </div>
+                <!-- <div class="failed">
+                  <div class="btn">
+                    <img src="./assets/icons/icon_warning_red.svg" alt="" />
+                    <p>解析失敗</p>
+                  </div>
+                </div> -->
+                <div class="time-list">
+                  <span>上傳時間 2025-01-29 15:33:22</span>
+                </div>
+              </div>
+
+              <div class="subsection-body">
+                <h2>解析條文預覽</h2>
+                <div class="law-container">
+                  <div>
+                    <div class="law-section-header">
+                      <p>第一章</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第一節</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第 1 條</p>
+                    </div>
+                    <div class="content-box">
+                      為健全銀行業務經營，保障存款人權益，適應產業發展，並促進行信用配合國家金融政策，特制定本法。
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="law-section-header">
+                      <p>第一章</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第一節</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第 2 條</p>
+                    </div>
+                    <div class="content-box">
+                      本法稱銀行，謂依本法組織登記，經營銀行業務之機構。
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="law-section-header">
+                      <p>第一章</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第一節</p>
+                      <img src="./assets/icons/line.svg" alt="" />
+                      <p>第 3 條</p>
+                    </div>
+                    <div class="content-box">
+                      銀行經營之業務如左：
+                      <div class="content-item">一、收受支票存款。</div>
+                      <div class="content-item">二、收受其他各種存款。</div>
+                      <div class="content-item">三、受託經理信託基金。</div>
+                      <div class="content-item">四、發行金融債券。</div>
+                      <div class="content-item">五、辦理放款。</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      //編輯icon
+      document.querySelectorAll(".edit-dropdown-btn").forEach((btn) => {
+        btn.addEventListener("click", function (event) {
+          // 如果當前按鈕已經是 active，則移除 active（關閉）
+          if (this.classList.contains("active")) {
+            this.classList.remove("active");
+          } else {
+            // 先移除所有的 active（確保只有一個開啟）
+            document
+              .querySelectorAll(".edit-dropdown-btn")
+              .forEach((b) => b.classList.remove("active"));
+
+            // 為當前點擊的按鈕加上 active
+            this.classList.add("active");
+          }
+        });
+      });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+      loadComponent("./components/input-file.html", "input-file1");
+    </script>
+  </body>
+</html>
