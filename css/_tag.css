@@ -10,6 +10,7 @@
   border-radius: var(--border-radius-s);
   line-height: 1;
   .button-status-bubble {
+    white-space: nowrap;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

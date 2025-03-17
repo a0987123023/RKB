@@ -6,12 +6,13 @@
 
 - [tailwind](https://unpkg.com/@tailwindcss/browser@4)
 
-# 03/17 修改部分
+# 03/18 修改部分
 
 - components/dialogs/上傳內規(多加一個"上傳試拆條")
-- 新增頁面 C.18.3-內規上傳頁-試拆法規
 - 新增頁面 C.18-內規列表-iKnow
 - 新增頁面 C.18.1-內規列表-內規內容頁-iKnow 待分案
+- 新增頁面 C.18.3-內規上傳頁-試拆法規
+- button-status-bubble css 微調
 
 # 03/13 修改部分
 
