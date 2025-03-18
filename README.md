@@ -6,7 +6,7 @@
 
 - [tailwind](https://unpkg.com/@tailwindcss/browser@4)
 
-# 03/19 修改部分
+# 03/18 修改部分
 
 - components/dialogs/上傳內規(多加一個"上傳試拆條")
 - 新增頁面 C.18-內規列表-iKnow
