@@ -223,115 +223,115 @@
 
 /* Text color modifiers */
 .text-danger700 {
-  color: var(--danger700);
+  color: var(--danger700) !important;
 }
 .text-danger500 {
-  color: var(--danger500);
+  color: var(--danger500) !important;
 }
 .text-danger400 {
-  color: var(--danger400);
+  color: var(--danger400) !important;
 }
 .text-danger200 {
-  color: var(--danger200);
+  color: var(--danger200) !important;
 }
 .text-danger50 {
-  color: var(--danger50);
+  color: var(--danger50) !important;
 }
 
 .text-darkGrey990 {
-  color: var(--darkGrey990);
+  color: var(--darkGrey990) !important;
 }
 .text-darkGrey900 {
-  color: var(--darkGrey900);
+  color: var(--darkGrey900) !important;
 }
 .text-darkGrey800 {
-  color: var(--darkGrey800);
+  color: var(--darkGrey800) !important;
 }
 .text-darkGrey700 {
-  color: var(--darkGrey700);
+  color: var(--darkGrey700) !important;
 }
 .text-darkGrey600 {
-  color: var(--darkGrey600);
+  color: var(--darkGrey600) !important;
 }
 .text-darkGrey500 {
-  color: var(--darkGrey500);
+  color: var(--darkGrey500) !important;
 }
 .text-darkGrey300 {
-  color: var(--darkGrey300);
+  color: var(--darkGrey300) !important;
 }
 .text-darkGrey200 {
-  color: var(--darkGrey200);
+  color: var(--darkGrey200) !important;
 }
 .text-darkGrey150 {
-  color: var(--darkGrey150);
+  color: var(--darkGrey150) !important;
 }
 .text-darkGrey100 {
-  color: var(--darkGrey100);
+  color: var(--darkGrey100) !important;
 }
 .text-darkGrey50 {
-  color: var(--darkGrey50);
+  color: var(--darkGrey50) !important;
 }
 
 .text-white {
-  color: var(--white);
+  color: var(--white) !important;
 }
 
 .text-primary800 {
-  color: var(--primary800);
+  color: var(--primary800) !important;
 }
 .text-primary700 {
-  color: var(--primary700);
+  color: var(--primary700) !important;
 }
 .text-primary600 {
-  color: var(--primary600);
+  color: var(--primary600) !important;
 }
 .text-primary500 {
-  color: var(--primary500);
+  color: var(--primary500) !important;
 }
 .text-primary400 {
-  color: var(--primary400);
+  color: var(--primary400) !important;
 }
 .text-primary300 {
-  color: var(--primary300);
+  color: var(--primary300) !important;
 }
 .text-primary200 {
-  color: var(--primary200);
+  color: var(--primary200) !important;
 }
 .text-primary100 {
-  color: var(--primary100);
+  color: var(--primary100) !important;
 }
 .text-primary50 {
-  color: var(--primary50);
+  color: var(--primary50) !important;
 }
 
 .text-accent {
-  color: var(--accent);
+  color: var(--accent) !important;
 }
 
 .text-link700 {
-  color: var(--link700);
+  color: var(--link700) !important;
 }
 .text-link600 {
-  color: var(--link600);
+  color: var(--link600) !important;
 }
 .text-link500 {
-  color: var(--link500);
+  color: var(--link500) !important;
 }
 .text-link300 {
-  color: var(--link300);
+  color: var(--link300) !important;
 }
 .text-link100 {
-  color: var(--link100);
+  color: var(--link100) !important;
 }
 
 .text-sky500 {
-  color: var(--sky500);
+  color: var(--sky500) !important;
 }
 .text-sky300 {
-  color: var(--sky300);
+  color: var(--sky300) !important;
 }
 .text-sky100 {
-  color: var(--sky100);
+  color: var(--sky100) !important;
 }
 
 /* Text alignment */

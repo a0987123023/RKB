@@ -6,13 +6,17 @@
 
 - [tailwind](https://unpkg.com/@tailwindcss/browser@4)
 
-# 03/18 修改部分
+# 03/19 修改部分
 
 - components/dialogs/上傳內規(多加一個"上傳試拆條")
 - 新增頁面 C.18-內規列表-iKnow
 - 新增頁面 C.18.1-內規列表-內規內容頁-iKnow 待分案
 - 新增頁面 C.18.3-內規上傳頁-試拆法規
+- 新增頁面 C.16.3-外規上傳頁-法規解析-切版用
+- 頁面微調 C.13-內規列表-上傳內規
+- css/\_card.css .toggle-card 區塊(收合卡片) 調整
 - button-status-bubble css 微調
+- css/\_variables.css (Text color modifiers) 權級調整
 
 # 03/13 修改部分
 
