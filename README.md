@@ -4,7 +4,7 @@
 
 # 使用套件
 
-- [tailwind](https://unpkg.com/@tailwindcss/browser@4)
+- [tailwind](configs/tailwindcss.js)
 
 # 03/18 修改部分
 
