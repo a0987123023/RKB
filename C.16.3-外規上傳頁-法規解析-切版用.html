@@ -356,14 +356,22 @@
                           <a href="#" class="law-link">第 2 條</a>
                         </nav>
                         <div class="regulation-content">
-                          <p class="text-darkGrey800">
+                          <div class="text-darkGrey800">
                             銀行經營之業務如左：
-                            <div class="text-darkGrey800">一、收受支票存款。</div>
-                            <div class="text-darkGrey800">二、收受其他各種存款。</div>
-                            <div class="text-darkGrey800">三、受託經理信託基金。</div>
-                            <div class="text-darkGrey800">四、發行金融債券。</div>
+                            <div class="text-darkGrey800">
+                              一、收受支票存款。
+                            </div>
+                            <div class="text-darkGrey800">
+                              二、收受其他各種存款。
+                            </div>
+                            <div class="text-darkGrey800">
+                              三、受託經理信託基金。
+                            </div>
+                            <div class="text-darkGrey800">
+                              四、發行金融債券。
+                            </div>
                             <div class="text-darkGrey800">五、辦理放款。</div>
-                          </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -388,22 +396,7 @@
                           />
                           <a href="#" class="law-link">第 2 條</a>
                         </nav>
-                        <div class="article-navigation">
-                          <div class="regulation-header not-link">
-                            <div class="tag">未關聯</div>
-                            <div class="article-nav">
-                              <span class="chapter">第 1 章</span>
-                              <span class="article">第 1 節</span>
-                              <span class="article">第 2 條</span>
-                              <span class="arrow-outer">
-                                <img
-                                  class="arrow"
-                                  src="./assets/icons/icon_arrow_down.svg"
-                                  alt=""
-                              /></span>
-                            </div>
-                          </div>
-                        </div>
+                        <div id="selector-container-1"></div>
                         <div class="regulation-content">
                           <p class="text-darkGrey800">（刪除）</p>
                         </div>
@@ -435,21 +428,7 @@
                           />
                           <a href="#" class="law-link">第 3 條</a>
                         </nav>
-                        <div class="article-navigation">
-                          <div class="regulation-header old-tag">
-                            <div class="tag">舊條文</div>
-                            <div class="article-nav">
-                              <span class="change">第 1 章</span>
-                              <span class="article">第 3 條</span>
-                              <span class="arrow-outer">
-                                <img
-                                  class="arrow"
-                                  src="./assets/icons/icon_arrow_down.svg"
-                                  alt=""
-                              /></span>
-                            </div>
-                          </div>
-                        </div>
+                        <div id="selector-container-2"></div>
                         <div class="regulation-content">
                           <p class="text-darkGrey800">
                             各銀行得經營之業務項目，由中央主管機關按其類別，就本法所定之範圍內分別核定，並於營業執照上載明之。但其有關外匯業務之經營，須經中央銀行之許可。
@@ -492,21 +471,8 @@
                           />
                           <a href="#" class="law-link">第 3-1 條</a>
                         </nav>
-                        <div class="article-navigation">
-                          <div class="regulation-header create">
-                            <div class="tag">新增</div>
-                            <div class="article-nav">
-                              <span class="change">第 - 章</span>
-                              <span class="article">第 - 條</span>
-                              <span class="arrow-outer">
-                                <img
-                                  class="arrow"
-                                  src="./assets/icons/icon_arrow_down.svg"
-                                  alt=""
-                              /></span>
-                            </div>
-                          </div>
-                        </div>
+
+                        <div id="selector-container-3"></div>
                         <div class="regulation-content">
                           <p class="text-darkGrey800">
                             各銀行得經營之業務項目，由中央主管機關按其類別，就本法所定之範圍內分別核定，並於營業執照上載明之。但其有關外匯業務之經營，須經中央銀行之許可。
@@ -589,6 +555,7 @@
       </div>
     </div>
 
+    <script src="./composable/input/article-navigation-select.js"></script>
     <script>
       // 動態載入 HTML 並執行 JavaScript
       function loadComponent(url, containerId) {
@@ -690,6 +657,78 @@
       loadComponent("./components/input-file.html", "input-file1");
       loadComponent("./components/input-file.html", "input-file2");
       loadComponent("./components/input-file.html", "input-file3");
+      // 範例數據
+      const sectionData = [
+        {
+          id: "5",
+          title: "第 5 編 > 第 10 章 > 第 100 節",
+          articles: [
+            { id: "120", title: "第 120 條" },
+            { id: "121", title: "第 121 條" },
+            { id: "122", title: "第 122 條" },
+            { id: "123", title: "第 123 條" },
+            { id: "124", title: "第 124 條" },
+            { id: "125", title: "第 125 條" },
+            { id: "126", title: "第 126 條" },
+            { id: "127", title: "第 127 條" },
+            { id: "128", title: "第 128 條" },
+            { id: "129", title: "第 129 條" },
+            { id: "130", title: "第 130 條" },
+            { id: "131", title: "第 131 條" },
+          ],
+        },
+        {
+          id: "6",
+          title: "第 5 編 > 第 10 章 > 第 101 節",
+          articles: [
+            { id: "120", title: "第 120 條" },
+            { id: "121", title: "第 121 條" },
+            { id: "122", title: "第 122 條" },
+            { id: "123", title: "第 123 條" },
+            { id: "124", title: "第 124 條" },
+            { id: "125", title: "第 125 條" },
+            { id: "126", title: "第 126 條" },
+            { id: "127", title: "第 127 條" },
+            { id: "128", title: "第 128 條" },
+            { id: "129", title: "第 129 條" },
+            { id: "130", title: "第 130 條" },
+            { id: "131", title: "第 131 條" },
+          ],
+        },
+      ];
+
+      // 初始化組件
+      document.addEventListener("DOMContentLoaded", () => {
+        // 建立一個初始狀態為"舊條文"的選擇器
+        const selector1 = new ArticleNavigationSelector({
+          container: document.getElementById("selector-container-1"),
+          sections: sectionData,
+          initialStatus: "old", // 'old', 'new', 或 'unlinked'
+          initialChapter: "第 1 章",
+          initialArticle: "第 2 條",
+          onSelect: (selection) => {
+            console.log("選擇條文為:", selection);
+          },
+          onStatusChange: (statusId, statusText) => {
+            console.log("狀態變更為:", statusId, statusText);
+          },
+        });
+
+        // 建立初始狀態為"新增"的選擇器
+        const selector2 = new ArticleNavigationSelector({
+          container: document.getElementById("selector-container-2"),
+          sections: sectionData,
+          initialStatus: "new",
+          initialChapter: "第 3 章",
+          initialArticle: "第 5 條",
+        });
+
+        // 建立一個初始狀態為"未關聯"的選擇器（預設）
+        const selector3 = new ArticleNavigationSelector({
+          container: document.getElementById("selector-container-3"),
+          sections: sectionData,
+        });
+      });
     </script>
   </body>
 </html>

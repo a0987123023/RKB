@@ -1,3 +1,4 @@
+/* 上傳檔案input start */
 .file-group {
   .file-title {
     display: flex;
@@ -39,3 +40,207 @@
     margin-right: 10px;
   }
 }
+/* 上傳檔案input end */
+
+/* 條號選擇input start */
+.selector-container {
+  .regulation-header {
+    cursor: pointer;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--spacing-xs);
+    border: 1px solid var(--darkGrey300);
+    border-radius: var(--border-radius-m);
+    width: 100%;
+    height: 36px;
+  }
+
+  .regulation-header .tag {
+    line-height: 19.5px;
+    font-weight: var(--weight-bold);
+    font-size: var(--font-footnote);
+    padding: 4px 16px;
+    border-radius: var(--border-radius-s);
+  }
+
+  .regulation-header.old-tag {
+    .tag {
+      color: var(--white);
+      background: var(--primary700);
+    }
+    .article-nav {
+      color: var(--primary700);
+    }
+  }
+
+  .regulation-header.delete {
+    .tag {
+      color: var(--white);
+      background: var(--danger500);
+    }
+    .article-nav {
+      color: var(--primary700);
+    }
+  }
+
+  .regulation-header.not-link {
+    .tag {
+      color: var(--white);
+      background: var(--darkGrey600);
+    }
+    .article-nav {
+      color: var(--darkGrey600);
+    }
+  }
+
+  .regulation-header.create {
+    .tag {
+      color: var(--white);
+      background: var(--primary600);
+    }
+    .article-nav {
+      color: var(--darkGrey600);
+    }
+  }
+
+  .regulation-header .article-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .regulation-header .arrow-outer {
+    display: flex;
+    align-items: center;
+  }
+
+  .regulation-header .arrow {
+    padding-right: var(--spacing-sm);
+  }
+  .article-navigation-select {
+    position: absolute;
+    top: calc(100% + 12.5px);
+    width: 100%;
+    display: flex;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    height: 400px;
+    z-index: 99;
+
+    /* Sidebar Styles */
+    .sidebar {
+      background-color: #fff;
+      border-right: 1px solid #e1eaef;
+    }
+
+    .sidebar-title {
+      color: #6c8490;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 16px;
+      color: var(--darkGrey700);
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      padding: 13px 16px;
+      position: relative;
+      cursor: pointer;
+      min-width: 140px;
+      transition: background-color 0.2s;
+    }
+
+    .status-circle {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      position: relative;
+      border-color: #009eb8;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(../../../assets/icons/icon_radio_button.svg);
+    }
+
+    .status-circle.selected {
+      background-image: url(../../../assets/icons/icon_radio_button_active.svg);
+    }
+
+    .status-text {
+      font-size: 15px;
+      font-weight: 400;
+      margin-right: 10px;
+      color: var(--darkGrey900);
+    }
+
+    .arrow {
+      color: #9fb2bc;
+      font-size: 20px;
+    }
+
+    .article-navigation-section-header {
+      position: sticky;
+      top: 0;
+      padding: 12px 16px;
+      border-top: 1px solid #e1eaef;
+      border-bottom: 1px solid #e1eaef;
+      background-color: #fff;
+    }
+
+    .section-title {
+      color: var(--primary700);
+      font-size: 14px;
+      font-weight: 700;
+      span {
+        font-weight: 400;
+      }
+    }
+
+    .article-item {
+      padding: 12px 16px;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .article-item:hover {
+      background-color: #f3f9fc;
+    }
+
+    .article-title {
+      color: #344858;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    .data-content {
+      width: 100%;
+      overflow: scroll;
+    }
+
+    /* Scrollbar Styles */
+    .content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+      background: #cfdbe1;
+      border-radius: 4px;
+    }
+
+    .content::-webkit-scrollbar-thumb:hover {
+      background: #9fb2bc;
+    }
+  }
+}
+/* 條號選擇input end */

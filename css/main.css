@@ -1,5 +1,5 @@
 /* Import reset CSS */
-@import url("../https/reset.min.css");
+@import url("../configs/reset.min.css");
 
 /* Tailwind directives */
 @tailwind base;

@@ -6,6 +6,13 @@
 
 - [tailwind](configs/tailwindcss.js)
 
+# 03/20 修改部分
+
+- 調整 C.16.3-外規上傳頁-法規解析-切版用 條號下拉選單
+- 新增 icon assets/icons/icon_arrow_right2.svg
+- 新增 條號下拉選單 共用邏輯 composable/input/article-navigation-select.js
+- 調整 css/\_card.css、css/\_input.css
+
 # 03/18 修改部分
 
 - components/dialogs/上傳內規(多加一個"上傳試拆條")
