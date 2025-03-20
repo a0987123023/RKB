@@ -9,9 +9,13 @@
 # 03/20 修改部分
 
 - 調整 C.16.3-外規上傳頁-法規解析-切版用 條號下拉選單
+- 調整 css/\_card.css 和 css/\_input.css
+- 新增 icon illustration_lighthouse.svg
 - 新增 icon assets/icons/icon_arrow_right2.svg
-- 新增 條號下拉選單 共用邏輯 composable/input/article-navigation-select.js
-- 調整 css/\_card.css、css/\_input.css
+- 新增頁面 D.1-法規查詢模組
+- 新增共用功能 條號下拉選單 composable/input/article-navigation-select.js（使用範例在 D.1 查詢區塊的"法規類型"）
+- 新增共用功能 composable/input/keyword-search-input.js （使用範例在 D.1 查詢區塊的"關鍵字"打"金融"時會彈出）
+- 新增共用功能 一般下拉選單組件 composable/input/select-input.js
 
 # 03/18 修改部分
 

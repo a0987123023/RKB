@@ -42,7 +42,7 @@
 }
 /* 上傳檔案input end */
 
-/* 條號選擇input start */
+/* 條號選擇下拉input start */
 .selector-container {
   .regulation-header {
     cursor: pointer;
@@ -243,4 +243,117 @@
     }
   }
 }
-/* 條號選擇input end */
+/* 條號選擇下拉input end */
+
+/* 文字input 輸入會有提示彈窗 start */
+.keyword-input-container {
+  position: relative;
+  width: 100%;
+  .suggestions-container {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    border: 1px solid var(--darkGrey200);
+    border-top: none;
+    border-radius: var(--border-radius-m);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.08);
+    display: none;
+  }
+
+  .suggestion-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    color: var(--darkGrey900, #333);
+  }
+
+  .suggestion-item:hover {
+    background-color: var(--darkGrey100);
+    color: var(--primary600);
+  }
+
+  .suggestion-item.selected {
+    background-color: var(--darkGrey100);
+  }
+
+  .highlight {
+    font-weight: var(--weight-bold, bold);
+  }
+}
+/* 文字input 輸入會有提示彈窗 end */
+
+/* 一般下拉選單 start */
+.custom-select {
+  position: relative;
+  width: 100%;
+
+  .select-selected {
+    padding: var(--spacing-md-plus) var(--spacing-xl);
+    border-radius: var(--border-radius-m);
+    font-size: var(--font-p-sm);
+    color: var(--darkGrey500);
+    background: var(--darkGrey100);
+    height: 43px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  .select-selected:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-xl);
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/icons/icon_arrow_down.svg);
+    background-position: center;
+    transform: translateY(-50%);
+  }
+
+  .select-selected.select-arrow-active:after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .select-items {
+    width: 100%;
+    position: absolute;
+    background-color: var(--white);
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: var(--border-radius-m);
+    /* box-shadow: 0px 5px 12px 0px rgba(227, 239, 241, 1); */
+
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .select-item {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    cursor: pointer;
+    user-select: none;
+    color: var(--darkGrey900);
+  }
+
+  .select-item:hover {
+    background-color: var(--darkGrey100);
+  }
+
+  .select-hide {
+    display: none;
+  }
+
+  .same-as-selected {
+    background-color: var(--darkGrey100);
+  }
+}
+
+/* 一般下拉選單 end */

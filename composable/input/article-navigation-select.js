@@ -1,5 +1,5 @@
 /**
- * ArticleNavigationSelector - 條號下拉選單
+ * 條號下拉組件
  */
 class ArticleNavigationSelector {
   /**
