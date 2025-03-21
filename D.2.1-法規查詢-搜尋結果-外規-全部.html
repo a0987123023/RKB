@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./configs/tailwindcss.js"></script>
+    <title>D.2.1-法規查詢-搜尋結果-外規-全部</title>
+    <style>
+      #header-container .frame-2 .div-wrapper:nth-child(1) {
+        border-bottom: 4px solid var(--primary600) !important;
+        .text-wrapper-2 {
+          color: var(--primary600) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div class="side-nav same-width flex-[10%]">
+          <ul>
+            <li class="sub1 active">外規搜尋</li>
+            <li class="sub1">內規搜尋</li>
+          </ul>
+        </div>
+        <div class="main flex-[80%]">
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">法規內容管理</span>
+              </p>
+            </div>
+          </div>
+          <div id="search-container">
+            <div class="search-bar flex">
+              <div class="flex-[50%]">
+                <div class="flex helper">
+                  <label for="" class="text-wrapper text-info">關鍵字</label>
+                  <div class="bubble">
+                    <img class="img" src="./assets/icons/icon_info.svg" />
+                    <div class="speech-bubble">可查詢法規名稱、發文字號...</div>
+                  </div>
+                </div>
+                <input
+                  class="w-full"
+                  type="text"
+                  id=""
+                  placeholder="輸入關鍵字"
+                />
+              </div>
+
+              <div>
+                <label for="" class="text-wrapper">法規類型</label>
+                <div class="select-content">
+                  <select id="">
+                    <option selected>全部</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="date-range min-w-[240px]">
+                <label for="" class="text-wrapper">日期區間</label>
+                <input type="date" id="start-date" value="2024-12-28" />
+              </div>
+
+              <button class="button flex-[8%] max-w-[100px] max-h-[42px]">
+                搜尋
+              </button>
+            </div>
+          </div>
+
+          <div id="table-container">
+            <div class="layout">
+              <div class="tab-container flex">
+                <div>
+                  <!-- tab按鈕型 -->
+                  <div class="tab flex">
+                    <button class="px-4 py-3 active">全部</button>
+                    <button class="px-4 py-3">法規</button>
+                    <button class="px-4 py-3">函釋</button>
+                    <button class="px-4 py-3">其他</button>
+                  </div>
+                  <!-- 一般文字型 -->
+                  <!-- <div class="title flex">內規列表</div> -->
+                </div>
+
+                <div class="sort-group mr-3xl">
+                  <span class="sort-title">排序方式</span>
+                  <div class="item">
+                    <label for="sort1" class="sort-radio">
+                      <input id="sort1" name="sort" type="radio" checked />
+                    </label>
+                    <label for="sort1">依關聯程度</label>
+                  </div>
+                  <div class="item">
+                    <label for="sort2" class="sort-radio">
+                      <input id="sort2" name="sort" type="radio" />
+                    </label>
+                    <label for="sort2">依時間近到遠</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-container basic">
+                <!-- Table -->
+                <table class="w-full">
+                  <thead class="table-head">
+                    <tr class="text-left fw-500 text-darkGrey500">
+                      <th>法令類型</th>
+                      <th>來文機關</th>
+                      <th>法規名稱/發文字號</th>
+                      <th>摘要</th>
+                      <th>公布/修正日期</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr>
+                      <td>法規</td>
+                      <td>農業部農業藥物試驗所</td>
+                      <td>
+                        中央銀行及中央存款保險股份有限公司現職金融檢查人員轉任行政...
+                      </td>
+                      <td>
+                        本法第十三條所稱之替代證券，係指依法令或..三、請釋明聲請人有何不能清償債務之情事或不三、請釋明聲請人有何不能清償債務之情事或不能清償債務之虞，並請提出相關依據。四、...
+                      </td>
+                      <td>YYYY/MM/DD</td>
+                    </tr>
+                    <tr>
+                      <td>法規</td>
+                      <td>農業部農業藥物試驗所</td>
+                      <td>
+                        中央銀行及中央存款保險股份有限公司現職金融檢查人員轉任行政...
+                      </td>
+                      <td>
+                        本法第十三條所稱之替代證券，係指依法令或..三、請釋明聲請人有何不能清償債務之情事或不三、請釋明聲請人有何不能清償債務之情事或不能清償債務之虞，並請提出相關依據。四、...
+                      </td>
+                      <td>YYYY/MM/DD</td>
+                    </tr>
+                    <tr>
+                      <td>法規</td>
+                      <td>農業部農業藥物試驗所</td>
+                      <td>
+                        中央銀行及中央存款保險股份有限公司現職金融檢查人員轉任行政...
+                      </td>
+                      <td>
+                        本法第十三條所稱之替代證券，係指依法令或..三、請釋明聲請人有何不能清償債務之情事或不三、請釋明聲請人有何不能清償債務之情事或不能清償債務之虞，並請提出相關依據。四、...
+                      </td>
+                      <td>YYYY/MM/DD</td>
+                    </tr>
+                    <tr>
+                      <td>法規</td>
+                      <td>農業部農業藥物試驗所</td>
+                      <td>
+                        中央銀行及中央存款保險股份有限公司現職金融檢查人員轉任行政...
+                      </td>
+                      <td>
+                        本法第十三條所稱之替代證券，係指依法令或..三、請釋明聲請人有何不能清償債務之情事或不三、請釋明聲請人有何不能清償債務之情事或不能清償債務之虞，並請提出相關依據。四、...
+                      </td>
+                      <td>YYYY/MM/DD</td>
+                    </tr>
+                    <tr>
+                      <td>法規</td>
+                      <td>農業部農業藥物試驗所</td>
+                      <td>
+                        中央銀行及中央存款保險股份有限公司現職金融檢查人員轉任行政...
+                      </td>
+                      <td>
+                        本法第十三條所稱之替代證券，係指依法令或..三、請釋明聲請人有何不能清償債務之情事或不三、請釋明聲請人有何不能清償債務之情事或不能清償債務之虞，並請提出相關依據。四、...
+                      </td>
+                      <td>YYYY/MM/DD</td>
+                    </tr>
+                    <tr>
+                      <td>法規</td>
+                      <td>農業部農業藥物試驗所</td>
+                      <td>
+                        中央銀行及中央存款保險股份有限公司現職金融檢查人員轉任行政...
+                      </td>
+                      <td>
+                        本法第十三條所稱之替代證券，係指依法令或..三、請釋明聲請人有何不能清償債務之情事或不三、請釋明聲請人有何不能清償債務之情事或不能清償債務之虞，並請提出相關依據。四、...
+                      </td>
+                      <td>YYYY/MM/DD</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="pagination-container">
+              <div class="control">
+                <!-- <img class="img" src="./assets/icons/pagination_first_enable.svg" /> -->
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_first_disable.svg"
+                />
+              </div>
+              <div class="control">
+                <!-- <img class="img" src="./assets/icons/pagination_prev_enable.svg" /> -->
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_prev_disable.svg"
+                />
+              </div>
+              <div class="page active">
+                <span>1</span>
+              </div>
+              <div class="page">
+                <span>2</span>
+              </div>
+              <div class="page">
+                <span>3</span>
+              </div>
+              <div class="page">
+                <span>...</span>
+              </div>
+              <div class="page">
+                <span>10</span>
+              </div>
+              <div class="control">
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_next_enable.svg"
+                />
+                <!-- <img class="img" src="./assets/icons/pagination_next_disable.svg" /> -->
+              </div>
+              <div class="control">
+                <img
+                  class="img"
+                  src="./assets/icons/pagination_last_enable.svg"
+                />
+                <!-- <img class="img" src="./assets/icons/pagination_last_disable.svg" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              // const newScript = document.createElement("script");
+              // newScript.textContent = script.textContent;
+              // document.body.appendChild(newScript);
+              eval(script.textContent);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+    </script>
+  </body>
+</html>

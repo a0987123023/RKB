@@ -115,6 +115,13 @@
     .button-td {
       min-width: 100px;
     }
+    th,
+    td {
+      min-width: 105px;
+      padding-right: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .table-container.basic {
@@ -137,6 +144,7 @@
       min-width: 110px;
       tr > td {
         padding: var(--spacing-xl) 0;
+        padding-right: 6px;
         color: var(--darkGrey900);
         font-size: var(--font-p-sm);
         border-bottom: 1px solid var(--darkGrey200);
