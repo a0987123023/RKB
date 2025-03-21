@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./configs/tailwindcss.js"></script>
+    <title>D.3.4-內規搜尋-內規內容頁</title>
+    <style>
+      #header-container .frame-2 .div-wrapper:nth-child(3) {
+        border-bottom: 4px solid var(--primary600) !important;
+        color: var(--primary600) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full">
+      <div id="header-template"></div>
+      <div class="w-full flex">
+        <div class="side-nav same-width flex-[10%]">
+          <ul>
+            <li class="sub1 active"><a href="#">內規詳細資訊</a></li>
+            <li class="sub1"><a href="#">條文總覽</a></li>
+            <li id="nav-section-1" class="sun2">
+              <a href="#"><span>第 1 條</span></a>
+              <div class="child">通則 §1</div>
+            </li>
+            <li id="nav-section-2" class="sun2">
+              <a href="#"><span>第 2 條</span></a>
+              <div class="child">銀行之設立、變更、停業、 解散 §52</div>
+            </li>
+          </ul>
+        </div>
+        <div class="main flex-[80%]">
+          <div class="breadcrumb">
+            <div class="label">
+              <p class="div">
+                <span class="text-wrapper">首頁</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper">法規內容管理</span>
+                &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                <span class="text-wrapper active">內規內容頁</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="container">
+            <!-- Header -->
+            <header class="container-header">
+              <button class="back-button">
+                <img src="./assets/icons/icon_arrow_left.svg" alt="" />
+                <span>法規查詢</span>
+              </button>
+              <div class="page-title-outer">
+                <h1 class="page-title">
+                  <span>法規</span>證券投資人及期貨交易人保護法
+                </h1>
+                <button>複製連結</button>
+              </div>
+            </header>
+
+            <!-- Legal Information -->
+            <section class="card">
+              <h2 class="card-title">法規資訊</h2>
+              <div class="legal-info">
+                <div class="info-item">
+                  <span class="info-label">公布日期</span>
+                  <span>2023-06-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">修正日期</span>
+                  <span>2024-07-10</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">施行狀態</span>
+                  <span>現行有效/廢止...</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">資料來源</span>
+                  <span>證券暨期貨法令判解查詢系統</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">主管機關</span>
+                  <span>金融監督管理委員會證券期貨局/廢止...</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Attachments -->
+            <section class="card attachments">
+              <h2 class="card-title">法規沿革</h2>
+              <p class="attachments-text">
+                中華民國一百零九年六月十日總統華總一經字第 10900064271
+                號令修正公布第 10-1、19、26 條條文；增訂第 10-2、40-1
+                條條文；施行日期，由行政院定之中華民國一百零九年七月七日行政院院臺金字第
+                1090021932 號令發布定自一百零九年八月一日施行
+              </p>
+              <h2 class="card-title">附件</h2>
+              <a href="javascript:void(0);" class="attachment-link"
+                >證券投資人及期貨交易人保護法.pdf</a
+              >
+            </section>
+
+            <!-- Version History -->
+            <section class="card mb-7xl">
+              <h2 class="card-title">版本資訊總覽</h2>
+
+              <!-- Expanded Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status reviewed">已覆核</span>
+                    <span class="date">2024-10-14</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 郭珮昕</span
+                    >
+                  </div>
+                  <div id="toggle-btn1" class="toggle-btn">
+                    <div class="open">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close disable">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="frame-sm1" class="frame-sm active">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Collapsed Version -->
+              <div class="version">
+                <div class="version-header">
+                  <div class="version-info">
+                    <span class="button-status unpublished">未公開</span>
+                    <span class="date">2021-10-01</span>
+                    <span class="number">00000000S流水單號</span>
+                    <span class="member">外規覆核人員</span>
+                    <span class="employee"
+                      >綜合企劃部市場處業務規劃科 劉山雀</span
+                    >
+                  </div>
+                  <div id="toggle-btn2" class="toggle-btn">
+                    <div class="open disable">
+                      <span>收合</span>
+                      <img src="./assets/icons/icon_arrow_up.svg" alt="" />
+                    </div>
+                    <div class="close">
+                      <span>展開</span>
+                      <img src="./assets/icons/icon_arrow_down.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div id="frame-sm2" class="frame-sm">
+                  <table class="frame-sm-table">
+                    <thead>
+                      <tr>
+                        <th class="text-bold">日期</th>
+                        <th class="text-bold">時間</th>
+                        <th class="text-bold">人員</th>
+                        <th class="text-bold">說明</th>
+                        <th class="text-bold">版本快照</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-regular">2024-10-14</td>
+                        <td class="text-regular">15:33:29</td>
+                        <td class="text-regular">
+                          00701232 綜合企劃部市場處業務規劃科 郭珮昕
+                        </td>
+                        <td class="text-regular">已覆核</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                      <tr>
+                        <td class="text-regular">2024-10-13</td>
+                        <td class="text-regular">11:12:09</td>
+                        <td class="text-regular">00902940 法令遵循部 李樹懶</td>
+                        <td class="text-regular">上傳新版</td>
+                        <td class="text-link">查看</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <div>
+              <h2 class="text-h2">條文總覽</h2>
+
+              <h3 class="page-h3">第一章<span>總則</span></h3>
+
+              <div class="basic-content">
+                <div class="title-outer">
+                  <h3 class="title">
+                    <span>第 1 條</span>
+                    <button>
+                      查看沿革<img
+                        src="./assets/icons/arrow_right.svg"
+                        alt=""
+                      />
+                    </button>
+                  </h3>
+                  <div class="status">施行狀態：自 2022-12-20 施行</div>
+                </div>
+                <div class="card">
+                  本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
+                  有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
+                </div>
+              </div>
+
+              <section id="section-1" class="regulation-table tag-version">
+                <div class="card mb-7xl">
+                  <h1 class="title">關聯內規</h1>
+
+                  <div class="table-header">
+                    <div>權責單位與內規名稱</div>
+                    <div>條號</div>
+                    <div>條文內容</div>
+                    <div>關聯狀態</div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">內控風險科</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag">尚未確認</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag check">已關聯</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag check">已關聯</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="suggested-section">
+                    <div class="title-outer">
+                      <span class="star"
+                        ><img src="./assets/icons/general_AI.svg" alt=""
+                      /></span>
+                      <h2 class="suggested-title">模型建議關聯內規</h2>
+                    </div>
+
+                    <div class="table-header">
+                      <div>權責單位與內規名稱</div>
+                      <div>條號</div>
+                      <div>條文內容</div>
+                    </div>
+
+                    <div class="table-row" style="margin: 10px 0">
+                      <div class="regulation-name">
+                        <span class="tag sub-tag">內控風險科</span>
+                        <div class="content">
+                          資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                        </div>
+                      </div>
+                      <div class="article-number">第 1999 條<br />第 22 項</div>
+                      <div class="content highlight">
+                        本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                      </div>
+                      <div class="status">
+                        <img
+                          class="eye-icon"
+                          src="./assets/icons/green_eye.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="table-row" style="margin: 10px 0">
+                      <div class="regulation-name">
+                        <span class="tag sub-tag">策略規劃處投資管理部</span>
+                        <div class="content">
+                          資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                        </div>
+                      </div>
+                      <div class="article-number">第 1999 條<br />第 22 項</div>
+                      <div class="content highlight">
+                        本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                      </div>
+                      <div class="status">
+                        <img
+                          class="eye-icon"
+                          src="./assets/icons/green_eye.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="basic-content">
+                <div class="title-outer">
+                  <h3 class="title">
+                    <span>第 2 條</span>
+                    <button>
+                      查看沿革<img
+                        src="./assets/icons/arrow_right.svg"
+                        alt=""
+                      />
+                    </button>
+                  </h3>
+                  <div class="status">施行狀態：自 2022-12-20 施行</div>
+                </div>
+                <div class="card">
+                  本行為提供客戶直接金融服務，以證券承銷商之角色，在初級市場進行債券輔導銷售或公開承銷。為有效控管辦理債券承銷業務之各種風險，特訂定本作業要點。
+                  有關債券承銷業務除遵循主管機關相關法規辦理外，並依資本市場暨顧問部「國泰世華商業銀行債券承銷環境社會與永續治理(ESG)規則」，以及市場風管部「國泰世華商業銀行資金營運授權準則」『市場風險管理準則』、『市場風險限額管理規則』、『交易簿與銀行簿分類規則』、「證券商管理規則」、「中華民國證券商業同業公會證券商承銷或再行銷售有價證券處理辦法」等相關規定辦理。
+                </div>
+              </div>
+
+              <section id="section-2" class="regulation-table tag-version">
+                <div class="card">
+                  <h1 class="title">關聯內規</h1>
+
+                  <div class="table-header">
+                    <div>權責單位與內規名稱</div>
+                    <div>條號</div>
+                    <div>條文內容</div>
+                    <div>關聯狀態</div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">內控風險科</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag">尚未確認</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag check">已關聯</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="table-row">
+                    <div class="regulation-name">
+                      <span class="tag">策略規劃處投資管理部</span>
+                      <div class="content">
+                        資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                      </div>
+                    </div>
+                    <div class="article-number">第 1999 條<br />第 22 項</div>
+                    <div class="content highlight">
+                      本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                    </div>
+                    <div class="relation">
+                      <span class="tag check">已關聯</span>
+                    </div>
+                    <div class="status">
+                      <img
+                        class="eye-icon"
+                        src="./assets/icons/green_eye.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="suggested-section">
+                    <div class="title-outer">
+                      <span class="star"
+                        ><img src="./assets/icons/general_AI.svg" alt=""
+                      /></span>
+                      <h2 class="suggested-title">模型建議關聯內規</h2>
+                    </div>
+
+                    <div class="table-header">
+                      <div>權責單位與內規名稱</div>
+                      <div>條號</div>
+                      <div>條文內容</div>
+                    </div>
+
+                    <div class="table-row" style="margin: 10px 0">
+                      <div class="regulation-name">
+                        <span class="tag sub-tag">內控風險科</span>
+                        <div class="content">
+                          資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                        </div>
+                      </div>
+                      <div class="article-number">第 1999 條<br />第 22 項</div>
+                      <div class="content highlight">
+                        本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                      </div>
+                      <div class="status">
+                        <img
+                          class="eye-icon"
+                          src="./assets/icons/green_eye.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="table-row" style="margin: 10px 0">
+                      <div class="regulation-name">
+                        <span class="tag sub-tag">策略規劃處投資管理部</span>
+                        <div class="content">
+                          資金辦理專案運用公共及社會福利事業投資及放款處理程序法規名稱很長的內規
+                        </div>
+                      </div>
+                      <div class="article-number">第 1999 條<br />第 22 項</div>
+                      <div class="content highlight">
+                        本公司從事取得或處分資產等重大財務業公開發行股票發行股票發...
+                      </div>
+                      <div class="status">
+                        <img
+                          class="eye-icon"
+                          src="./assets/icons/green_eye.svg"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-[10%]"></div>
+      </div>
+    </div>
+
+    <script>
+      // 動態載入 HTML 並執行 JavaScript
+      function loadComponent(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const container = document.getElementById(containerId);
+            if (!container) {
+              console.error(`容器元素 #${containerId} 未找到`);
+              return;
+            }
+
+            // 建立一個 DOM 解析器
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, "text/html");
+
+            // 插入 <template> 到頁面
+            const template = doc.querySelector("template");
+            if (template) {
+              container.appendChild(template.content.cloneNode(true));
+            }
+
+            // 取得 <script> 內容並執行
+            const script = doc.querySelector("script");
+            if (script) {
+              const newScript = document.createElement("script");
+              newScript.textContent = script.textContent;
+              document.body.appendChild(newScript);
+            }
+          })
+          .catch((error) => console.error(`無法載入組件 ${url}:`, error));
+      }
+
+      //表單欄位收合
+      const frameSm1 = document.getElementById("frame-sm1");
+      document
+        .getElementById("toggle-btn1")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm1.classList.toggle("active");
+        });
+
+      const frameSm2 = document.getElementById("frame-sm2");
+      document
+        .getElementById("toggle-btn2")
+        .addEventListener("click", function () {
+          let openDiv = this.querySelector(".open");
+          let closeDiv = this.querySelector(".close");
+
+          openDiv.classList.toggle("disable");
+          closeDiv.classList.toggle("disable");
+          frameSm2.classList.toggle("active");
+        });
+
+      // 彈窗
+      const eyes = document.querySelectorAll(".eye-icon");
+      const dialog = document.getElementById("dialog-modal");
+      eyes.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.add("active");
+        });
+      });
+
+      const closeDialog = document.querySelectorAll(".close-active");
+      closeDialog.forEach((eye) => {
+        eye.addEventListener("click", function () {
+          dialog.classList.remove("active");
+        });
+      });
+
+      // 載入 header.html
+      loadComponent("./components/header.html", "header-template");
+    </script>
+  </body>
+</html>

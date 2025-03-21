@@ -27,15 +27,16 @@
     line-height: 150%; /* 21px */
   }
 
-  li.sun2 {
-    color: var(--darkGrey600, #9fb2bc);
-
-    font-size: var(--font-caption);
-    font-weight: var(--weight-medium);
-    line-height: 150%; /* 21px */
-  }
   .sub3 {
     margin-left: var(--spacing-md);
+  }
+
+  .child {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--darkGrey600);
+    margin-right: 10px;
   }
 
   li.active {
